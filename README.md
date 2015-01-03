@@ -25,6 +25,8 @@ Stworzyliśmy zagadnienie EnumTest (w którym coś tam sprawdzamy na enumach). T
 
 public static readonly IStudyTest StudyTest = new EnumTest();
 
+- Program wykona to co się znajduje w metodzie Study() (z interfejsu IStudyTest). Dodatkowo wyświetli kiedy metoda się uruchomiła oraz kiedy metoda się zatrzymała.
+
 
 
 
