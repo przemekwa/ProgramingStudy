@@ -11,7 +11,7 @@ Projekt podzielony jest na etapy:
 * Etap 2 będzie stworzeniem projektu do nauki C# poprzez metodę "koansę.
 
 
-Szybki start Etap 1:
+###Szybki start Etap 1:
 
 Projekt składa się z programu konsolowego, który umożliwia szybkie uruchomienie prostych zagadnień poznanych w czasie nauki programowania.
 
