@@ -7,7 +7,7 @@ Docelowych efektem jest utworzenie solucji do nauki C# metodą "koans". Metoda t
 
 Projekt podzielony jest na etapy:
 
-* Etap 1 to stowrzenie matariału do nauki.
+* Etap 1 to stworzenie materiału do nauki.
 * Etap 2 będzie stworzeniem projektu do nauki C# poprzez metodę "koansę.
 
 
