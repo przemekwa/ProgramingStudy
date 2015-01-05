@@ -4,18 +4,19 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProgramingStudy.Study;
 
 namespace ProgramingStudy
 {
     class Program
     {
-        public static readonly IStudyTest StudyTest = new EnumTest();
+        public static readonly IStudyTest StudyTest = new CultureInfoTest();
 
         static void Main(string[] args)
         {
             var testName = StudyTest.GetType().Name;
 
-            Console.WriteLine("Start {0}", testName);
+          //  Console.WriteLine("Start {0}", testName);
 
             var stopWatch = new Stopwatch();
 
@@ -25,7 +26,7 @@ namespace ProgramingStudy
 
             stopWatch.Stop();
 
-            Console.WriteLine("Stop {0}, Time {1}", testName, stopWatch.Elapsed);
+        //    Console.WriteLine("Stop {0}, Time {1}", testName, stopWatch.Elapsed);
 
             Console.ReadKey();
         }
