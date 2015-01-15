@@ -46,8 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Study\CloneableTest.cs" />
     <Compile Include="Study\CultureInfoTest.cs" />
+    <Compile Include="Study\DefaultTest.cs" />
     <Compile Include="Study\EnumTest.cs" />
     <Compile Include="Study\ExplicitImplicitTest.cs" />
+    <Compile Include="Study\ExtensionLinqu.cs" />
     <Compile Include="Study\ListTest.cs" />
   </ItemGroup>
   <ItemGroup>

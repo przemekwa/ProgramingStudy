@@ -10,8 +10,7 @@ namespace ProgramingStudy
 {
     class Program
     {
-        public static readonly IStudyTest StudyTest = new CultureInfoTest();
-
+        public static readonly IStudyTest StudyTest = new ExtensionLinqu();
         static void Main(string[] args)
         {
             var testName = StudyTest.GetType().Name;
