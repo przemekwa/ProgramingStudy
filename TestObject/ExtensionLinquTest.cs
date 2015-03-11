@@ -25,18 +25,34 @@ namespace TestObject
         [TestMethod]
         public void Split4()
         {
-            var testList = new List<int>();
-            
-            testList.AddRange(Enumerable.Range(1, 30));
 
-            var OutputListResult = new List<int> {7, 7, 7, 9 } ;
+            int[] source = { 1, 2, 3, 4, 5 };
 
-            int index = 0;
+                  
+            IEnumerable<IEnumerable<int>> result = source.SplitInToParts(3);
 
-            foreach (var partialList in testList.SplitInToParts<int>(4))
+            IEnumerable<IEnumerable<int>> expected = new List<IEnumerable<int>> 
+            { 
+                new List<int> { 1 }, 
+                new List<int> { 2 }, 
+                new List<int> { 3, 4, 5 } 
+            };
+
+
+
+            for (var i = 0; i < result.Count(); i++)
             {
-                Assert.AreEqual(OutputListResult[index++], partialList.Count());
+                CollectionAssert.AreEqual(result.ToList()[i].ToList(), expected.ToList()[i].ToList());
             }
+
+
+          
+
+          
+
+         
+                
+           
         }
 
         [TestMethod]

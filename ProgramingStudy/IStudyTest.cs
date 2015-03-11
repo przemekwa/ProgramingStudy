@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgramingStudy
 {
-    interface IStudyTest
+    public interface IStudyTest
     {
         void Study();
     }
