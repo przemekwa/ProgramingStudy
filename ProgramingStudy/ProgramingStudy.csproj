@@ -53,7 +53,6 @@
     <Compile Include="Study\EnumTest.cs" />
     <Compile Include="Study\ExplicitImplicitTest.cs" />
     <Compile Include="Study\ExtensionLinqu.cs" />
-    <Compile Include="Study\Klasa1.cs" />
     <Compile Include="Study\ListTest.cs" />
   </ItemGroup>
   <ItemGroup>
