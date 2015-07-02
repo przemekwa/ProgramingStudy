@@ -31,15 +31,23 @@ namespace ProgramingStudy.Study
         
         private void NarysujPlansze(int[,] tabelaSuoku)
         {
-            Console.WriteLine("+---------------------------------+");
-            
+            const string line = "+-----------------------------+";
+
+            Console.WriteLine("Aktualna plansza");
 
             for (var i = 0; i < tabelaSuoku.Length / 9;i++ )
             {
-                Console.Write("|");
-
+                if (i%3 == 0)
+                {
+                    Console.WriteLine(line);
+                }
                 for (var j = 0; j < tabelaSuoku.Length / 9;j++ )
                 {
+                    if (j % 3 == 0)
+                    {
+                        Console.Write("|");
+                    }
+
                     Console.Write(" {0} ", tabelaSuoku[i,j]);
                 }
 
@@ -47,7 +55,7 @@ namespace ProgramingStudy.Study
 
                 Console.WriteLine();
             }
-                Console.WriteLine("+---------------------------------+");
+            Console.WriteLine(line);
         }
     }
 }
