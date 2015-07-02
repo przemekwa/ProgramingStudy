@@ -11,6 +11,7 @@
     <AssemblyName>ProgramingStudy</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -45,15 +48,21 @@
     <Compile Include="IStudyTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Study\Bezpieczenstwo2.cs" />
     <Compile Include="Study\Bezpieczeństwo.cs" />
     <Compile Include="Study\ByteConverter.cs" />
     <Compile Include="Study\CloneableTest.cs" />
     <Compile Include="Study\CultureInfoTest.cs" />
     <Compile Include="Study\DefaultTest.cs" />
+    <Compile Include="Study\EnumEnumeration.cs" />
     <Compile Include="Study\EnumTest.cs" />
     <Compile Include="Study\ExplicitImplicitTest.cs" />
     <Compile Include="Study\ExtensionLinqu.cs" />
+    <Compile Include="Study\Handle.cs" />
     <Compile Include="Study\ListTest.cs" />
+    <Compile Include="Study\SudokuResolver.cs" />
+    <Compile Include="Study\SwitchStudy.cs" />
+    <Compile Include="Study\Things.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -10,13 +10,13 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new Bezpieczenstwo();
+        public static readonly IStudyTest StudyTest = new SudokuResolver();
 
         public static void Main(string[] args)
         {
-            var testName = StudyTest.GetType().Name;
+            var name = StudyTest.GetType().Name;
 
-            Console.WriteLine("Start {0}", testName);
+            Console.WriteLine("Start {0}", name);
 
             var stopWatch = new Stopwatch();
 
@@ -26,7 +26,7 @@ namespace ProgramingStudy
 
             stopWatch.Stop();
 
-            Console.WriteLine("Stop {0}, Time {1}", testName, stopWatch.Elapsed);
+            Console.WriteLine("Stop {0}, Time {1}", name, stopWatch.Elapsed);
 
             Console.ReadKey();
         }
