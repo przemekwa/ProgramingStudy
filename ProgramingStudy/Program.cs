@@ -10,7 +10,7 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new SudokuResolver();
+        public static readonly IStudyTest StudyTest = new DownloadAllFreeEboks();
 
         public static void Main(string[] args)
         {

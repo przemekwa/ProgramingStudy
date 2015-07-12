@@ -54,6 +54,7 @@
     <Compile Include="Study\CloneableTest.cs" />
     <Compile Include="Study\CultureInfoTest.cs" />
     <Compile Include="Study\DefaultTest.cs" />
+    <Compile Include="Study\DownloadAllFreeEboks.cs" />
     <Compile Include="Study\EnumEnumeration.cs" />
     <Compile Include="Study\EnumTest.cs" />
     <Compile Include="Study\ExplicitImplicitTest.cs" />

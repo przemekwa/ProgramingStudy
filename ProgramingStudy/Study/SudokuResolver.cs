@@ -10,7 +10,7 @@ namespace ProgramingStudy.Study
     {
         private int[,] sudokuMap = 
         {
-            {1,2,3,4,5,6,7,8,9},
+            {0,0,0,0,0,8,1,4,0},
             {1,2,3,4,5,6,7,8,9},
             {1,2,3,4,5,6,7,8,9},
             {1,2,3,4,5,6,7,8,9},
@@ -27,6 +27,12 @@ namespace ProgramingStudy.Study
             Console.WriteLine("Witaj w algorytmie sudoku 2015");
 
             this.NarysujPlansze(this.sudokuMap);
+        }
+
+        public int[,] DajObszar(int numerObszaru)
+        {
+
+            return new int[2,3];
         }
         
         private void NarysujPlansze(int[,] tabelaSuoku)
@@ -48,7 +54,7 @@ namespace ProgramingStudy.Study
                         Console.Write("|");
                     }
 
-                    Console.Write(" {0} ", tabelaSuoku[i,j]);
+                    Console.Write(" {0} ", tabelaSuoku[i,j]==0?" ": tabelaSuoku[i,j].ToString());
                 }
 
                 Console.Write("|");
