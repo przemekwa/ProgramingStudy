@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProgramingStudy.Study
@@ -12,10 +13,32 @@ namespace ProgramingStudy.Study
     {
         const string PATH = @".\MSFTEbooks2.txt";
 
+        IList<string> showBuffor = new List<string>();
+        IList<string> progressBuffor = new List<string> { "" };
+
         bool ccomplete = true;
+        string fileName = string.Empty;
+
 
         public void Study()
         {
+
+            var showTask = new Task(() =>
+            {
+                for (; ; )
+                {
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                
+                    foreach (var s in showBuffor)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+            });
+
+            showTask.Start();
+
             if (!File.Exists(PATH))
             {
                 throw new Exception(string.Format("Brak pliku w katalogu {0}", PATH));
@@ -34,31 +57,36 @@ namespace ProgramingStudy.Study
 
                     using (WebClient wc = new WebClient())
                     {
-                        ccomplete = false;
+                        ccomplete = true;
                         wc.DownloadProgressChanged += wc_DownloadProgressChanged;
-                        wc.DownloadStringCompleted += wc_DownloadStringCompleted;
-                        wc.DownloadFileAsync(new Uri(line), Path.GetRandomFileName() + ".pdf");
-                    }
-                    while (!ccomplete)
-                    {
 
+                        wc.DownloadFileCompleted += wc_DownloadFileCompleted;
+
+                        fileName = line.Substring(line.LastIndexOf('/')) + ".pdf";
+
+                        wc.DownloadFileAsync(new Uri(line), fileName);
+
+                        while (ccomplete)
+                        {
+
+                        }
                     }
+
                 }
             }
         }
 
-        void wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        void wc_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            Console.Clear();
-            ccomplete = true;
-            Console.Write("Plik ściągnięty");
+            showBuffor.Add(string.Format("Ściągnięto plik {0}", fileName));
+            
+            ccomplete = false;
         }
 
         void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            Console.Clear();
-            
-            Console.Write("{0}/{1}",e.BytesReceived,e.TotalBytesToReceive);
+            this.progressBuffor[0] = e.ProgressPercentage.ToString();
         }
+              
     }
 }
