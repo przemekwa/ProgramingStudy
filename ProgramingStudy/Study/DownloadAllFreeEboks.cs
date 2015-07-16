@@ -27,10 +27,15 @@ namespace ProgramingStudy.Study
             {
                 for (; ; )
                 {
-                    Thread.Sleep(3000);
+                    Thread.Sleep(500);
                     Console.Clear();
                 
                     foreach (var s in showBuffor)
+                    {
+                        Console.WriteLine(s);
+                    }
+
+                    foreach (var s in progressBuffor)
                     {
                         Console.WriteLine(s);
                     }
@@ -58,20 +63,17 @@ namespace ProgramingStudy.Study
                     using (WebClient wc = new WebClient())
                     {
                         ccomplete = true;
+                     
                         wc.DownloadProgressChanged += wc_DownloadProgressChanged;
 
                         wc.DownloadFileCompleted += wc_DownloadFileCompleted;
 
-                        fileName = line.Substring(line.LastIndexOf('/')) + ".pdf";
+                        fileName = line.Substring(line.LastIndexOf('/')+1) + ".pdf";
 
                         wc.DownloadFileAsync(new Uri(line), fileName);
 
-                        while (ccomplete)
-                        {
-
-                        }
+                        while (ccomplete) { }
                     }
-
                 }
             }
         }
@@ -85,7 +87,7 @@ namespace ProgramingStudy.Study
 
         void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            this.progressBuffor[0] = e.ProgressPercentage.ToString();
+            this.progressBuffor[0] = string.Format("Ściągam plik {0} - {1}%",fileName,e.ProgressPercentage.ToString());
         }
               
     }
