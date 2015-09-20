@@ -1,20 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5B811FD-C193-497B-A62C-8E0A09EF39A3}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{F8D3D528-DC83-49D8-91A4-C079A958CF44}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProgramingStudy</RootNamespace>
-    <AssemblyName>ProgramingStudy</AssemblyName>
+    <RootNamespace>PrismAppPlugin1</RootNamespace>
+    <AssemblyName>PrismAppPlugin1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,17 +20,14 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,33 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exercism\Year.cs" />
-    <Compile Include="IStudyTest.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Study\Bezpieczenstwo2.cs" />
-    <Compile Include="Study\Bezpieczeństwo.cs" />
-    <Compile Include="Study\ByteConverter.cs" />
-    <Compile Include="Study\CloneableTest.cs" />
-    <Compile Include="Study\CultureInfoTest.cs" />
-    <Compile Include="Study\DefaultTest.cs" />
-    <Compile Include="Study\Delegaty.cs" />
-    <Compile Include="Study\DownloadAllFreeEboks.cs" />
-    <Compile Include="Study\EnumEnumeration.cs" />
-    <Compile Include="Study\EnumTest.cs" />
-    <Compile Include="Study\ExplicitImplicitTest.cs" />
-    <Compile Include="Study\ExtensionLinqu.cs" />
-    <Compile Include="Study\Handle.cs" />
-    <Compile Include="Study\ListTest.cs" />
-    <Compile Include="Study\SudokuResolver.cs" />
-    <Compile Include="Study\SwitchStudy.cs" />
-    <Compile Include="Study\Things.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <Folder Include="Views\" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

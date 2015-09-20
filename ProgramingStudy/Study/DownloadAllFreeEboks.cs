@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace ProgramingStudy.Study
 {
+
     public class DownloadAllFreeEboks :IStudyTest
     {
-        const string PATH = @".\MSFTEbooks2.txt";
+        const string PATHWITHBOOKS = @".\MSFTEbooks2.txt";
 
         IList<string> showBuffor = new List<string>();
         IList<string> progressBuffor = new List<string> { "" };
@@ -22,10 +23,11 @@ namespace ProgramingStudy.Study
 
         public void Study()
         {
-
+                
             var showTask = new Task(() =>
             {
-                for (; ; )
+
+                for (;;)
                 {
                     Thread.Sleep(500);
                     Console.Clear();
@@ -43,6 +45,8 @@ namespace ProgramingStudy.Study
             });
 
             showTask.Start();
+
+            string PATH = "";
 
             if (!File.Exists(PATH))
             {
