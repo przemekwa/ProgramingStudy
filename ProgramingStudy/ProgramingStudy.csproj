@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,11 +60,14 @@
     <Compile Include="Study\EnumTest.cs" />
     <Compile Include="Study\ExplicitImplicitTest.cs" />
     <Compile Include="Study\ExtensionLinqu.cs" />
+    <Compile Include="Study\ExtensionStringMethods.cs" />
     <Compile Include="Study\Handle.cs" />
     <Compile Include="Study\ListTest.cs" />
     <Compile Include="Study\SudokuResolver.cs" />
     <Compile Include="Study\SwitchStudy.cs" />
     <Compile Include="Study\Things.cs" />
+    <Compile Include="Study\VarTest.cs" />
+    <Compile Include="Study\ZipTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

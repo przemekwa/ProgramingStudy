@@ -40,6 +40,9 @@
     <Reference Include="Prism">
       <HintPath>..\ProgramingStudy\packages\Prism.Core.6.0.1\lib\net45\Prism.dll</HintPath>
     </Reference>
+    <Reference Include="Prism.Mef.Wpf">
+      <HintPath>..\ProgramingStudy\packages\Prism.Mef.6.0.1\lib\net45\Prism.Mef.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Prism.Wpf">
       <HintPath>..\ProgramingStudy\packages\Prism.Wpf.6.0.1\lib\net45\Prism.Wpf.dll</HintPath>
     </Reference>
@@ -67,7 +70,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModels\CustomMsgBoxViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\CustomMsgBox.xaml.cs">
+      <DependentUpon>CustomMsgBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
@@ -104,6 +111,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\CustomMsgBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HomeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

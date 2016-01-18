@@ -6,15 +6,21 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+           
+        </StackPanel>
         
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button Content="MainWindow"></Button>
         </StackPanel>
         
-        <ContentControl Grid.Row="1">
+        <ContentControl Grid.Row="2">
             <views:MainWindow></views:MainWindow>
+         
         </ContentControl>
     </Grid>
 </Window>

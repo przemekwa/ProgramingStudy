@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PrismMefPluginManager.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CustomMsgBox.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CustomMsgBox : UserControl
     {
-        public MainWindow()
+        public CustomMsgBox()
         {
             InitializeComponent();
         }
