@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ByteConverterTest.cs" />
     <Compile Include="ExtensionLinquTest.cs" />
+    <Compile Include="ExtensionStringTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
