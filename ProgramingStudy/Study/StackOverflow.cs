@@ -1,26 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProgramingStudy.Study
 {
-
-   
-
-    class Sa
+    class StackOverflow : IStudyTest
     {
-        
-
-        public Sa()
+        public void Study()
         {
-
-
-
-           
+            Console.WriteLine("Działa");
         }
     }
 }

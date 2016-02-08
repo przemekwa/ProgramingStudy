@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProgramingStudy.Study
 {
-    public class TikTakTou
+    public class TikTakTou : IStudyTest
     {
         static char[] arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         static int player = 1; //By default player 1 is set  
@@ -18,7 +18,7 @@ namespace ProgramingStudy.Study
         static int flag = 0;
 
 
-        public TikTakTou()
+        public void Play()
         {
             do
             {
@@ -170,6 +170,11 @@ namespace ProgramingStudy.Study
             {
                 return 0;
             }
+        }
+
+        public void Study()
+        {
+            this.Play();
         }
     }
 }

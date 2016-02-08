@@ -10,13 +10,10 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new ZipTest();
+        public static readonly IStudyTest StudyTest = new StackOverflow();
 
         public static void Main(string[] args)
-        {
-
-            new Test6();
-
+        { 
             var name = StudyTest.GetType().Name;
 
             Console.WriteLine("Start {0}", name);
