@@ -51,6 +51,7 @@
     <Compile Include="Study\Bezpieczenstwo2.cs" />
     <Compile Include="Study\Bezpieczeństwo.cs" />
     <Compile Include="Study\ByteConverter.cs" />
+    <Compile Include="Study\TikTakTou.cs" />
     <Compile Include="Study\CloneableTest.cs" />
     <Compile Include="Study\CultureInfoTest.cs" />
     <Compile Include="Study\DefaultTest.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Study\ExtensionStringMethods.cs" />
     <Compile Include="Study\Handle.cs" />
     <Compile Include="Study\ListTest.cs" />
+    <Compile Include="Study\Sa.cs" />
     <Compile Include="Study\SudokuResolver.cs" />
     <Compile Include="Study\SwitchStudy.cs" />
     <Compile Include="Study\Things.cs" />

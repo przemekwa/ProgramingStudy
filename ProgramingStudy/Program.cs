@@ -14,6 +14,9 @@ namespace ProgramingStudy
 
         public static void Main(string[] args)
         {
+
+            new Test6();
+
             var name = StudyTest.GetType().Name;
 
             Console.WriteLine("Start {0}", name);
