@@ -20,6 +20,30 @@ namespace ProgramingStudy.Study
 
         public void Play()
         {
+            var task = new Task(() =>
+            {
+                while (true)
+                {
+                    foreach (ConsoleColor c in Enum.GetValues(typeof(ConsoleColor)))
+                    {
+                        var x = Console.CursorLeft;
+                        var y = Console.CursorTop;
+
+                        Console.CursorLeft = 0; // set position
+                        Console.CursorTop = 0; // set position
+
+                        Console.ForegroundColor = c;
+                        Console.WriteLine("Welcome to Tic Tac Toe!");
+
+                        Console.CursorLeft = x;
+                        Console.CursorTop = y;
+
+                        Thread.Sleep(1000);
+                    }
+                }
+
+            });
+            
             do
             {
                 Console.Clear();// whenever loop will be again start then screen will be clear  
@@ -49,6 +73,11 @@ namespace ProgramingStudy.Study
                 Console.WriteLine("\n");
                 Board();// calling the board Function
 
+                if (task.Status != TaskStatus.Running)
+                {
+                    task.Start();
+                }
+                
                 choice = int.Parse(Console.ReadLine());//Taking users choice  
 
                 // checking that position where user want to run is marked (with X or O) or not  
@@ -83,6 +112,8 @@ namespace ProgramingStudy.Study
             if (flag == 1)// if flag value is 1 then some one has win or means who played marked last time which has win  
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine();
+                Console.WriteLine();
                 Console.WriteLine("Player {0} has won", (player % 2) + 1);
                 Console.ResetColor();
             }
