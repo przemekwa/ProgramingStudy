@@ -53,6 +53,7 @@
     <Compile Include="Study\Bezpieczenstwo2.cs" />
     <Compile Include="Study\Bezpieczeństwo.cs" />
     <Compile Include="Study\ByteConverter.cs" />
+    <Compile Include="Study\ProsteTypy.cs" />
     <Compile Include="Study\RoleManager.cs" />
     <Compile Include="Study\StackOverflow.cs" />
     <Compile Include="Study\TikTakTou.cs" />

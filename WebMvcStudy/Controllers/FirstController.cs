@@ -15,18 +15,23 @@ namespace WebMvcStudy.Controllers
             //http://www.hanselman.com/blog/ASPNETWireFormatForModelBindingToArraysListsCollectionsDictionaries.aspx
             //
 
-            var dictModel = new Dictionary<string, string>
+            var listOfEditableFields = new List<string>
             {
-                { "Numer maskowany","text" },
-                { "Data", "date" },
-                { "Hasło", "password" }
+                "#DATAOD#",
+                "#DATADO#",
+                "#MASK#"
             };
 
-            return View(dictModel);
+            var dictModel = new DictionaryCreator(listOfEditableFields);
+
+
+            return View(dictModel.GetEditableFields());
         }
 
         public ActionResult SecondAction(IDictionary<string,string> lista)
         {
+
+
             return View(lista);
         }
     }
