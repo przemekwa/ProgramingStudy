@@ -10,7 +10,7 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new StackOverflow();
+        public static readonly IStudyTest StudyTest = new RoleManager();
 
         public static void Main(string[] args)
         { 
