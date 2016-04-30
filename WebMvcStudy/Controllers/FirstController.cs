@@ -11,6 +11,10 @@ namespace WebMvcStudy.Controllers
         // GET: First
         public ActionResult Index()
         {
+            //Więcej informacji na
+            //http://www.hanselman.com/blog/ASPNETWireFormatForModelBindingToArraysListsCollectionsDictionaries.aspx
+            //
+
             var dictModel = new Dictionary<string, string>
             {
                 { "Przemek","Walkowski" },
