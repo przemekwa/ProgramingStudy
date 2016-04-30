@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramingStudy", "ProgramingStudy.csproj", "{A5B811FD-C193-497B-A62C-8E0A09EF39A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramingStudyTests", "..\TestObject\ProgramingStudyTests.csproj", "{E4EA6C16-5DB0-4879-BF76-5D4037E65AE3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismMefPluginManager", "..\PrismMefPluginManager\PrismMefPluginManager.csproj", "{63E3386A-416D-4BDA-A227-B5CD71541955}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{E4EA6C16-5DB0-4879-BF76-5D4037E65AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4EA6C16-5DB0-4879-BF76-5D4037E65AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4EA6C16-5DB0-4879-BF76-5D4037E65AE3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63E3386A-416D-4BDA-A227-B5CD71541955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63E3386A-416D-4BDA-A227-B5CD71541955}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63E3386A-416D-4BDA-A227-B5CD71541955}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63E3386A-416D-4BDA-A227-B5CD71541955}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
