@@ -17,8 +17,9 @@ namespace WebMvcStudy.Controllers
 
             var dictModel = new Dictionary<string, string>
             {
-                { "Przemek","Walkowski" },
-                { "Jola", "Grzybowska" }
+                { "Numer maskowany","text" },
+                { "Data", "date" },
+                { "Hasło", "password" }
             };
 
             return View(dictModel);

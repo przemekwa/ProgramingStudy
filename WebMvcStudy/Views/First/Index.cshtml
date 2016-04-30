@@ -3,16 +3,38 @@
 
 
 
-<h2>First</h2>
+<h2>Proste bindowanie</h2>
 
 @using (@Html.BeginForm("SecondAction", "First", FormMethod.Post))
 {
 
-    foreach (var i in Model.Keys.Select((o, i) => new { Index = i, Klucz = o }))
+    foreach (var i in Model.Keys.Select((key, index) => new { Index = index, Key = key }))
     {
-
-        <input type="hidden" name="lista[@i.Index].Key" value="@i.Klucz" />
+        <input type="hidden" name="lista[@i.Index].Key" value="@i.Key" />
         <input type="text" name="lista[@i.Index].Value" value="" />
+    }
+
+
+
+    <input type="submit" />
+}
+
+
+<h2>Bindowanie z typowaniem</h2>
+
+
+@using (@Html.BeginForm("SecondAction", "First", FormMethod.Post))
+{
+
+    foreach (var i in Model.Keys.Select((key, index) => new { Index = index, Key = key, Value = Model[key] }))
+    {
+        @i.Key
+        
+        <input type="hidden" name="lista[@i.Index].Key" value="@i.Key" />
+        <input type="@i.Value" name="lista[@i.Index].Value" value="" />
+      
+
+
 
 
     }
@@ -21,7 +43,6 @@
 
     <input type="submit" />
 }
-
 
 
 
