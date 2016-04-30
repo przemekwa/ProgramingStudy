@@ -1,0 +1,23 @@
+﻿@model Dictionary<string, string>
+
+@{
+    ViewBag.Title = "SecondAction";
+}
+
+<h2>SecondAction</h2>
+
+
+@foreach (var item in Model)
+{
+    <p>
+        <b>Klucz:</b> @item.Key                <b>Wartość:</b> @item.Value
+    </p>
+    
+    
+   
+    
+
+       
+}
+
+@Html.ActionLink("First", "Index")

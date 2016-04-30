@@ -49,7 +49,6 @@
     <Compile Include="IStudyTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Study\AppConfigTest.cs" />
     <Compile Include="Study\AwaitAsych.cs" />
     <Compile Include="Study\Bezpieczenstwo2.cs" />
     <Compile Include="Study\Bezpieczeństwo.cs" />

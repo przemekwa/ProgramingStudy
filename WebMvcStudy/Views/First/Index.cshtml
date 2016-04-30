@@ -1,0 +1,27 @@
+﻿@model Dictionary<string, string>
+
+
+
+
+<h2>First</h2>
+
+@using (@Html.BeginForm("SecondAction", "First", FormMethod.Post))
+{
+
+    foreach (var i in Model.Keys.Select((o, i) => new { Index = i, Klucz = o }))
+    {
+
+        <input type="hidden" name="lista[@i.Index].Key" value="@i.Klucz" />
+        <input type="text" name="lista[@i.Index].Value" value="" />
+
+
+    }
+
+
+
+    <input type="submit" />
+}
+
+
+
+
