@@ -1,4 +1,4 @@
-﻿@model Dictionary<string, string>
+﻿@model Dictionary<string, EditField>
 
 <h2>Proste bindowanie</h2>
 
@@ -8,7 +8,7 @@
     foreach (var i in Model.Keys.Select((key, index) => new { Index = index, Key = key }))
     {
         <input type="hidden" name="lista[@i.Index].Key" value="@i.Key" />
-        <input type="text" name="lista[@i.Index].Value" value="" />
+        <input type="text" name="lista[@i.Index].Value.Value" value="" />
         <br />
     }
     <input type="submit" />
@@ -26,7 +26,9 @@
         @i.Key
         
         <input type="hidden" name="lista[@i.Index].Key" value="@i.Key" />
-        <input type="@i.Value" name="lista[@i.Index].Value" value="" />
+        <input type="hidden" name="lista[@i.Index].Value.Symbol" value="@i.Value.Symbol" />
+        <input type="hidden" name="lista[@i.Index].Value.Type" value="@i.Value.Type" />
+        <input type="@i.Value.Type" name="lista[@i.Index].Value.Value" value="" />
         <br />
     }
     <input type="submit" />

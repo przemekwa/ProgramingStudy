@@ -10,38 +10,41 @@ namespace WebMvcStudy.Controllers
     {
         private IEnumerable<string> listOfFields;
 
+        //private Dictionary<string,string> SymbolDictionary = new Dictionary<string, string>
+        //{
+        //    {"#DATAOD", "Data od" }
+        //}
+
         public DictionaryCreator(IEnumerable<string> listOfFields)
         {
             this.listOfFields = listOfFields;
         }
 
-        public IDictionary<string,string> GetEditableFields()
+        public IDictionary<string,EditField> GetEditableFields()
         {
-            var result = new Dictionary<string, string>();
+            var result = new Dictionary<string, EditField>();
 
             foreach (var field in this.listOfFields)
             {
                 switch (field)
                 {
                     case "#DATAOD#":
-                        result.Add("Data od", "date");
+                        result.Add("Data od", new EditField { Type = "date", Symbol =field } );
+                        
                         break;
                     case "#DATADO#":
-                        result.Add("Data do", "date");
+                        result.Add("Data do", new EditField { Type = "date", Symbol = field });
                         break;
                     case "#MASK#":
-                        result.Add("Numer maskowany karty", "text");
+                        result.Add("Numer maskowany karty", new EditField { Type = "text", Symbol = field });
                         break;
                     case "#RACH#":
-                        result.Add("Numer rachunku", "text");
+                        result.Add("Numer rachunku", new EditField { Type = "text", Symbol = field });
                         break;
                 }
-                           
             }
 
             return result;
-
         }
-
     }
 }

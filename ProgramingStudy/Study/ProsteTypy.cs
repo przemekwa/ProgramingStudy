@@ -12,7 +12,7 @@ namespace ProgramingStudy.Study
         public void Study()
         {
 
-            TypeDescriptor.GetConverter(typeof(T)).CanConvertFrom(typeof(string)
+            //TypeDescriptor.GetConverter(typeof(T)).CanConvertFrom(typeof(string)
 
         }
     }

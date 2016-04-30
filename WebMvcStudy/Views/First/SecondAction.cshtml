@@ -1,4 +1,4 @@
-﻿@model Dictionary<string, string>
+﻿@model Dictionary<string, EditField>
 
 @{
     ViewBag.Title = "SecondAction";
@@ -10,7 +10,7 @@
 @foreach (var item in Model)
 {
     <p>
-        <b>Klucz:</b> @item.Key                <b>Wartość:</b> @item.Value
+        <b>Klucz:</b> @item.Key                <b>Wartość:</b> @item.Value.Value              <b>Symbol:</b> @item.Value.Symbol
     </p>
     
     

@@ -28,10 +28,8 @@ namespace WebMvcStudy.Controllers
             return View(dictModel.GetEditableFields());
         }
 
-        public ActionResult SecondAction(IDictionary<string,string> lista)
+        public ActionResult SecondAction(IDictionary<string,EditField> lista)
         {
-
-
             return View(lista);
         }
     }
