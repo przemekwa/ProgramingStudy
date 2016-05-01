@@ -10,11 +10,6 @@ namespace WebMvcStudy.Controllers
     {
         private IEnumerable<string> listOfFields;
 
-        //private Dictionary<string,string> SymbolDictionary = new Dictionary<string, string>
-        //{
-        //    {"#DATAOD", "Data od" }
-        //}
-
         public DictionaryCreator(IEnumerable<string> listOfFields)
         {
             this.listOfFields = listOfFields;
@@ -29,8 +24,7 @@ namespace WebMvcStudy.Controllers
                 switch (field)
                 {
                     case "#DATAOD#":
-                        result.Add("Data od", new EditField { Type = "date", Symbol =field } );
-                        
+                        result.Add("Data od", new EditField { Type = "date", Symbol = field } );
                         break;
                     case "#DATADO#":
                         result.Add("Data do", new EditField { Type = "date", Symbol = field });

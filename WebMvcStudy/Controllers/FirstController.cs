@@ -11,10 +11,6 @@ namespace WebMvcStudy.Controllers
         // GET: First
         public ActionResult Index()
         {
-            //Więcej informacji na
-            //http://www.hanselman.com/blog/ASPNETWireFormatForModelBindingToArraysListsCollectionsDictionaries.aspx
-            //
-
             var listOfEditableFields = new List<string>
             {
                 "#DATAOD#",
@@ -24,6 +20,9 @@ namespace WebMvcStudy.Controllers
 
             var dictModel = new DictionaryCreator(listOfEditableFields);
 
+            //Więcej informacji na
+            //http://www.hanselman.com/blog/ASPNETWireFormatForModelBindingToArraysListsCollectionsDictionaries.aspx
+            //
 
             return View(dictModel.GetEditableFields());
         }
