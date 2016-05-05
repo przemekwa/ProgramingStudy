@@ -15,7 +15,8 @@ namespace WebMvcStudy.Controllers
             {
                 "#DATAOD#",
                 "#DATADO#",
-                "#MASK#"
+                "#MASK#",
+                "#RACH#"
             };
 
             var dictModel = new DictionaryCreator(listOfEditableFields);
