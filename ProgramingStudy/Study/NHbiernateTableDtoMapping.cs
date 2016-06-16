@@ -9,10 +9,13 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace ProgramingStudy.Study
 {
-    class NHbiernateTableDtoMapping : ClassMapping<NHbiernateTableDto>
+    public class NHbiernateTableDtoMapping : ClassMapping<NHbiernateTableDto>
     {
         public NHbiernateTableDtoMapping()
         {
+
+            base.Table("NHbiernateTable");
+
             base.Id(x => x.Id, map =>
               {
                   map.Column("Serno");

@@ -10,7 +10,7 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new PDFFun();
+        public static readonly IStudyTest StudyTest = new NHibernatePlays();
 
         public static void Main(string[] args)
         { 
