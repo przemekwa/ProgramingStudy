@@ -15,9 +15,7 @@ namespace ProgramingStudy.Study
             
             var g = new Random();
 
-            g.Next(
-
-            )
+      
 
 
             var mapper = new NHibernate.Mapping.ByCode.ModelMapper();
