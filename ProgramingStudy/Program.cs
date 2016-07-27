@@ -16,7 +16,7 @@ namespace ProgramingStudy
         { 
             var name = StudyTest.GetType().Name;
 
-            Console.WriteLine("Start {0}", name);
+            Console.WriteLine("Start {0} ", name);
 
             var stopWatch = new Stopwatch();
 
