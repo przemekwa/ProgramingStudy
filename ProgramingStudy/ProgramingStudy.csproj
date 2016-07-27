@@ -88,8 +88,11 @@
   <ItemGroup>
     <Compile Include="IStudyTest.cs" />
     <Compile Include="Study\Base64Test.cs" />
+    <Compile Include="Study\BinaryFormaterTests.cs" />
+    <Compile Include="Study\DateTimeMultiplyParser.cs" />
     <Compile Include="Study\InformationsFromSystem.cs" />
     <Compile Include="Study\LanguageStudy\AtributesStudy.cs" />
+    <Compile Include="Study\LanguageStudy\C6News.cs" />
     <Compile Include="Study\LanguageStudy\Inheritance.cs" />
     <Compile Include="Study\NHbiernateTableDto.cs" />
     <Compile Include="Program.cs" />
