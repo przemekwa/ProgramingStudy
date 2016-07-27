@@ -105,6 +105,7 @@
     <Compile Include="Study\LanguageStudy\C6News.cs" />
     <Compile Include="Study\LanguageStudy\FlagsStudy.cs" />
     <Compile Include="Study\LanguageStudy\Inheritance.cs" />
+    <Compile Include="Study\LanguageStudy\ListSpeedStudy.cs" />
     <Compile Include="Study\MazowiaConverterFromTuxedo.cs" />
     <Compile Include="Study\MazowiaEncoding.cs" />
     <Compile Include="Study\MqStudy.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Study\ProsteTypy.cs" />
     <Compile Include="Study\RoleManager.cs" />
     <Compile Include="Study\StackOverflow.cs" />
+    <Compile Include="Study\SuperFolders.cs" />
     <Compile Include="Study\TikTakTou.cs" />
     <Compile Include="Study\CloneableTest.cs" />
     <Compile Include="Study\CultureInfoTest.cs" />
