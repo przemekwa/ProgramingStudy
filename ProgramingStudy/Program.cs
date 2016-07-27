@@ -10,13 +10,13 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new NHibernatePlays();
+        public static readonly IStudyTest StudyTest = new InformationsFromSystem();
 
         public static void Main(string[] args)
         { 
             var name = StudyTest.GetType().Name;
 
-            Console.WriteLine("Start {0} ", name);
+            Console.WriteLine("Start {0}", name);
 
             var stopWatch = new Stopwatch();
 

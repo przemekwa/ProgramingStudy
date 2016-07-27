@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IStudyTest.cs" />
+    <Compile Include="Study\InformationsFromSystem.cs" />
     <Compile Include="Study\NHbiernateTableDto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
