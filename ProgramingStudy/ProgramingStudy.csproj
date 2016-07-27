@@ -92,10 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IStudyTest.cs" />
+    <Compile Include="Prototype.cs" />
     <Compile Include="Study\Base64Test.cs" />
     <Compile Include="Study\BinaryFormaterTests.cs" />
     <Compile Include="Study\CompresGzip.cs" />
     <Compile Include="Study\DateTimeMultiplyParser.cs" />
+    <Compile Include="Study\FizzBuzz.cs" />
     <Compile Include="Study\IBanNumber.cs" />
     <Compile Include="Study\InformationsFromSystem.cs" />
     <Compile Include="Study\Kata\BinaryChop.cs" />
