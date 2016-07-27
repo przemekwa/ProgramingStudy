@@ -37,6 +37,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="amqmdnet, Version=8.0.0.4, Culture=neutral, PublicKeyToken=dd3cb1c9aae9ec97, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\amqmdnet.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -90,15 +94,18 @@
     <Compile Include="IStudyTest.cs" />
     <Compile Include="Study\Base64Test.cs" />
     <Compile Include="Study\BinaryFormaterTests.cs" />
+    <Compile Include="Study\CompresGzip.cs" />
     <Compile Include="Study\DateTimeMultiplyParser.cs" />
     <Compile Include="Study\IBanNumber.cs" />
     <Compile Include="Study\InformationsFromSystem.cs" />
+    <Compile Include="Study\Kata\BinaryChop.cs" />
     <Compile Include="Study\LanguageStudy\AtributesStudy.cs" />
     <Compile Include="Study\LanguageStudy\C6News.cs" />
     <Compile Include="Study\LanguageStudy\FlagsStudy.cs" />
     <Compile Include="Study\LanguageStudy\Inheritance.cs" />
     <Compile Include="Study\MazowiaConverterFromTuxedo.cs" />
     <Compile Include="Study\MazowiaEncoding.cs" />
+    <Compile Include="Study\MqStudy.cs" />
     <Compile Include="Study\NHbiernateTableDto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,6 +145,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Data.SQLite.Core.1.0.101.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('packages\System.Data.SQLite.Core.1.0.101.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
