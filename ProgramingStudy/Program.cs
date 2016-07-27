@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProgramingStudy.Study;
+using ProgramingStudy.Study.LanguageStudy;
 
 namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new InformationsFromSystem();
+        public static readonly IStudyTest StudyTest = new Inheritance();
 
         public static void Main(string[] args)
         { 
