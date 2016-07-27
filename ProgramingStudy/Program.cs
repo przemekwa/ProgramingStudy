@@ -11,7 +11,7 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new DateTimeMultiplyParser();
+        public static readonly IStudyTest StudyTest = new IBanNumber();
 
         public static void Main(string[] args)
         { 
