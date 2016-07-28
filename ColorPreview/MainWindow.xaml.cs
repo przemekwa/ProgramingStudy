@@ -26,13 +26,6 @@ namespace ColorPreview
         public MainWindow()
         {
             InitializeComponent();
-
-            var color = UserSettings.GetUserColor();
-
-            this.SliderR.Value = color.R;
-            this.SliderG.Value = color.G;
-            this.SliderB.Value = color.B;
-
         }
 
         private void RangeBase_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

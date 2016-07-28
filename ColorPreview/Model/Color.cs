@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ColorPreview.Model
 {
-    internal class Color
+    public class Color
     {
         public byte R { get; set; }
         public byte G { get; set; }
