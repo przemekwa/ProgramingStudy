@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+     
+        <StackPanel>
+            <Rectangle Name="Rectangle1" Height="200" Fill="Black"/>
+            <Slider Name="SliderR"  ValueChanged="RangeBase_OnValueChanged"  />
+            <Slider Name="SliderG"  ValueChanged="RangeBase_OnValueChanged"/>
+            <Slider Name="SliderB"  ValueChanged="RangeBase_OnValueChanged"/>
+        </StackPanel>
         
     </Grid>
 </Window>

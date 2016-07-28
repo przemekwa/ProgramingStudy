@@ -24,5 +24,10 @@ namespace ColorPreview
         {
             InitializeComponent();
         }
+
+        private void RangeBase_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            
+        }
     }
 }
