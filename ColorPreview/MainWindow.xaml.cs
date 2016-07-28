@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ColorPreview.Model;
 using ColorPreview.Properties;
+using Color = System.Windows.Media.Color;
 
 namespace ColorPreview
 {
@@ -25,9 +27,11 @@ namespace ColorPreview
         {
             InitializeComponent();
 
-            this.SliderR.Value = Settings.Default.R;
-            this.SliderG.Value = Settings.Default.G;
-            this.SliderB.Value = Settings.Default.B;
+            var color = UserSettings.GetUserColor();
+
+            this.SliderR.Value = color.R;
+            this.SliderG.Value = color.G;
+            this.SliderB.Value = color.B;
 
         }
 
@@ -45,11 +49,14 @@ namespace ColorPreview
         {
             if (e.Key == Key.Escape)
             {
-                Settings.Default.R = this.SliderR.Value;
-                Settings.Default.G = this.SliderG.Value;
-                Settings.Default.B = this.SliderB.Value;
+                var color = new ColorPreview.Model.Color
+                {
+                    R = (byte) this.SliderR.Value,
+                    G = (byte) this.SliderG.Value,
+                    B = (byte) this.SliderB.Value
+                };
 
-                Settings.Default.Save();
+                UserSettings.SaveColor(color);
 
                 Application.Current.Shutdown();
             }
