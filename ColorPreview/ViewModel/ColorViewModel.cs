@@ -11,7 +11,7 @@ namespace ColorPreview.ViewModel
     {
         public Color Color { get; set; }
 
-        
+        public int IncrementValue { get; set; } = 23;
 
         public ColorViewModel()
         {

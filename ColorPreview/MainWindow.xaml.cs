@@ -30,12 +30,12 @@ namespace ColorPreview
 
         private void RangeBase_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            var color = Color.FromRgb(
-                (byte)this.SliderR.Value, 
-                (byte)this.SliderG.Value, 
-                (byte)this.SliderB.Value);
+            //var color = Color.FromRgb(
+            //    (byte)this.SliderR.Value, 
+            //    (byte)this.SliderG.Value, 
+            //    (byte)this.SliderB.Value);
 
-            this.Rectangle1.Fill = new SolidColorBrush(color);
+            //this.Rectangle1.Fill = new SolidColorBrush(color);
         }
 
         private void MainWindow_OnKeyUp(object sender, KeyEventArgs e)
