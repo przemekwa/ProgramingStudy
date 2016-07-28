@@ -9,7 +9,7 @@
     <Grid>
      
         <StackPanel>
-            <Rectangle Name="Rectangle1" Height="200" Fill="Black"/>
+            <Rectangle Name="Rectangle1" Height="200"/>
             <Slider Name="SliderR" Maximum="255"  ValueChanged="RangeBase_OnValueChanged"  />
             <Slider Name="SliderG" Maximum="255"  ValueChanged="RangeBase_OnValueChanged"/>
             <Slider Name="SliderB" Maximum="255" ValueChanged="RangeBase_OnValueChanged"/>
