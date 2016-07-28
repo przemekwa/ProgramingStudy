@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ColorPreview.Properties;
 
 namespace ColorPreview
 {
@@ -23,6 +24,11 @@ namespace ColorPreview
         public MainWindow()
         {
             InitializeComponent();
+
+            this.SliderR.Value = Settings.Default.R;
+            this.SliderG.Value = Settings.Default.G;
+            this.SliderB.Value = Settings.Default.B;
+
         }
 
         private void RangeBase_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -33,6 +39,20 @@ namespace ColorPreview
                 (byte)this.SliderB.Value);
 
             this.Rectangle1.Fill = new SolidColorBrush(color);
+        }
+
+        private void MainWindow_OnKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Settings.Default.R = this.SliderR.Value;
+                Settings.Default.G = this.SliderG.Value;
+                Settings.Default.B = this.SliderB.Value;
+
+                Settings.Default.Save();
+
+                Application.Current.Shutdown();
+            }
         }
     }
 }
