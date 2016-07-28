@@ -21,7 +21,10 @@
             </Slider>
             <Slider Name="SliderG" Value="{Binding Color.G}" Maximum="255"  ValueChanged="RangeBase_OnValueChanged"/>
             <Slider Name="SliderB" Value="{Binding Color.B}" Maximum="255" ValueChanged="RangeBase_OnValueChanged"/>
-            <Label Content="{Binding IncrementValue, Converter={StaticResource Convert}}"></Label>
+            
+            <Label Content="{Binding ElementName=SliderR, Path=Value , Converter={StaticResource Convert}}"></Label>
+            <Label Content="{Binding ElementName=SliderG, Path=Value , Converter={StaticResource Convert}}"></Label>
+            <Label Content="{Binding ElementName=SliderB, Path=Value , Converter={StaticResource Convert}}"></Label>
         </StackPanel>
         
     </Grid>
