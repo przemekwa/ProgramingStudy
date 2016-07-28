@@ -118,8 +118,10 @@
     <Compile Include="Study\ByteConverter.cs" />
     <Compile Include="Study\NHbiernateTableDtoMapping.cs" />
     <Compile Include="Study\NHibernatePlays.cs" />
+    <Compile Include="Study\NullChceckStudy.cs" />
     <Compile Include="Study\PDFFun.cs" />
     <Compile Include="Study\ProsteTypy.cs" />
+    <Compile Include="Study\QuickSort.cs" />
     <Compile Include="Study\RoleManager.cs" />
     <Compile Include="Study\StackOverflow.cs" />
     <Compile Include="Study\SuperFolders.cs" />
