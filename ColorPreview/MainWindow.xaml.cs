@@ -27,22 +27,5 @@ namespace ColorPreview
         {
             InitializeComponent();
         }
-
-       private void MainWindow_OnKeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Escape)
-            {
-                var color = new ColorPreview.Model.Color
-                {
-                    R = (byte) this.SliderR.Value,
-                    G = (byte) this.SliderG.Value,
-                    B = (byte) this.SliderB.Value
-                };
-
-                UserSettings.SaveColor(color);
-
-                Application.Current.Shutdown();
-            }
-        }
     }
 }

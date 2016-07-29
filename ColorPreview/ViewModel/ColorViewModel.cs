@@ -13,9 +13,13 @@ namespace ColorPreview.ViewModel
 {
     public class ColorViewModel : INotifyPropertyChanged
     {
-        private ICommand resetCommand   ;
+        private ICommand resetCommand;
+
+        private ICommand saveColorCommand;
 
         public ICommand ResetCommand => resetCommand ?? (resetCommand = new ResetCommand(this));
+
+        public ICommand SaveColorCommand => saveColorCommand ?? (saveColorCommand = new SaveColorCommand(this));
 
         private Color color;
 
