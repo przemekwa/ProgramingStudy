@@ -10,18 +10,25 @@
     <Window.Resources>
         <vm:ColorViewModel x:Key="VModel"/>
         <local:ExampleOfConvert x:Key="Convert"/>
+        <local:ColorToColorConverter x:Key="ColorToColor"/>
+        
     </Window.Resources>
     
     <Grid DataContext="{StaticResource VModel}">
      
         <StackPanel>
-            <Rectangle Name="Rectangle1" Height="200"/>
-            <Slider Name="SliderR" Value="{Binding Color.R, Mode=TwoWay}" Maximum="255"  ValueChanged="RangeBase_OnValueChanged" >
+            <Rectangle Name="Rectangle1" Height="200">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{Binding Path=Color, Mode=OneWay, Converter={StaticResource ColorToColor}}" ></SolidColorBrush>
+                </Rectangle.Fill>
+                
+            </Rectangle>
+            <Slider Name="SliderR" Value="{Binding Color.R, Mode=TwoWay}" Maximum="255" >
             
             </Slider>
-            <Slider Name="SliderG" Value="{Binding Color.G, Mode=TwoWay}" Maximum="255"  ValueChanged="RangeBase_OnValueChanged"/>
-            <Slider Name="SliderB" Value="{Binding Color.B, Mode=TwoWay}" Maximum="255" ValueChanged="RangeBase_OnValueChanged"/>
-            
+            <Slider Name="SliderG" Value="{Binding Color.G, Mode=TwoWay}" Maximum="255"/>
+            <Slider Name="SliderB" Value="{Binding Color.B, Mode=TwoWay}" Maximum="255"/>
+            <Button Command="{Binding ResetCommand}" CommandParameter="{StaticResource VModel}" Content="Resetuj" Width="70" HorizontalAlignment="Left"></Button>
             <Label Content="{Binding ElementName=SliderR, Path=Value , Converter={StaticResource Convert}}"></Label>
             <Label Content="{Binding ElementName=SliderG, Path=Value , Converter={StaticResource Convert}}"></Label>
             <Label Content="{Binding ElementName=SliderB, Path=Value , Converter={StaticResource Convert}}"></Label>

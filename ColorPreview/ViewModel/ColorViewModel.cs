@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using ColorPreview.Annotations;
 using ColorPreview.Model;
 
@@ -12,6 +13,10 @@ namespace ColorPreview.ViewModel
 {
     public class ColorViewModel : INotifyPropertyChanged
     {
+        private ICommand resetCommand   ;
+
+        public ICommand ResetCommand => resetCommand ?? (resetCommand = new ResetCommand());
+
         private Color color;
 
         public Color Color
@@ -30,6 +35,12 @@ namespace ColorPreview.ViewModel
         public ColorViewModel()
         {
             this.Color = UserSettings.GetUserColor();
+            this.Color.PropertyChanged += Color_PropertyChanged;
+        }
+
+        private void Color_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+           OnPropertyChanged("Color");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

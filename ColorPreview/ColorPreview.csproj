@@ -55,9 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ColorToColorConverter.cs" />
     <Compile Include="ExampleOfConvert.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\ColorViewModel.cs" />
+    <Compile Include="ViewModel\ResetCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
