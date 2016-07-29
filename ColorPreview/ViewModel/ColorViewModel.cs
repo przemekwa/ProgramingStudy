@@ -15,7 +15,7 @@ namespace ColorPreview.ViewModel
     {
         private ICommand resetCommand   ;
 
-        public ICommand ResetCommand => resetCommand ?? (resetCommand = new ResetCommand());
+        public ICommand ResetCommand => resetCommand ?? (resetCommand = new ResetCommand(this));
 
         private Color color;
 

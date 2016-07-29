@@ -10,6 +10,14 @@ namespace ColorPreview.ViewModel
 {
     public class ResetCommand : ICommand
     {
+
+        public ColorViewModel ColorViewModel { get; set; }
+
+        public ResetCommand(ColorViewModel colorViewModel)
+        {
+            ColorViewModel = colorViewModel;
+        }
+
         public bool CanExecute(object parameter)
         {
             return true;
@@ -17,13 +25,11 @@ namespace ColorPreview.ViewModel
 
         public void Execute(object parameter)
         {
-            var vm = parameter as ColorViewModel;
-            
-            if (vm != null)
+            if (ColorViewModel != null)
             {
-                vm.Color.B = 0;
-                vm.Color.G = 0;
-                vm.Color.R = 0;
+                ColorViewModel.Color.B = 0;
+                ColorViewModel.Color.G = 0;
+                ColorViewModel.Color.R = 0;
             }
         }
 
