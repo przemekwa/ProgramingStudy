@@ -42,7 +42,14 @@
             </Slider>
             <Slider Name="SliderG" Value="{Binding Color.G, Mode=TwoWay}" Maximum="255"/>
             <Slider Name="SliderB" Value="{Binding Color.B, Mode=TwoWay}" Maximum="255"/>
-            <Button Command="{Binding ResetCommand}" Content="Resetuj" Width="70" HorizontalAlignment="Left"></Button>
+            
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding ResetCommand}" Content="Resetuj" Width="70" HorizontalAlignment="Left"></Button>
+                <Label Content="{Binding ClockModel.ActualDateTime, StringFormat=Time: {0:HH:mm}, ConverterCulture=pl-PL}"></Label>
+                
+            </StackPanel>
+            
+            
             <Label Content="{Binding ElementName=SliderR, Path=Value , Converter={StaticResource Convert}}"></Label>
             <Label Content="{Binding ElementName=SliderG, Path=Value , Converter={StaticResource Convert}}"></Label>
             <Label Content="{Binding ElementName=SliderB, Path=Value , Converter={StaticResource Convert}}"></Label>

@@ -21,6 +21,8 @@ namespace ColorPreview.ViewModel
 
         public ICommand SaveColorCommand => saveColorCommand ?? (saveColorCommand = new SaveColorCommand(this));
 
+        public ClockModel ClockModel { get; set; } = new ClockModel();
+
         private Color color;
 
         public Color Color

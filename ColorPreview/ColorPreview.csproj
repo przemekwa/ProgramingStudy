@@ -60,6 +60,7 @@
     <Compile Include="CloseAppKey.cs" />
     <Compile Include="ColorToColorConverter.cs" />
     <Compile Include="ExampleOfConvert.cs" />
+    <Compile Include="Model\ClockModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\ColorViewModel.cs" />
     <Compile Include="ViewModel\ResetCommand.cs" />
