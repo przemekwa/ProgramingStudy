@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:ColorPreview"
+        local:CloseAppKey.CloseKey="Q"
         xmlns:vm="clr-namespace:ColorPreview.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
@@ -27,7 +28,7 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     
-    <Grid>
+    <Grid local:CloseAppKey.CloseKey="W">
      
         <StackPanel>
             <Rectangle Name="Rectangle1" Height="200">
