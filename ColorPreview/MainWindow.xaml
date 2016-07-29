@@ -16,11 +16,11 @@
      
         <StackPanel>
             <Rectangle Name="Rectangle1" Height="200"/>
-            <Slider Name="SliderR" Value="{Binding Color.R}" Maximum="255"  ValueChanged="RangeBase_OnValueChanged" >
+            <Slider Name="SliderR" Value="{Binding Color.R, Mode=TwoWay}" Maximum="255"  ValueChanged="RangeBase_OnValueChanged" >
             
             </Slider>
-            <Slider Name="SliderG" Value="{Binding Color.G}" Maximum="255"  ValueChanged="RangeBase_OnValueChanged"/>
-            <Slider Name="SliderB" Value="{Binding Color.B}" Maximum="255" ValueChanged="RangeBase_OnValueChanged"/>
+            <Slider Name="SliderG" Value="{Binding Color.G, Mode=TwoWay}" Maximum="255"  ValueChanged="RangeBase_OnValueChanged"/>
+            <Slider Name="SliderB" Value="{Binding Color.B, Mode=TwoWay}" Maximum="255" ValueChanged="RangeBase_OnValueChanged"/>
             
             <Label Content="{Binding ElementName=SliderR, Path=Value , Converter={StaticResource Convert}}"></Label>
             <Label Content="{Binding ElementName=SliderG, Path=Value , Converter={StaticResource Convert}}"></Label>
