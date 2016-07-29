@@ -1,4 +1,4 @@
-﻿<Window KeyUp="MainWindow_OnKeyUp" x:Class="ColorPreview.MainWindow"
+﻿<Window   KeyUp="MainWindow_OnKeyUp" x:Class="ColorPreview.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,14 +7,22 @@
         xmlns:vm="clr-namespace:ColorPreview.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    
     <Window.Resources>
         <vm:ColorViewModel x:Key="VModel"/>
         <local:ExampleOfConvert x:Key="Convert"/>
         <local:ColorToColorConverter x:Key="ColorToColor"/>
         
     </Window.Resources>
+
+    <Window.DataContext>
+        <vm:ColorViewModel></vm:ColorViewModel>
+    </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding Key="R" Command="{Binding ResetCommand}"></KeyBinding>
+    </Window.InputBindings>
     
-    <Grid DataContext="{StaticResource VModel}">
+    <Grid>
      
         <StackPanel>
             <Rectangle Name="Rectangle1" Height="200">

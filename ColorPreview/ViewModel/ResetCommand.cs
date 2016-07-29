@@ -11,7 +11,7 @@ namespace ColorPreview.ViewModel
     public class ResetCommand : ICommand
     {
 
-        public ColorViewModel ColorViewModel { get; set; }
+        public ColorViewModel ColorViewModel { get;}
 
         public ResetCommand(ColorViewModel colorViewModel)
         {
