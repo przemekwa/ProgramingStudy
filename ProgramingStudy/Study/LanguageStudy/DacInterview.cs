@@ -9,7 +9,7 @@ namespace ProgramingStudy.Study.LanguageStudy
 
     class InMutable
     {
-        public IEnumerable<int> List { get; private set; }
+        public readonly IEnumerable<int> List;
 
         public InMutable()
         {
