@@ -11,7 +11,7 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new ListSpeedStudy();
+        public static readonly IStudyTest StudyTest = new DacInterview();
 
         public static void Main(string[] args)
         { 

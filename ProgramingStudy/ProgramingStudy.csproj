@@ -103,6 +103,7 @@
     <Compile Include="Study\Kata\BinaryChop.cs" />
     <Compile Include="Study\LanguageStudy\AtributesStudy.cs" />
     <Compile Include="Study\LanguageStudy\C6News.cs" />
+    <Compile Include="Study\LanguageStudy\DacInterview.cs" />
     <Compile Include="Study\LanguageStudy\FlagsStudy.cs" />
     <Compile Include="Study\LanguageStudy\Inheritance.cs" />
     <Compile Include="Study\LanguageStudy\ListSpeedStudy.cs" />
