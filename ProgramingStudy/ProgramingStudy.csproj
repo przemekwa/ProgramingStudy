@@ -126,6 +126,7 @@
     <Compile Include="Study\RoleManager.cs" />
     <Compile Include="Study\StackOverflow.cs" />
     <Compile Include="Study\SuperFolders.cs" />
+    <Compile Include="Study\ThinkInterview.cs" />
     <Compile Include="Study\TikTakTou.cs" />
     <Compile Include="Study\CloneableTest.cs" />
     <Compile Include="Study\CultureInfoTest.cs" />
