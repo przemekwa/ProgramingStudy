@@ -120,6 +120,7 @@
     <Compile Include="Study\NHbiernateTableDtoMapping.cs" />
     <Compile Include="Study\NHibernatePlays.cs" />
     <Compile Include="Study\NullChceckStudy.cs" />
+    <Compile Include="Study\ObserverrDesignPatternStudy.cs" />
     <Compile Include="Study\PDFFun.cs" />
     <Compile Include="Study\ProsteTypy.cs" />
     <Compile Include="Study\QuickSort.cs" />
