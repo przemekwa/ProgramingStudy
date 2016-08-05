@@ -51,7 +51,7 @@ namespace ProgramingStudy.Study
             set
             {
                 price = value;
-                this.NotifyAll(value);
+                this.NotifyAll(this);
             }
         }
     }
@@ -71,11 +71,11 @@ namespace ProgramingStudy.Study
             this.Investros.Remove(i);
         }
 
-        public virtual void NotifyAll(decimal price)
+        public virtual void NotifyAll(ConcreteStock concreteStock)
         {
             foreach (var investro in this.Investros)
             {
-                investro.Show(price);
+                investro.Show(concreteStock);
             }
         }
 
@@ -90,9 +90,9 @@ namespace ProgramingStudy.Study
             Name = name;
         }
 
-        public void Show(decimal price)
+        public void Show(ConcreteStock concreteStock)
         {
-            Console.WriteLine($" {Name} widzi zmiane ceny na {price}");
+            Console.WriteLine($" {Name} widzi zmiane ceny na {concreteStock.Price}");
         }
     }
 }
