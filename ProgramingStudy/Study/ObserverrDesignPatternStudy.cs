@@ -29,15 +29,7 @@ namespace ProgramingStudy.Study
             Thread.Sleep(3000);
 
             bzwbk.Price = 300;
-
-
-
         }
-
-
-
-
-
     }
 
 
