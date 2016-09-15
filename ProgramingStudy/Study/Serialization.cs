@@ -47,13 +47,14 @@ namespace ProgramingStudy.Study
 
             var dexml = new XmlSerializer(typeof(TestObject));
 
-            using (var ms = new StreamWriter())
+            using (var ms = new MemoryStream())
             {
                 var byteArray = new byte[result.Length];
 
                 Encoding.UTF8.GetBytes(result, 0, result.Length, byteArray, 0);
 
-                
+
+                ms.Write(byteArray,0,byteArray.Length);
 
                 var objectResult = (TestObject)dexml.Deserialize(ms);
             }
