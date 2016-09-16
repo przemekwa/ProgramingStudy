@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace ProgramingStudy.Study
@@ -56,6 +58,9 @@ namespace ProgramingStudy.Study
         public T CreateInstalment { get; set; }
     }
 
+    //
+    // URL: http://pragmaticparag.blogspot.com/2012/07/soap-parser-utility-using-xml.html
+    //
 
     class SoupEnvelopeCreator : IStudyTest
     {
@@ -71,14 +76,48 @@ namespace ProgramingStudy.Study
 
             var soapserializer = new XmlSerializer(typeof(SOAPEnvelope));
 
+            string result;
+
             using (var ms = new MemoryStream())
             {
                 soapserializer.Serialize(ms, se);
 
-                var result = Encoding.UTF8.GetString(ms.ToArray());
+                result = Encoding.UTF8.GetString(ms.ToArray());
 
                 Console.WriteLine(result);
             }
+
+
+            HttpWebRequest request = CreateWebRequest();
+            XmlDocument soapEnvelopeXml = new XmlDocument();
+            soapEnvelopeXml.LoadXml(@"");
+
+            var t = soapEnvelopeXml.InnerText;
+
+            using (Stream stream = request.GetRequestStream())
+            {
+                soapEnvelopeXml.Save(stream);
+            }
+
+            using (WebResponse response = request.GetResponse())
+            {
+                using (StreamReader rd = new StreamReader(response.GetResponseStream()))
+                {
+                    string soapResult = rd.ReadToEnd();
+                    Console.WriteLine(soapResult);
+                }
+            }
+
+        }
+
+        public HttpWebRequest CreateWebRequest()
+        {
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(@"http://wro1706v.centrala.bzwbk/wbk2/PrimeApi2/ApiInstalmentServices.svc");
+            webRequest.Headers.Add(@"SOAP:Action");
+            webRequest.ContentType = "text/xml;charset=\"utf-8\"";
+            webRequest.Accept = "text/xml";
+            webRequest.Method = "POST";
+            return webRequest;
         }
     }
 }
