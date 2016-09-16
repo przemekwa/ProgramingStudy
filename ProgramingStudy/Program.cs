@@ -11,7 +11,7 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new Serialization();
+        public static readonly IStudyTest StudyTest = new SoupEnvelopeCreator();
 
         public static void Main(string[] args)
         { 

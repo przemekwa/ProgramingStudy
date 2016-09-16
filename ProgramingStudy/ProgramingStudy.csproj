@@ -126,6 +126,7 @@
     <Compile Include="Study\QuickSort.cs" />
     <Compile Include="Study\RoleManager.cs" />
     <Compile Include="Study\Serialization.cs" />
+    <Compile Include="Study\SoupEnvelopeCreator.cs" />
     <Compile Include="Study\StackOverflow.cs" />
     <Compile Include="Study\SuperFolders.cs" />
     <Compile Include="Study\ThinkInterview.cs" />
