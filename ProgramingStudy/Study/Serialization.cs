@@ -14,6 +14,7 @@ namespace ProgramingStudy.Study
         public string StringValue { get; set; }
         public int IntValue { get; set; }
         public DateTime DateTimeValue { get; set; }
+        public TestObject TestObject2 { get; set; }
     }
 
     public class Serialization : IStudyTest
@@ -27,7 +28,11 @@ namespace ProgramingStudy.Study
             {
                 StringValue = "Przemek",
                 IntValue = 32,
-                DateTimeValue = DateTime.Now
+                DateTimeValue = DateTime.Now,
+                TestObject2 = new TestObject
+                {
+                    StringValue = "Jola"
+                }
             };
 
             var result = "";
@@ -40,7 +45,7 @@ namespace ProgramingStudy.Study
 
                 xmls.Serialize(ms, testobj);
 
-                bufferOrginal = ms.GetBuffer();
+                bufferOrginal = ms.ToArray();
 
                 result = Encoding.UTF8.GetString(bufferOrginal);
             }
@@ -49,12 +54,11 @@ namespace ProgramingStudy.Study
 
             using (var ms = new MemoryStream())
             {
-                var byteArray = new byte[result.Length];
+                var buffer = Encoding.UTF8.GetBytes(result);
 
-                Encoding.UTF8.GetBytes(result, 0, result.Length, byteArray, 0);
+                ms.Write(buffer, 0, buffer.Length);
 
-
-                ms.Write(byteArray,0,byteArray.Length);
+                ms.Position = 0;
 
                 var objectResult = (TestObject)dexml.Deserialize(ms);
             }
