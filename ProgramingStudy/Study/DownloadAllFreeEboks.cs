@@ -20,7 +20,6 @@ namespace ProgramingStudy.Study
         bool ccomplete = true;
         string fileName = string.Empty;
 
-
         public void Study()
         {
                 

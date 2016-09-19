@@ -20,10 +20,10 @@ namespace ProgramingStudy.Study
 
             result = JsonConvert.SerializeObject(testObj);
 
+            var g = new JsonObjectAttribute("1");
+
 
             var @object = JsonConvert.DeserializeObject<CreateInstalmentArgument>(result);
-
-
         }
     }
 }

@@ -151,6 +151,7 @@
     <Compile Include="Study\SudokuResolver.cs" />
     <Compile Include="Study\SwitchStudy.cs" />
     <Compile Include="Study\Things.cs" />
+    <Compile Include="Study\Validators.cs" />
     <Compile Include="Study\VarTest.cs" />
     <Compile Include="Study\ZipTest.cs" />
   </ItemGroup>
