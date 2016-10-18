@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IStudyTest.cs" />
+    <Compile Include="LinquStudy.cs" />
     <Compile Include="Prototype.cs" />
     <Compile Include="Study\Base64Test.cs" />
     <Compile Include="Study\BinaryFormaterTests.cs" />
