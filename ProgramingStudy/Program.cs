@@ -11,7 +11,7 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new SerializationJSON();
+        public static readonly IStudyTest StudyTest = new SudokuResolver();
 
         public static void Main(string[] args)
         { 

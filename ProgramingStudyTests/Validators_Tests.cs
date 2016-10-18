@@ -28,7 +28,6 @@ namespace ProgramingStudyTests
             Assert.True(Validator.IsValidRegon(regon));
         }
 
-
         [Theory]
         [InlineData("")]
         [InlineData("123")]
