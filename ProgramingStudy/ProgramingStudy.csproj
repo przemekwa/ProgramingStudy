@@ -61,6 +61,10 @@
       <HintPath>packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>packages\NLog.4.3.10\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PdfSharp, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
       <Private>True</Private>
@@ -71,6 +75,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.101.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>packages\System.Data.SQLite.Core.1.0.101.0\lib\net46\System.Data.SQLite.dll</HintPath>
@@ -102,6 +107,8 @@
     <Compile Include="Study\BinaryFormaterTests.cs" />
     <Compile Include="Study\CompresGzip.cs" />
     <Compile Include="Study\DateTimeMultiplyParser.cs" />
+    <Compile Include="Study\DummyObject\XmlObject.cs" />
+    <Compile Include="Study\EnvironmentLogger.cs" />
     <Compile Include="Study\FizzBuzz.cs" />
     <Compile Include="Study\IBanNumber.cs" />
     <Compile Include="Study\InformationsFromSystem.cs" />
@@ -155,9 +162,13 @@
     <Compile Include="Study\Validators.cs" />
     <Compile Include="Study\VarTest.cs" />
     <Compile Include="Study\ZipTest.cs" />
+    <Compile Include="XsdStudy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="studyBaza">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

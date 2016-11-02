@@ -72,7 +72,7 @@ namespace ProgramingStudy.Study
             st.Stop();
 
             Console.WriteLine($"Czas wysłania {NUMBEROFSTEP} wiadomości: { new DateTime(st.ElapsedTicks).ToLongTimeString()}");
-
+            GetMsqFromMq();
             Console.WriteLine();
             Console.WriteLine();
 

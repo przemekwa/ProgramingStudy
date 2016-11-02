@@ -9,6 +9,8 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace ProgramingStudy.Study
 {
+    using NHibernate.Type;
+
     public class NHbiernateTableDtoMapping : ClassMapping<NHbiernateTableDto>
     {
         public NHbiernateTableDtoMapping()
