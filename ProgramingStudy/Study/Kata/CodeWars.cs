@@ -13,8 +13,27 @@ namespace ProgramingStudy.Study.Kata
     {
         public void Study()
         {
-            Console.WriteLine(FindNextSquare(625));
+            Console.WriteLine(Accum("abcd"));
         }
+
+        public static String Accum(string s)
+        {
+            var result = new StringBuilder();
+
+            for (var i = 0; i < s.Length; i++)
+            {
+                for (var j = 0; j < i+1; j++)
+                {
+                    result.Append(j == 0 ? char.ToUpper(s[i]) : char.ToLower(s[i]));
+                }
+                result.Append("-");
+            }
+            return result.ToString(0, result.Length-1);
+
+            //string.Join("-", s.Select((x, i) => char.ToUpper(x) + new string(char.ToLower(x), i)));
+
+        }
+
 
         public static long FindNextSquare(long num)
         {
