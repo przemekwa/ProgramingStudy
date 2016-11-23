@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Math;
 
 
 using System.Collections.Generic;
@@ -17,15 +18,7 @@ namespace ProgramingStudy.Study.Kata
 
         public static long FindNextSquare(long num)
         {
-            var number = Math.Sqrt(num);
-
-            if (number%1 == 0)
-            {
-                number++;
-                return (long) (number*number);
-            }
-
-            return -1;
+            return Sqrt(num) % 1 == 0 ? (long)Pow(Sqrt(num) + 1, 2) : -1;
         }
 
         public static int Solution(int value)
