@@ -10,20 +10,16 @@ namespace ProgramingStudy.Study.Kata
     {
         public void Study()
         {
-            Console.WriteLine(FindEvenIndex(new int[] { 20, 10, 30, 10, 10, 15, 35 }));
+            Console.WriteLine(FindEvenIndex(new int[] { 1, 2, 3, 4, 5, 6 }));
         }
 
         public static int FindEvenIndex(int[] arr)
         {
             var result = -1;
 
-
             for (var index = 0; index < arr.Length; index++)
             {
-                var sumLeft = arr.Skip(index+1).Sum();
-                var sumRight = arr.Take(index).Sum();
-
-                if (sumLeft == sumRight)
+                if (arr.Skip(index + 1).Sum() == arr.Take(index).Sum())
                 {
                     result = index;
                     break;
