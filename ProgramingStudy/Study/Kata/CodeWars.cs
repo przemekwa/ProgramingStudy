@@ -10,9 +10,28 @@ namespace ProgramingStudy.Study.Kata
     {
         public void Study()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(FindEvenIndex(new int[] { 20, 10, 30, 10, 10, 15, 35 }));
         }
 
+        public static int FindEvenIndex(int[] arr)
+        {
+            var result = -1;
+
+
+            for (var index = 0; index < arr.Length; index++)
+            {
+                var sumLeft = arr.Skip(index+1).Sum();
+                var sumRight = arr.Take(index).Sum();
+
+                if (sumLeft == sumRight)
+                {
+                    result = index;
+                    break;
+                }
+            }
+
+            return result;
+        }
 
 
         public static int FindSmallestInt(int[] args)

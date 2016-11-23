@@ -9,9 +9,11 @@ using ProgramingStudy.Study.LanguageStudy;
 
 namespace ProgramingStudy
 {
+    using Study.Kata;
+
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new AwaitAsych();
+        public static readonly IStudyTest StudyTest = new CodeWars();
 
         public static void Main(string[] args)
         { 
