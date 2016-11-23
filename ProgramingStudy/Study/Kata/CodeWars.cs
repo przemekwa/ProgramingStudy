@@ -10,7 +10,31 @@ namespace ProgramingStudy.Study.Kata
     {
         public void Study()
         {
-            Console.WriteLine(FindEvenIndex(new int[] { 1, 2, 3, 4, 5, 6 }));
+            Console.WriteLine(Solution(10));
+        }
+
+        public static int Solution(int value)
+        {
+            var list = Enumerable.Range(0, value);
+
+            var resut = 0;
+
+            foreach (var i in list)
+            {
+                if (i%3 == 0)
+                {
+                    resut += i;
+                    continue;
+                }
+
+                if (i%5 == 0)
+                {
+                    resut += i;
+                }
+            }
+
+            return resut;
+
         }
 
         public static int FindEvenIndex(int[] arr)
