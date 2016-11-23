@@ -10,30 +10,26 @@ namespace ProgramingStudy.Study.Kata
     {
         public void Study()
         {
-            Console.WriteLine(Solution(10));
+            Console.WriteLine(FindNextSquare(625));
+        }
+
+        public static long FindNextSquare(long num)
+        {
+            var muliplly = Math.Sqrt(num);
+
+            if (((double)((int)muliplly)) == muliplly)
+            {
+                return ((int)muliplly + 1)*((int)muliplly + 1);
+            }
+            else
+            {
+                return -1;
+            }
         }
 
         public static int Solution(int value)
         {
-            var list = Enumerable.Range(0, value);
-
-            var resut = 0;
-
-            foreach (var i in list)
-            {
-                if (i%3 == 0)
-                {
-                    resut += i;
-                    continue;
-                }
-
-                if (i%5 == 0)
-                {
-                    resut += i;
-                }
-            }
-
-            return resut;
+            return Enumerable.Range(0, value).Where(i => i%3 == 0 || i%5 == 0).Sum();
 
         }
 
