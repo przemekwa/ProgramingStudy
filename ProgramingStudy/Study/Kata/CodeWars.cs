@@ -1,4 +1,6 @@
 ﻿using System;
+
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,16 +17,15 @@ namespace ProgramingStudy.Study.Kata
 
         public static long FindNextSquare(long num)
         {
-            var muliplly = Math.Sqrt(num);
+            var number = Math.Sqrt(num);
 
-            if (((double)((int)muliplly)) == muliplly)
+            if (number%1 == 0)
             {
-                return ((int)muliplly + 1)*((int)muliplly + 1);
+                number++;
+                return (long) (number*number);
             }
-            else
-            {
-                return -1;
-            }
+
+            return -1;
         }
 
         public static int Solution(int value)
