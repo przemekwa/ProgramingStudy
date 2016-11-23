@@ -13,8 +13,44 @@ namespace ProgramingStudy.Study.Kata
     {
         public void Study()
         {
-            Console.WriteLine(Accum("abcd"));
+            Console.WriteLine(palindromeChainLength(89));
         }
+
+        public static int palindromeChainLength(int n)
+        {
+            var result = 0;
+
+            var longNumber = (long) n;
+
+            while (!isPalindrome(longNumber))
+            {
+                longNumber += long.Parse(new string(longNumber.ToString().Reverse().ToArray()));
+                result++;
+                Console.WriteLine(longNumber);
+            }
+            
+            return result;
+        }
+
+        public static bool isPalindrome(long number)
+        {
+            var numberString = number.ToString();
+
+            for (var i = 0; i < numberString.Length / 2; i++)
+            {
+                if (numberString[i] == numberString[numberString.Length - 1 - i])
+                {
+                    continue;
+                }
+                    return false;
+            }
+            return true;
+        }
+
+            
+
+    
+
 
         public static String Accum(string s)
         {
