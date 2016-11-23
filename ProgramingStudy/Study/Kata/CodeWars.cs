@@ -22,34 +22,23 @@ namespace ProgramingStudy.Study.Kata
 
             var longNumber = (long) n;
 
-            while (!isPalindrome(longNumber))
+            while (longNumber != Reverse(longNumber))
             {
-                longNumber += long.Parse(new string(longNumber.ToString().Reverse().ToArray()));
                 result++;
+                longNumber+= Reverse(longNumber);
                 Console.WriteLine(longNumber);
+
             }
             
             return result;
         }
 
-        public static bool isPalindrome(long number)
-        {
-            var numberString = number.ToString();
+        public static long Reverse(long number) => long.Parse(new string(number.ToString().Reverse().ToArray()));
 
-            for (var i = 0; i < numberString.Length / 2; i++)
-            {
-                if (numberString[i] == numberString[numberString.Length - 1 - i])
-                {
-                    continue;
-                }
-                    return false;
-            }
-            return true;
-        }
 
-            
 
-    
+
+
 
 
         public static String Accum(string s)
