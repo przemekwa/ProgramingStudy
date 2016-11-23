@@ -11,7 +11,7 @@ namespace ProgramingStudy
 {
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new EnvironmentLogger();
+        public static readonly IStudyTest StudyTest = new AwaitAsych();
 
         public static void Main(string[] args)
         { 

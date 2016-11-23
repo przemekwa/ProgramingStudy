@@ -113,6 +113,7 @@
     <Compile Include="Study\IBanNumber.cs" />
     <Compile Include="Study\InformationsFromSystem.cs" />
     <Compile Include="Study\Kata\BinaryChop.cs" />
+    <Compile Include="Study\Kata\CodeWars.cs" />
     <Compile Include="Study\LanguageStudy\AtributesStudy.cs" />
     <Compile Include="Study\LanguageStudy\C6News.cs" />
     <Compile Include="Study\LanguageStudy\DacInterview.cs" />

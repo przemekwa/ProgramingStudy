@@ -11,13 +11,6 @@ namespace ProgramingStudy.Study
     {
         public void Study()
         {
-
-            
-            var g = new Random();
-
-      
-
-
             var mapper = new NHibernate.Mapping.ByCode.ModelMapper();
 
             mapper.AddMapping(typeof(NHbiernateTableDtoMapping));

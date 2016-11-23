@@ -19,7 +19,9 @@ namespace ProgramingStudy.Study
                 Console.WriteLine("Number : {0}", count);
             }
 
+            DoAsynch();
 
+            Console.WriteLine("Coś za do Ancyhch");
 
         }
 
