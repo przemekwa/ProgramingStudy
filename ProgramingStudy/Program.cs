@@ -16,22 +16,25 @@ namespace ProgramingStudy
         public static readonly IStudyTest StudyTest = new CodeWars();
 
         public static void Main(string[] args)
-        { 
-            var name = StudyTest.GetType().Name;
+        {
+            while (true)
+            {
+                var name = StudyTest.GetType().Name;
 
-            Console.WriteLine("Start {0}", name);
+                Console.WriteLine("Start {0}", name);
 
-            var stopWatch = new Stopwatch();
+                var stopWatch = new Stopwatch();
 
-            stopWatch.Start();
+                stopWatch.Start();
 
-            StudyTest.Study();
+                StudyTest.Study();
 
-            stopWatch.Stop();
+                stopWatch.Stop();
 
-            Console.WriteLine("Stop {0}, Time {1}", name, stopWatch.Elapsed);
+                Console.WriteLine("Stop {0}, Time {1}", name, stopWatch.Elapsed);
 
-            Console.ReadKey();
+                Console.ReadKey();
+            }
         }
     }
 }

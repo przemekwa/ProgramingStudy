@@ -9,15 +9,44 @@ using System.Threading.Tasks;
 
 namespace ProgramingStudy.Study.Kata
 {
+    using System.Collections;
+
+    class Test6 : IEqualityComparer<char>
+    {
+        public bool Equals(char x, char y)
+        {
+            return x == y;
+        }
+
+        public int GetHashCode(char obj)
+        {
+            return obj.GetHashCode();
+        }
+    }
+
+
+
     class CodeWars : IStudyTest
     {
         public void Study()
         {
-            var months = nbMonths(2000, 8000, 1000, 1.5);
-
-            Console.WriteLine($"{months[0]}, {months[1]}");
+            Console.WriteLine(DuplicateCount("Indivisibility"));
         }
 
+
+        //"abcde" -> 0 # no characters repeats more than once
+        //"aabbcde" -> 2 # 'a' and 'b'
+        //"aabbcdeB" -> 2 # 'a' and 'b'
+        //"indivisibility" -> 1 # 'i'
+        //"Indivisibilities" -> 2 # 'i' and 's'
+        //"aa11" -> 2 # 'a' and '1'
+        public static int DuplicateCount(string str)
+        {
+            var duplicateCount = str.ToLower().GroupBy(x => x).Count(g => g.Count() > 1);
+
+
+            return 0;
+        }
 
 
         public static int[] nbMonths(int startPriceOld, int startPriceNew, int savingperMonth, double percentLossByMonth)
