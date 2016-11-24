@@ -18,6 +18,8 @@ namespace ProgramingStudy.Study.Kata
             Console.WriteLine($"{months[0]}, {months[1]}");
         }
 
+
+
         public static int[] nbMonths(int startPriceOld, int startPriceNew, int savingperMonth, double percentLossByMonth)
         {
             var month = 0;
