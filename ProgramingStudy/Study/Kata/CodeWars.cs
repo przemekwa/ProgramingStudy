@@ -20,8 +20,12 @@ namespace ProgramingStudy.Study.Kata
                 Console.WriteLine(NextBiggerNumber(513));
             }
 
+        private static List<int[]> permutationList;
+
         public static long NextBiggerNumber(long n)
         {
+            permutationList = new List<int[]>();
+
             var s = n.ToString().Select(x => int.Parse(x.ToString())).ToArray();
             
             if (s.Count() < 2)
@@ -29,73 +33,67 @@ namespace ProgramingStudy.Study.Kata
                 return -1;
             }
 
-            for (int i = s.Count() - 1; i >= 0; i -= 1)
+            for (var i = s.Count() - 1; i >= 0; i -= 1)
             {
-                if ((i - 1) < 0)
+                if (i - 1 < 0)
                 {
                     break;
                 }
 
                 if (s[i] > s[i - 1])
                 {
-                   var r =  Reverse(s.Skip(i-1));
-
+                   var nextNumber =  GetNextNumber(s.Skip(i-1));
                     
-                    for (int j = 0; j < r.Length; j++)
+                    for (var j = 0; j < nextNumber.Length; j++)
                     {
-                        s[(i - 1 + j)] = r[j];
+                        s[(i - 1 + j)] = nextNumber[j];
                     }
-
                     break;
-
                 }
-
             }
 
-            var nextBiggerNumber = long.Parse(string.Join("", s.Select(s3 => s3.ToString())));
+            var result = long.Parse(string.Join("", s.Select(s3 => s3.ToString())));
 
-            return nextBiggerNumber == n ? -1 : nextBiggerNumber;
-
-
-
+            return result == n ? -1 : result;
         }
 
 
-        public static int[] Reverse(IEnumerable<int> s)
+        private static int[] GetNextNumber(IEnumerable<int> numberDigtList)
         {
-            permute(s.ToArray(), 0, s.Count()-1);
-            var d = list.Select(d1 => int.Parse(string.Join("", d1))).ToArray();
-            Array.Sort(d);
-            var number = int.Parse(string.Join("", s));
-            var result = d.First(d2 => d2 > number);
+            Permute(numberDigtList.ToArray(), 0, numberDigtList.Count()-1);
+
+            var intPermutationsList = permutationList.Select(d1 => int.Parse(string.Join("", d1))).ToArray();
+
+            Array.Sort(intPermutationsList);
+
+            var number = int.Parse(string.Join("", numberDigtList));
+
+            var result = intPermutationsList.First(d2 => d2 > number);
 
             return result.ToString().Select(x => int.Parse(x.ToString())).ToArray();
         }
 
-        private static List<int[]> list = new List<int[]>();
-
-        static void permute(int[] arry, int i, int n)
+        static void Permute(int[] arry, int i, int n)
         {
-            int j;
             if (i == n)
             {
-                list.Add(arry.ToArray());
+                permutationList.Add(arry.ToArray());
             }
             else
             {
+                int j;
                 for (j = i; j <= n; j++)
                 {
-                    swap(ref arry[i], ref arry[j]);
-                    permute(arry, i + 1, n);
-                    swap(ref arry[i], ref arry[j]); //backtrack
+                    Swap(ref arry[i], ref arry[j]);
+                    Permute(arry, i + 1, n);
+                    Swap(ref arry[i], ref arry[j]); //backtrack
                 }
             }
         }
 
-        static void swap(ref int a, ref int b)
+        static void Swap(ref int a, ref int b)
         {
-            int tmp;
-            tmp = a;
+            var tmp = a;
             a = b;
             b = tmp;
         }
