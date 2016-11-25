@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ProgramingStudy.Study.Kata
 {
     using System.Collections;
@@ -16,7 +17,48 @@ namespace ProgramingStudy.Study.Kata
     {
             public void Study()
         {
-            Console.WriteLine(GetReadableTime(0 ));
+            Console.WriteLine(NextBiggerNumber(890));
+        }
+
+        public static long NextBiggerNumber(long n)
+        {
+            var s = n.ToString().Select(x => int.Parse(x.ToString())).ToArray();
+            Console.WriteLine();
+            if (s.Count() < 2)
+            {
+                return -1;
+            }
+
+            for (int i = s.Count() - 1; i >= 0; i -= 1)
+            {
+                if ((i - 1) < 0)
+                {
+                    break;
+                }
+
+                if (s[i] > s[i - 1])
+                {
+                    var temp = s[i];
+                    s[i] = s[i - 1];
+                    s[i - 1] = temp;
+                    break;
+
+                }
+
+            }
+
+            var nextBiggerNumber = long.Parse(string.Join("", s.Select(s3 => s3.ToString())));
+
+            return nextBiggerNumber == n ? -1 : nextBiggerNumber;
+
+
+
+        }
+
+
+        private string Reverse(string s)
+        {
+         return   "";
         }
 
         public static string GetReadableTime(int seconds)
