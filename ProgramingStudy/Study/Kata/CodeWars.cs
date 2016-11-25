@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace ProgramingStudy.Study.Kata
 {
     using System.Collections;
+    using System.Diagnostics;
 
     class Test6 : IEqualityComparer<char>
     {
@@ -30,7 +31,33 @@ namespace ProgramingStudy.Study.Kata
     {
         public void Study()
         {
-            Console.WriteLine(ReverseWords("The greatest victory is that which requires no battle"));
+            //Console.WriteLine(print(5));
+            Console.WriteLine(GetReadableTime(0 ));
+        }
+
+        public static string GetReadableTime(int seconds)
+        {
+            var ts = TimeSpan.FromSeconds(seconds);
+
+            return $"{((int) ts.TotalHours).ToString("00")}:{ts.Minutes.ToString("00")}:{ts.Seconds.ToString("00")}";
+        }
+
+
+        public static string print(int n)
+        {
+            var result = new StringBuilder();
+
+            for (int i = 1; i < n+1; i++)
+            {
+                if (i%2 == 0)
+                {
+                    continue;
+                }
+                result.Append(new String('*', i));
+                result.Append("\n");
+            }
+
+            return result.ToString();
         }
 
 
