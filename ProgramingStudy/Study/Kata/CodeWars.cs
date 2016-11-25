@@ -12,26 +12,10 @@ namespace ProgramingStudy.Study.Kata
     using System.Collections;
     using System.Diagnostics;
 
-    class Test6 : IEqualityComparer<char>
-    {
-        public bool Equals(char x, char y)
-        {
-            return x == y;
-        }
-
-        public int GetHashCode(char obj)
-        {
-            return obj.GetHashCode();
-        }
-    }
-
-
-
     class CodeWars : IStudyTest
     {
-        public void Study()
+            public void Study()
         {
-            //Console.WriteLine(print(5));
             Console.WriteLine(GetReadableTime(0 ));
         }
 
@@ -41,8 +25,6 @@ namespace ProgramingStudy.Study.Kata
 
             return $"{((int) ts.TotalHours).ToString("00")}:{ts.Minutes.ToString("00")}:{ts.Seconds.ToString("00")}";
         }
-
-
         public static string print(int n)
         {
             var result = new StringBuilder();
@@ -59,16 +41,11 @@ namespace ProgramingStudy.Study.Kata
 
             return result.ToString();
         }
-
-
         public static string ReverseWords(string str)
         {
             
             return string.Join(" ", str.Split(' ').Reverse());
         }
-
-
-
         //        A child plays with a ball on the nth floor of a big building the height of which is known
 
         //(float parameter "h" in meters, h > 0) .
@@ -120,7 +97,6 @@ namespace ProgramingStudy.Study.Kata
             return result == 0 ?-1:result;
         }
 
-
         //"abcde" -> 0 # no characters repeats more than once
         //"aabbcde" -> 2 # 'a' and 'b'
         //"aabbcdeB" -> 2 # 'a' and 'b'
@@ -134,8 +110,6 @@ namespace ProgramingStudy.Study.Kata
 
             return 0;
         }
-
-
         public static int[] nbMonths(int startPriceOld, int startPriceNew, int savingperMonth, double percentLossByMonth)
         {
             var month = 0;
@@ -157,8 +131,6 @@ namespace ProgramingStudy.Study.Kata
 
             return new[] { month, (int)System.Math.Round(((wallet + startPriceOldDouble) - startPriceNewDouble)) };
         }
-
-
         public static int palindromeChainLength(int n)
         {
             var result = 0;
@@ -175,15 +147,7 @@ namespace ProgramingStudy.Study.Kata
             
             return result;
         }
-
         public static long Reverse(long number) => long.Parse(new string(number.ToString().Reverse().ToArray()));
-
-
-
-
-
-
-
         public static String Accum(string s)
         {
             var result = new StringBuilder();
@@ -201,19 +165,15 @@ namespace ProgramingStudy.Study.Kata
             //string.Join("-", s.Select((x, i) => char.ToUpper(x) + new string(char.ToLower(x), i)));
 
         }
-
-
         public static long FindNextSquare(long num)
         {
             return System.Math.Sqrt(num) % 1 == 0 ? (long)System.Math.Pow(System.Math.Sqrt(num) + 1, 2) : -1;
         }
-
         public static int Solution(int value)
         {
             return Enumerable.Range(0, value).Where(i => i%3 == 0 || i%5 == 0).Sum();
 
         }
-
         public static int FindEvenIndex(int[] arr)
         {
             var result = -1;
@@ -229,13 +189,9 @@ namespace ProgramingStudy.Study.Kata
 
             return result;
         }
-
-
         public static int FindSmallestInt(int[] args)
         {
             return args.Min();
         }
     }
-
-    
 }
