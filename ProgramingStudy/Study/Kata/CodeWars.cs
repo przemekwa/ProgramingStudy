@@ -16,14 +16,14 @@ namespace ProgramingStudy.Study.Kata
     class CodeWars : IStudyTest
     {
             public void Study()
-        {
-            Console.WriteLine(NextBiggerNumber(890));
-        }
+            {
+                Console.WriteLine(NextBiggerNumber(513));
+            }
 
         public static long NextBiggerNumber(long n)
         {
             var s = n.ToString().Select(x => int.Parse(x.ToString())).ToArray();
-            Console.WriteLine();
+            
             if (s.Count() < 2)
             {
                 return -1;
@@ -38,9 +38,14 @@ namespace ProgramingStudy.Study.Kata
 
                 if (s[i] > s[i - 1])
                 {
-                    var temp = s[i];
-                    s[i] = s[i - 1];
-                    s[i - 1] = temp;
+                   var r =  Reverse(s.Skip(i-1));
+
+                    
+                    for (int j = 0; j < r.Length; j++)
+                    {
+                        s[(i - 1 + j)] = r[j];
+                    }
+
                     break;
 
                 }
@@ -56,9 +61,43 @@ namespace ProgramingStudy.Study.Kata
         }
 
 
-        private string Reverse(string s)
+        public static int[] Reverse(IEnumerable<int> s)
         {
-         return   "";
+            permute(s.ToArray(), 0, s.Count()-1);
+            var d = list.Select(d1 => int.Parse(string.Join("", d1))).ToArray();
+            Array.Sort(d);
+            var number = int.Parse(string.Join("", s));
+            var result = d.First(d2 => d2 > number);
+
+            return result.ToString().Select(x => int.Parse(x.ToString())).ToArray();
+        }
+
+        private static List<int[]> list = new List<int[]>();
+
+        static void permute(int[] arry, int i, int n)
+        {
+            int j;
+            if (i == n)
+            {
+                list.Add(arry.ToArray());
+            }
+            else
+            {
+                for (j = i; j <= n; j++)
+                {
+                    swap(ref arry[i], ref arry[j]);
+                    permute(arry, i + 1, n);
+                    swap(ref arry[i], ref arry[j]); //backtrack
+                }
+            }
+        }
+
+        static void swap(ref int a, ref int b)
+        {
+            int tmp;
+            tmp = a;
+            a = b;
+            b = tmp;
         }
 
         public static string GetReadableTime(int seconds)
