@@ -17,8 +17,30 @@ namespace ProgramingStudy.Study.Kata
     {
             public void Study()
             {
-                Console.WriteLine(NextBiggerNumber(513));
+                Console.WriteLine(ValidBraces("(({{[[]]}}))"));
             }
+
+        public static bool ValidBraces(String braces)
+        {
+            var param1 = 0;
+            var param2 = 0;
+            var param3 = 0;
+
+            for (int index = 0; index < braces.Length; index++)
+            {
+                
+            }
+
+            return param1 == 0 && param2 == 0 && param3 == 0;
+        }
+
+        public class Test
+        {
+            public int Count { get; set; }
+            public bool Open { get; set; }
+            public int Group { get; set; }
+        }
+
 
         private static List<int[]> permutationList;
 
