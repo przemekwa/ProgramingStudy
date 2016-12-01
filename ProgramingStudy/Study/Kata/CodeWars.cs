@@ -17,8 +17,40 @@ namespace ProgramingStudy.Study.Kata
     {
             public void Study()
             {
-                Console.WriteLine(ValidBraces("()()"));
+                Console.WriteLine(OkkOokOo("Ok, Ook, Ooo?  Okk, Ook, Ok?  Okk, Okk, Oo?  Okk, Okk, Oo? Okk, Okkkk!"));
             }
+
+        public static string OkkOokOo(string okkOookk)
+        {
+            Console.WriteLine();
+
+            var f =
+                okkOookk.Replace(", ", "")
+                    .Replace("o", "0")
+                    .Replace("O", "0")
+                    .Replace("K", "1")
+                    .Replace("k", "1")
+                    .Split(new[] {"?", "!"}, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x =>
+                    {
+                        var int32 = Convert.ToInt64(x, 2);
+
+                        var charr = Convert.ToChar(int32);
+
+                        return charr;
+                    }).ToList();
+            
+
+            return string.Join("", f);
+
+
+        }
+
+
+
+
+
+
 
         public static bool ValidBraces(String braces)
         {
