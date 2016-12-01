@@ -17,21 +17,102 @@ namespace ProgramingStudy.Study.Kata
     {
             public void Study()
             {
-                Console.WriteLine(ValidBraces("(({{[[]]}}))"));
+                Console.WriteLine(ValidBraces("{({})}"));
             }
+
+        public class N
+        {
+            public char Open { get; set; }
+            public char Close { get; set; }
+            public bool HaveBody { get; set; }
+            public int Index { get; set; }
+        }
 
         public static bool ValidBraces(String braces)
         {
-            var param1 = 0;
-            var param2 = 0;
-            var param3 = 0;
+            var stos = new List<N>();
 
             for (int index = 0; index < braces.Length; index++)
             {
-                
+                var c = braces[index];
+
+                switch (c)
+                {
+                    case '{':
+                    case '(':
+                        var n = new N
+                        {
+                            Open = c,
+                            Close = '\0',
+                            Index = index
+                        };
+
+                        var lastOpenAll = stos.LastOrDefault(t => t.Open != '\0' && t.Close != '\0');
+
+                        if (lastOpenAll != null)
+                        {
+                            lastOpenAll.HaveBody = true;
+                        }
+
+                        stos.Add(n);
+                        break;
+
+                    case '}':
+                        var lastOpen = stos.LastOrDefault(t => t.Open == '{' && t.Close == '\0');
+
+                        var lastOpenAll1 = stos.LastOrDefault(t => t.Open != '\0' && t.Close == '\0');
+
+                        if (lastOpenAll1 != null)
+                        {
+                            return false;
+                        }
+
+
+                        if (lastOpen == null)
+                        {
+                            return false;
+                        }
+
+                        if (lastOpen.HaveBody)
+                        {
+                            return false;
+                        }
+
+                        lastOpen.HaveBody = false;
+                        lastOpen.Close = c;
+
+                        break;
+                    case ')':
+
+                        var lastOpen2 = stos.LastOrDefault(t => t.Open == '(' && t.Close=='\0');
+
+                        var lastOpenAll2 = stos.LastOrDefault(t => t.Open != '\0' && t.Close == '\0');
+
+                        if (lastOpenAll2 != null)
+                        {
+                            return false;
+                        }
+
+                        if (lastOpen2 == null)
+                        {
+                            return false;
+                        }
+
+                        if (lastOpen2.HaveBody)
+                        {
+                            return false;
+                        }
+
+                        lastOpen2.HaveBody = false;
+                        lastOpen2.Close = c;
+                       
+                        break;
+                    default:
+                        break;
+                }
             }
 
-            return param1 == 0 && param2 == 0 && param3 == 0;
+            return stos.Any(t => t.Open != '\0' && t.Close != '\0');
         }
 
         public class Test
