@@ -17,112 +17,58 @@ namespace ProgramingStudy.Study.Kata
     {
             public void Study()
             {
-                Console.WriteLine(ValidBraces("{({})}"));
+                Console.WriteLine(ValidBraces("()()"));
             }
-
-        public class N
-        {
-            public char Open { get; set; }
-            public char Close { get; set; }
-            public bool HaveBody { get; set; }
-            public int Index { get; set; }
-        }
 
         public static bool ValidBraces(String braces)
         {
-            var stos = new List<N>();
-
-            for (int index = 0; index < braces.Length; index++)
+            if (braces.Length % 2 != 0)
             {
-                var c = braces[index];
+                return false;
+            }
 
-                switch (c)
+            var dict = new Dictionary<char, char>
+            {
+                {'(', ')'},
+                {')', '('},
+                {']', '['},
+                {'[', ']'},
+                {'}', '{'},
+                {'{', '}'}
+            };
+
+
+            var list = new List<char>();
+
+            foreach (var b in braces)
+            {
+                switch (b)
                 {
-                    case '{':
                     case '(':
-                        var n = new N
-                        {
-                            Open = c,
-                            Close = '\0',
-                            Index = index
-                        };
-
-                        var lastOpenAll = stos.LastOrDefault(t => t.Open != '\0' && t.Close != '\0');
-
-                        if (lastOpenAll != null)
-                        {
-                            lastOpenAll.HaveBody = true;
-                        }
-
-                        stos.Add(n);
-                        break;
-
-                    case '}':
-                        var lastOpen = stos.LastOrDefault(t => t.Open == '{' && t.Close == '\0');
-
-                        var lastOpenAll1 = stos.LastOrDefault(t => t.Open != '\0' && t.Close == '\0');
-
-                        if (lastOpenAll1 != null)
-                        {
-                            return false;
-                        }
-
-
-                        if (lastOpen == null)
-                        {
-                            return false;
-                        }
-
-                        if (lastOpen.HaveBody)
-                        {
-                            return false;
-                        }
-
-                        lastOpen.HaveBody = false;
-                        lastOpen.Close = c;
-
+                    case '{':
+                    case '[':
+                        list.Add(b);
                         break;
                     case ')':
+                    case '}':
+                    case ']':
+                        var lastOrDefault = list.LastOrDefault();
 
-                        var lastOpen2 = stos.LastOrDefault(t => t.Open == '(' && t.Close=='\0');
-
-                        var lastOpenAll2 = stos.LastOrDefault(t => t.Open != '\0' && t.Close == '\0');
-
-                        if (lastOpenAll2 != null)
+                        if (lastOrDefault != dict[b])
                         {
                             return false;
                         }
 
-                        if (lastOpen2 == null)
-                        {
-                            return false;
-                        }
-
-                        if (lastOpen2.HaveBody)
-                        {
-                            return false;
-                        }
-
-                        lastOpen2.HaveBody = false;
-                        lastOpen2.Close = c;
-                       
-                        break;
-                    default:
+                        list.Remove(lastOrDefault);
                         break;
                 }
             }
 
-            return stos.Any(t => t.Open != '\0' && t.Close != '\0');
+            return list.Count == 0;
         }
 
-        public class Test
-        {
-            public int Count { get; set; }
-            public bool Open { get; set; }
-            public int Group { get; set; }
-        }
-
-
+        
+      
         private static List<int[]> permutationList;
 
         public static long NextBiggerNumber(long n)
