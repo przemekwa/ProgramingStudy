@@ -42,9 +42,51 @@ namespace ProgramingStudy.Study.Kata
     {
         public void Study()
         {
-            var k = new Kata(new List<string> { "javascript", "java", "ruby", "php", "python", "coffeescript" });
+            //var k = new Kata(new List<string> { "javascript", "java", "ruby", "php", "python", "coffeescript" });
             
-            Console.WriteLine(k.FindMostSimilar("heaven")); // must return "java"
+            //Console.WriteLine(k.FindMostSimilar("heaven")); // must return "java"
+
+            Console.WriteLine(evaluate("12 2 3 4 * 10 5 / + * +"));
+        }
+
+        public double evaluate(String expr)
+        {
+            if (string.IsNullOrEmpty(expr))
+            {
+                return 0;
+            }
+
+            var exprSplit = expr.Split(new[] {" "}, StringSplitOptions.None);
+
+            var stack = new Stack<double>();
+
+            double temp;
+
+            foreach (var s in exprSplit)
+            {
+                switch (s)
+                {
+                    case "+":
+                        stack.Push(stack.Pop() + stack.Pop());
+                        break;
+                    case "-":
+                        temp = stack.Pop();
+                        stack.Push(stack.Pop() - temp);
+                        break;
+                    case "/":
+                        temp = stack.Pop();
+                        stack.Push(stack.Pop() / temp); 
+                        break;
+                    case "*":
+                        stack.Push(stack.Pop() * stack.Pop());
+                        break;
+                    default:
+                        stack.Push(double.Parse(s));
+                        break;
+                }
+            }
+
+            return stack.Pop();
         }
 
         public static string sumStrings(string a, string b)
