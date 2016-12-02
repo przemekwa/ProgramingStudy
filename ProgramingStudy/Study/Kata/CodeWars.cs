@@ -13,15 +13,40 @@ namespace ProgramingStudy.Study.Kata
     using System.Collections;
     using System.Diagnostics;
 
-    class CodeWars : IStudyTest
+    internal class CodeWars : IStudyTest
     {
         public void Study()
         {
-            foreach (var a in TowerBuilder(6))
+
+            Console.WriteLine(print(3));
+            Console.WriteLine(print(5));
+            Console.WriteLine(print(7));
+        }
+
+        public static string print(int n)
+        {
+            var result = new StringBuilder();
+            var currentFloor = 1;
+            var space = n;
+            var down = false;
+
+            for (var i = 0; i < n * 2; i += 2)
             {
-                Console.WriteLine(a);
+                result.Append($"{new string('*', currentFloor).PadLeft(space, '.')}\n");
+
+                if (down || currentFloor >= n)
+                {
+                    space--;
+                    currentFloor -= 2;
+                    down = true;
+                }
+                else
+                {
+                    space++;
+                    currentFloor += 2;
+                }
             }
-          
+            return result.ToString();
         }
 
         public static string[] TowerBuilder(int nFloors)
@@ -30,16 +55,13 @@ namespace ProgramingStudy.Study.Kata
             var currentFloor = 1;
             var space = nFloors;
             
-            for (var i = 0; i < nFloors*2; i+=2)
+            for (var i = 0; i < nFloors*2; i+=2, currentFloor += 2, space++)
             {
                 result.Add(new string('*', currentFloor).PadLeft(space).PadRight(2*space - currentFloor));
-                currentFloor += 2;
-                space++;
             }
 
             return result.ToArray();
         }
-
 
         public static string OkkOokOo(string okkOookk)
         {
@@ -67,13 +89,7 @@ namespace ProgramingStudy.Study.Kata
 
         }
 
-
-
-
-
-
-
-        public static bool ValidBraces(String braces)
+        public static bool ValidBraces(string braces)
         {
             if (braces.Length % 2 != 0)
             {
@@ -119,14 +135,12 @@ namespace ProgramingStudy.Study.Kata
 
             return list.Count == 0;
         }
-
-        
       
-        private static List<int[]> permutationList;
+        private static List<int[]> PermutationList;
 
         public static long NextBiggerNumber(long n)
         {
-            permutationList = new List<int[]>();
+            PermutationList = new List<int[]>();
 
             var s = n.ToString().Select(x => int.Parse(x.ToString())).ToArray();
             
@@ -159,12 +173,11 @@ namespace ProgramingStudy.Study.Kata
             return result == n ? -1 : result;
         }
 
-
         private static int[] GetNextNumber(IEnumerable<int> numberDigtList)
         {
             Permute(numberDigtList.ToArray(), 0, numberDigtList.Count()-1);
 
-            var intPermutationsList = permutationList.Select(d1 => int.Parse(string.Join("", d1))).ToArray();
+            var intPermutationsList = PermutationList.Select(d1 => int.Parse(string.Join("", d1))).ToArray();
 
             Array.Sort(intPermutationsList);
 
@@ -175,11 +188,11 @@ namespace ProgramingStudy.Study.Kata
             return result.ToString().Select(x => int.Parse(x.ToString())).ToArray();
         }
 
-        static void Permute(int[] arry, int i, int n)
+        private static void Permute(int[] arry, int i, int n)
         {
             if (i == n)
             {
-                permutationList.Add(arry.ToArray());
+                PermutationList.Add(arry.ToArray());
             }
             else
             {
@@ -193,7 +206,7 @@ namespace ProgramingStudy.Study.Kata
             }
         }
 
-        static void Swap(ref int a, ref int b)
+        private static void Swap(ref int a, ref int b)
         {
             var tmp = a;
             a = b;
@@ -206,27 +219,13 @@ namespace ProgramingStudy.Study.Kata
 
             return $"{((int) ts.TotalHours).ToString("00")}:{ts.Minutes.ToString("00")}:{ts.Seconds.ToString("00")}";
         }
-        public static string print(int n)
-        {
-            var result = new StringBuilder();
 
-            for (int i = 1; i < n+1; i++)
-            {
-                if (i%2 == 0)
-                {
-                    continue;
-                }
-                result.Append(new String('*', i));
-                result.Append("\n");
-            }
-
-            return result.ToString();
-        }
         public static string ReverseWords(string str)
         {
             
             return string.Join(" ", str.Split(' ').Reverse());
         }
+
         //        A child plays with a ball on the nth floor of a big building the height of which is known
 
         //(float parameter "h" in meters, h > 0) .
@@ -291,6 +290,7 @@ namespace ProgramingStudy.Study.Kata
 
             return 0;
         }
+
         public static int[] nbMonths(int startPriceOld, int startPriceNew, int savingperMonth, double percentLossByMonth)
         {
             var month = 0;
@@ -312,6 +312,7 @@ namespace ProgramingStudy.Study.Kata
 
             return new[] { month, (int)System.Math.Round(((wallet + startPriceOldDouble) - startPriceNewDouble)) };
         }
+
         public static int palindromeChainLength(int n)
         {
             var result = 0;
@@ -328,8 +329,10 @@ namespace ProgramingStudy.Study.Kata
             
             return result;
         }
-        public static long Reverse(long number) => long.Parse(new string(number.ToString().Reverse().ToArray()));
-        public static String Accum(string s)
+
+        private static long Reverse(long number) => long.Parse(new string(number.ToString().Reverse().ToArray()));
+
+        public static string Accum(string s)
         {
             var result = new StringBuilder();
 
@@ -346,15 +349,18 @@ namespace ProgramingStudy.Study.Kata
             //string.Join("-", s.Select((x, i) => char.ToUpper(x) + new string(char.ToLower(x), i)));
 
         }
+
         public static long FindNextSquare(long num)
         {
             return System.Math.Sqrt(num) % 1 == 0 ? (long)System.Math.Pow(System.Math.Sqrt(num) + 1, 2) : -1;
         }
+
         public static int Solution(int value)
         {
             return Enumerable.Range(0, value).Where(i => i%3 == 0 || i%5 == 0).Sum();
 
         }
+
         public static int FindEvenIndex(int[] arr)
         {
             var result = -1;
@@ -370,6 +376,7 @@ namespace ProgramingStudy.Study.Kata
 
             return result;
         }
+
         public static int FindSmallestInt(int[] args)
         {
             return args.Min();
