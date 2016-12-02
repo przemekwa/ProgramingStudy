@@ -21,6 +21,8 @@ namespace ProgramingStudy.Study.Kata
             Console.WriteLine(IsInteresting(98, new List<int>() { }));
         }
 
+
+
         public static int IsInteresting(int number, List<int> awesomePhrases)
         {
             if (CheckIsInteresting(number, awesomePhrases))
@@ -53,14 +55,8 @@ namespace ProgramingStudy.Study.Kata
             return checkList.Any(t => t(number));
         }
 
-        private static bool CheckLenghtNumber(int number)
-        {
-            return number.ToString().Length < 3;
-        }
-
         private static bool Palindome(int number)
         {
-           
             var s = number.ToString();
 
             return s == string.Join("", s.Reverse());
