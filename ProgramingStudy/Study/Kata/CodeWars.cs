@@ -12,15 +12,50 @@ namespace ProgramingStudy.Study.Kata
 {
     using System.Collections;
     using System.Diagnostics;
+    using System.Numerics;
     using System.Text.RegularExpressions;
+
+    public class Kata
+    {
+        private IEnumerable<string> words;
+
+        public Kata(IEnumerable<string> words)
+        {
+            this.words = words;
+        }
+
+        public string FindMostSimilar(string term)
+        {
+            var wordSorted = words.Select(w =>
+            {
+                Array.Sort(w.ToArray());
+                return w;
+            });
+
+
+
+            return term;
+        }
+    }
 
     internal class CodeWars : IStudyTest
     {
         public void Study()
         {
-            Console.WriteLine(IsInteresting(98, new List<int>() { }));
+            var k = new Kata(new List<string> { "javascript", "java", "ruby", "php", "python", "coffeescript" });
+            
+            Console.WriteLine(k.FindMostSimilar("heaven")); // must return "java"
         }
 
+        public static string sumStrings(string a, string b)
+        {
+            BigInteger bigA;
+            BigInteger bigB;
+            BigInteger.TryParse(a, out bigA);
+            BigInteger.TryParse(b, out bigB);
+
+            return (bigA + bigB).ToString("R");
+        }
 
 
         public static int IsInteresting(int number, List<int> awesomePhrases)
