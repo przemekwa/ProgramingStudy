@@ -51,12 +51,12 @@ namespace ProgramingStudy.Study.Kata
 
         public double evaluate(String expr)
         {
-            if (string.IsNullOrEmpty(expr))
+            var exprSplit = expr.Split(new[] {" "}, StringSplitOptions.None);
+
+            if (exprSplit.Length < 2)
             {
                 return 0;
             }
-
-            var exprSplit = expr.Split(new[] {" "}, StringSplitOptions.None);
 
             var stack = new Stack<double>();
 
@@ -64,21 +64,22 @@ namespace ProgramingStudy.Study.Kata
 
             foreach (var s in exprSplit)
             {
+                var d1 = stack.Pop();
+                var d2 = stack.Pop();
+
                 switch (s)
                 {
                     case "+":
-                        stack.Push(stack.Pop() + stack.Pop());
+                        stack.Push(d1 + d2);
                         break;
                     case "-":
-                        temp = stack.Pop();
-                        stack.Push(stack.Pop() - temp);
-                        break;
-                    case "/":
-                        temp = stack.Pop();
-                        stack.Push(stack.Pop() / temp); 
+                        stack.Push(d2 - d1);
                         break;
                     case "*":
-                        stack.Push(stack.Pop() * stack.Pop());
+                        stack.Push(d1 * d2);
+                        break;
+                    case "/":
+                        stack.Push(d2 / d1);
                         break;
                     default:
                         stack.Push(double.Parse(s));
