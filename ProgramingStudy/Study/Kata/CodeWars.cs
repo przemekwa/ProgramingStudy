@@ -1,55 +1,24 @@
-﻿using System;
-
-
-
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace ProgramingStudy.Study.Kata
+﻿namespace ProgramingStudy.Study.Kata
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     using System.Collections;
     using System.Diagnostics;
     using System.Numerics;
     using System.Text.RegularExpressions;
 
-    public class Kata
-    {
-        private IEnumerable<string> words;
-
-        public Kata(IEnumerable<string> words)
-        {
-            this.words = words;
-        }
-
-        public string FindMostSimilar(string term)
-        {
-            var wordSorted = words.Select(w =>
-            {
-                Array.Sort(w.ToArray());
-                return w;
-            });
-
-
-
-            return term;
-        }
-    }
-
     internal class CodeWars : IStudyTest
     {
         public void Study()
         {
-            //var k = new Kata(new List<string> { "javascript", "java", "ruby", "php", "python", "coffeescript" });
-            
-            //Console.WriteLine(k.FindMostSimilar("heaven")); // must return "java"
+            Console.WriteLine(Evaluate("12 2 3 4 * 10 5 / + * +"));
 
-            Console.WriteLine(evaluate("12 2 3 4 * 10 5 / + * +"));
         }
 
-        public double evaluate(String expr)
+        internal static double Evaluate(string expr)
         {
             var exprSplit = expr.Split(new[] {" "}, StringSplitOptions.None);
 
@@ -59,8 +28,6 @@ namespace ProgramingStudy.Study.Kata
             }
 
             var stack = new Stack<double>();
-
-            double temp;
 
             foreach (var s in exprSplit)
             {
@@ -90,7 +57,7 @@ namespace ProgramingStudy.Study.Kata
             return stack.Pop();
         }
 
-        public static string sumStrings(string a, string b)
+        public static string SumStrings(string a, string b)
         {
             BigInteger bigA;
             BigInteger bigB;
@@ -99,7 +66,6 @@ namespace ProgramingStudy.Study.Kata
 
             return (bigA + bigB).ToString("R");
         }
-
 
         public static int IsInteresting(int number, List<int> awesomePhrases)
         {
@@ -521,6 +487,29 @@ namespace ProgramingStudy.Study.Kata
         public static int FindSmallestInt(int[] args)
         {
             return args.Min();
+        }
+    }
+
+    public class Kata
+    {
+        private IEnumerable<string> words;
+
+        public Kata(IEnumerable<string> words)
+        {
+            this.words = words;
+        }
+
+        public string FindMostSimilar(string term)
+        {
+            var wordSorted = words.Select(w =>
+            {
+                Array.Sort(w.ToArray());
+                return w;
+            });
+
+
+
+            return term;
         }
     }
 }
