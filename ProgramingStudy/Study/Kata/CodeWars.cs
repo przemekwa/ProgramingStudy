@@ -15,10 +15,31 @@ namespace ProgramingStudy.Study.Kata
 
     class CodeWars : IStudyTest
     {
-            public void Study()
+        public void Study()
+        {
+            foreach (var a in TowerBuilder(6))
             {
-                Console.WriteLine(OkkOokOo("Ok, Ook, Ooo?  Okk, Ook, Ok?  Okk, Okk, Oo?  Okk, Okk, Oo? Okk, Okkkk!"));
+                Console.WriteLine(a);
             }
+          
+        }
+
+        public static string[] TowerBuilder(int nFloors)
+        {
+            var result = new List<string>();
+            var currentFloor = 1;
+            var space = nFloors;
+            
+            for (var i = 0; i < nFloors*2; i+=2)
+            {
+                result.Add(new string('*', currentFloor).PadLeft(space).PadRight(2*space - currentFloor));
+                currentFloor += 2;
+                space++;
+            }
+
+            return result.ToArray();
+        }
+
 
         public static string OkkOokOo(string okkOookk)
         {
