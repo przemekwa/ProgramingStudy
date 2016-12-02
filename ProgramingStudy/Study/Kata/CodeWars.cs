@@ -19,16 +19,27 @@ namespace ProgramingStudy.Study.Kata
         public void Study()
         {
             Console.WriteLine(IsInteresting(98, new List<int>() { }));
-
-            //Console.WriteLine(print(3));
-            //Console.WriteLine(print(2));
-            //Console.WriteLine(print(5));
-            //Console.WriteLine(print(6));
-            //Console.WriteLine(print(7));
         }
 
         public static int IsInteresting(int number, List<int> awesomePhrases)
         {
+            if (CheckIsInteresting(number, awesomePhrases))
+            {
+                return 2;
+            }
+
+            if (CheckIsInteresting(number+1, awesomePhrases) || CheckIsInteresting(number + 2, awesomePhrases))
+            {
+                return 1;
+            }
+
+            return 0;
+        }
+
+        private static bool CheckIsInteresting(int number, IEnumerable<int> awesomePhrases)
+        {
+            if (number < 100) return false;
+
             var checkList = new List<Predicate<int>>
             {
                 Palindome,
@@ -39,31 +50,17 @@ namespace ProgramingStudy.Study.Kata
                 awesomePhrases.Contains
             };
 
-            if (checkList.Any(t => t(number)))
-            {
-                return 2;
-            }
-
-            if (checkList.Any(t => t(number + 1) || checkList.Any(t1 => t1(number + 2)))) 
-            {
-                return 1;
-            }
-
-            return 0;
+            return checkList.Any(t => t(number));
         }
 
-        private static bool CheckLenght(int number)
+        private static bool CheckLenghtNumber(int number)
         {
             return number.ToString().Length < 3;
         }
 
         private static bool Palindome(int number)
         {
-            if (CheckLenght(number))
-            {
-                return false;
-            }
-
+           
             var s = number.ToString();
 
             return s == string.Join("", s.Reverse());
@@ -71,21 +68,16 @@ namespace ProgramingStudy.Study.Kata
 
         private static bool Incrementing(int number)
         {
-            return !CheckLenght(number) && Regex.IsMatch("1234567890", number.ToString());
+            return Regex.IsMatch("1234567890", number.ToString());
         }
 
         private static bool DeIncrementing(int number)
         {
-            return !CheckLenght(number) && Regex.IsMatch("9876543210", number.ToString());
+            return Regex.IsMatch("9876543210", number.ToString());
         }
 
         private static bool AllSame(int number)
         {
-            if (CheckLenght(number))
-            {
-                return false;
-            }
-
             var input = number.ToString();  
 
             return Regex.IsMatch(input, $"^[{input[0]}]+$");
@@ -93,7 +85,7 @@ namespace ProgramingStudy.Study.Kata
 
         private static bool AllZeros(int number)
         {
-            return !CheckLenght(number) && Regex.IsMatch(number.ToString(), "^[1-9]{1}[0]*$");
+            return Regex.IsMatch(number.ToString(), "^[1-9]{1}[0]*$");
         }
 
         public static string print(int n)
