@@ -12,16 +12,34 @@ namespace ProgramingStudy.Study.Kata
 {
     using System.Collections;
     using System.Diagnostics;
+    using System.Text.RegularExpressions;
 
     internal class CodeWars : IStudyTest
     {
         public void Study()
         {
+            Console.WriteLine(IsInteresting(10340, new List<int>() { 1337, 256 }));
 
-            Console.WriteLine(print(3));
-            Console.WriteLine(print(5));
-            Console.WriteLine(print(7));
+            //Console.WriteLine(print(3));
+            //Console.WriteLine(print(2));
+            //Console.WriteLine(print(5));
+            //Console.WriteLine(print(6));
+            //Console.WriteLine(print(7));
         }
+
+        public static int IsInteresting(int number, List<int> awesomePhrases)
+        {
+
+            return 2;
+
+        }
+
+
+        private static bool AllZeros(int number)
+        {
+            return Regex.IsMatch(number.ToString(), "^[1-9]{1}[0]*$");
+        }
+
 
         public static string print(int n)
         {
@@ -38,11 +56,13 @@ namespace ProgramingStudy.Study.Kata
                 {
                     space--;
                     currentFloor -= 2;
+                 
                     down = true;
                 }
                 else
                 {
                     space++;
+                
                     currentFloor += 2;
                 }
             }
