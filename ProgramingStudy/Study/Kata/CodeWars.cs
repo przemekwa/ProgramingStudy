@@ -14,9 +14,40 @@
     {
         public void Study()
         {
-            Console.WriteLine(Evaluate("12 2 3 4 * 10 5 / + * +"));
-
+            Console.WriteLine(string.Join("",DirReduc(new[] { "NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST" })));
         }
+
+        public static string[] DirReduc(string[] arr)
+        {
+            var map = new Dictionary<string, string>
+            {
+                {"NORTH", "0"},
+                {"SOUTH", "1"},
+                {"EAST", "2"},
+                {"WEST", "3"}
+            };
+ 
+            var dict = new List<string>
+            {
+                "01", 
+                "10", 
+                "23",
+                "32"
+            };
+
+            var binaryString = string.Join("", arr.Select(s => map[s]).ToList());
+            string reduceString;
+
+            do
+            {
+                reduceString = binaryString;
+                binaryString = dict.Aggregate(binaryString, (current, d) => current.Replace(d, ""));
+
+            } while (reduceString != binaryString);
+
+            return binaryString.Select(t => map.FirstOrDefault(x => x.Value == t.ToString()).Key).ToArray();
+        }
+
 
         internal static double Evaluate(string expr)
         {
