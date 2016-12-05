@@ -10,7 +10,7 @@ namespace ProgramingStudy.Study.Kata
     {
         public static readonly Func<string, string> Diag1Sym = Diag1Sym1;
         public static readonly Func<string, string> Rot90Clock = Rot90Clock1;
-        public static readonly Func<string, string> SelfieAndDiag1 = SelfieAndDiag11;
+        public static readonly Func<string, string> SelfieAndDiag = SelfieAndDiag1;
         public const string SEPARATOR = "\n";
 
         public static string Rot90Clock1(string strng)
@@ -42,10 +42,15 @@ namespace ProgramingStudy.Study.Kata
         }
 
 
-        public static string SelfieAndDiag11(string strng)
+        public static string SelfieAndDiag1(string strng)
         {
-            return "";
+            var diagonal = Diag1Sym(strng).Split(new[] {SEPARATOR}, StringSplitOptions.None);
+
+            var sefl = strng.Split(new[] {SEPARATOR}, StringSplitOptions.None);
+
+            return string.Join(SEPARATOR, sefl.Select((s, index) => $"{s}|{diagonal[index]}"));
         }
+
         public static string Oper(Func<string, string> fct, string s)
         {
             return fct.Invoke(s);
@@ -53,7 +58,7 @@ namespace ProgramingStudy.Study.Kata
 
         public void Study()
         {
-            Console.WriteLine(Oper(CodeWarsOpstrings.Rot90Clock, "abcd\nefgh\nijkl\nmnop"));
+            Console.WriteLine(Oper(CodeWarsOpstrings.SelfieAndDiag, "abcd\nefgh\nijkl\nmnop"));
         }
     }
 }
