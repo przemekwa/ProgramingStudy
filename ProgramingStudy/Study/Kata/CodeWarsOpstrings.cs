@@ -15,7 +15,9 @@ namespace ProgramingStudy.Study.Kata
 
         public static string Rot90Clock1(string strng)
         {
-            return "";
+            var result = Diag1Sym(strng).Split(new[] {SEPARATOR}, StringSplitOptions.None).Select(x => string.Join("", x.Reverse()));
+
+            return string.Join(SEPARATOR, result);
         }
         public static string Diag1Sym1(string strng)
         {
@@ -38,6 +40,8 @@ namespace ProgramingStudy.Study.Kata
 
             return result.ToString();
         }
+
+
         public static string SelfieAndDiag11(string strng)
         {
             return "";
@@ -49,7 +53,7 @@ namespace ProgramingStudy.Study.Kata
 
         public void Study()
         {
-            Console.WriteLine(Oper(CodeWarsOpstrings.Diag1Sym, "wuUyPC\neNHWxw\nehifmi\ntBTlFI\nvWNpdv\nIFkGjZ"));
+            Console.WriteLine(Oper(CodeWarsOpstrings.Rot90Clock, "abcd\nefgh\nijkl\nmnop"));
         }
     }
 }
