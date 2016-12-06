@@ -14,8 +14,27 @@
     {
         public void Study()
         {
-            Console.WriteLine(string.Join("",DirReduc(new[] { "NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST" })));
+            Console.WriteLine(TotalIncDec(2));
         }
+
+
+        public static BigInteger TotalIncDec(int x)
+        {
+            var numberLenght = Math.Pow(10, x).ToString().Length;
+
+            var result = new StringBuilder();
+
+            for (var i = 1; i <= numberLenght; i++)
+            {
+                
+            }
+
+
+
+            return (BigInteger)2;
+        }
+
+
 
         public static string[] DirReduc(string[] arr)
         {

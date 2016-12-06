@@ -13,7 +13,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new CodeWarsOpstrings();
+        public static readonly IStudyTest StudyTest = new CodeWars();
 
         public static void Main(string[] args)
         {
