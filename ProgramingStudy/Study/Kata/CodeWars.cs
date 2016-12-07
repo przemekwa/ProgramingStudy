@@ -14,7 +14,7 @@
     {
         public void Study()
         {
-            Console.WriteLine(string.Join("",Smallest(296837)));   
+            Console.WriteLine(string.Join("",Smallest(269045)));   
                                      /*235568*/
         }
 
@@ -40,7 +40,6 @@
                     break;
                 }
             }
-
 
             
 
