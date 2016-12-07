@@ -8,6 +8,9 @@
         public void Study()
         {
              this.LinquAggregate();
+
+           IList<int> d = new List<int>();
+
         }
 
         public void LinquAggregate()

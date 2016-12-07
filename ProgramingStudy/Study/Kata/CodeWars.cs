@@ -14,13 +14,43 @@
     {
         public void Study()
         {
-            Console.WriteLine(Smallest(285365)[0]);
+            Console.WriteLine(string.Join("",Smallest(285365)));   
                                      /*235568*/
         }
 
         public static long[] Smallest(long n)
         {
-            return new[] {(long)1};
+            var stringNumber = n.ToString().ToList();
+            var sortArray = n.ToString().ToCharArray();
+            Array.Sort(sortArray);
+
+            var indexFrom = -1;
+            var indexTo = -1;
+
+            for (int i = 0; i < stringNumber.Count; i++)
+            {
+                if (stringNumber[i] > sortArray[i])
+                {
+                    indexTo = i;
+                }
+
+                if (indexTo != -1 && stringNumber[i] == sortArray[indexTo])
+                {
+                    indexFrom = i;
+                }
+            }
+
+            if (stringNumber[indexTo] == 0)
+            {
+                var temp = stringNumber.Remove('0');
+            }
+
+            var temp1 = stringNumber[indexFrom];
+            stringNumber[indexFrom] = stringNumber[indexTo];
+            stringNumber[indexTo] = temp1;
+
+
+            return new[] {long.Parse(string.Join("",stringNumber)), indexFrom, indexTo };
         }
 
         public static BigInteger TotalIncDec(int x)
@@ -34,12 +64,8 @@
                 
             }
 
-
-
             return (BigInteger)2;
         }
-
-
 
         public static string[] DirReduc(string[] arr)
         {
@@ -71,7 +97,6 @@
 
             return binaryString.Select(t => map.FirstOrDefault(x => x.Value == t.ToString()).Key).ToArray();
         }
-
 
         internal static double Evaluate(string expr)
         {
