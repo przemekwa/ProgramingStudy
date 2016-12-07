@@ -20,41 +20,7 @@
 
         public static long[] Smallest(long n)
         {
-            var numberString = n.ToString().ToCharArray();
-
-            var arr = new char[numberString.Length];
-
-            Array.Copy(numberString,arr,numberString.Length);
-
-            Array.Sort(arr);
-
-            var resultNumber = new StringBuilder();
-            var resultIndex = -1;
-            var resultIndexNumber = -1;
-            var numberToChange = -1;
-            var change = false;
-            for (int i = 0; i < numberString.Length ; i++)
-            {
-                var tempNumber = numberString[i];
-
-                if (numberString[i] > arr[i] && !change)
-                {
-                    tempNumber = arr[i];
-                    numberToChange = numberString[i];
-                    resultIndexNumber = tempNumber;
-                    resultIndex = i;
-                    change = true;
-                }
-
-                if (numberString[i] == resultIndexNumber)
-                {
-                    tempNumber = numberToChange.ToString()[0];
-                }
-
-                resultNumber.Append(tempNumber);
-            }
-
-            return new[] { long.Parse(resultNumber.ToString()), resultIndexNumber, resultIndex };
+            return new[] {(long)1};
         }
 
         public static BigInteger TotalIncDec(int x)
