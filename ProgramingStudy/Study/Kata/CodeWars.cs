@@ -14,8 +14,7 @@
     {
         public void Study()
         {
-            Console.WriteLine(string.Join("",Smallest(269045)));   
-                                     /*235568*/
+            Console.WriteLine(string.Join("",Smallest(261235)));   
         }
 
         public static long[] Smallest(long n)
@@ -27,7 +26,7 @@
             var indexFrom = -1;
             var indexTo = -1;
 
-            for (int i = 0; i < stringNumber.Count; i++)
+            for (var i = 0; i < stringNumber.Count; i++)
             {
                 if (indexTo == -1 && stringNumber[i] > sortArray[i])
                 {
@@ -41,10 +40,26 @@
                 }
             }
 
-            
+            var result = new List<char>();
+            var eraseNumber = stringNumber[indexFrom];
+
+            stringNumber.Remove(stringNumber[indexFrom]);
+
+            for (var i = 0; i < stringNumber.Count; i++)
+            {
+                if (stringNumber[i] > eraseNumber)
+                {
+                    result.Add(eraseNumber);
+                    result.AddRange(stringNumber.Skip(i));
+                    break;
+                }
+
+                result.Add(stringNumber[i]);
+            }
 
 
-            return new[] {long.Parse("0"), indexFrom, indexTo };
+
+                return new[] {long.Parse(string.Join("",result)), indexFrom, indexTo };
         }
 
         public static BigInteger TotalIncDec(int x)
