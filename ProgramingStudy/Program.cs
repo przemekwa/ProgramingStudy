@@ -13,7 +13,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new CodeWars();
+        public static readonly IStudyTest StudyTest = new GenericType();
 
         public static void Main(string[] args)
         {
