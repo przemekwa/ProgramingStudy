@@ -108,6 +108,7 @@
     <Compile Include="Study\CompresGzip.cs" />
     <Compile Include="Study\DateTimeMultiplyParser.cs" />
     <Compile Include="Study\DummyObject\XmlObject.cs" />
+    <Compile Include="Study\EntityFrameworkStudy.cs" />
     <Compile Include="Study\EnvironmentLogger.cs" />
     <Compile Include="Study\FizzBuzz.cs" />
     <Compile Include="Study\IBanNumber.cs" />
