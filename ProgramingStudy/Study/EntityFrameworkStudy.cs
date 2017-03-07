@@ -15,24 +15,27 @@ namespace ProgramingStudy.Study
         {
             var context = new EntityContext();
 
-            // context.EntityParents.Add(new EntityParent
-            // {
-            //     Name = "Przemek3",
-            //     EntityChild = new EntityChild
-            //     {
-            //         Name = "Julek3"
-            //     }
-
-            // });
-
 
             var f = context.EntityParents.First();
 
             var d = f.EntityChild;
 
-            context.EntityChild.Remove();
+            context.EntityParents.Remove(f);
 
-            // context.EntityParents.Remove(f);
+
+
+            //context.EntityParents.Add(new EntityParent
+            //{
+            //    Name = "Przemek3",
+            //    EntityChild = new EntityChild
+            //    {
+            //        Name = "Julek3"
+            //    }
+
+            //});
+
+
+           
 
 
 
@@ -61,7 +64,7 @@ namespace ProgramingStudy.Study
             modelBuilder.Entity<EntityParent>()
                 .HasRequired(a => a.EntityChild)
                 .WithMany()
-                .HasForeignKey(u => u.EntityChildId);
+                .HasForeignKey(u => u.EntityChildId).WillCascadeOnDelete();
 
             base.OnModelCreating(modelBuilder);
         }

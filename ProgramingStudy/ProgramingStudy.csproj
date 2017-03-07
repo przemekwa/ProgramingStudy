@@ -100,6 +100,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppConfigStudy.cs" />
     <Compile Include="IStudyTest.cs" />
     <Compile Include="LinquStudy.cs" />
     <Compile Include="Prototype.cs" />

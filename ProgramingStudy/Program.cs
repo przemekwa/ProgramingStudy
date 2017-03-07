@@ -13,7 +13,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new EntityFrameworkStudy();
+        public static readonly IStudyTest StudyTest = new AppConfigStudy();
 
         public static void Main(string[] args)
         {
