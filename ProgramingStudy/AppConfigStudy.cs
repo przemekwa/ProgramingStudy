@@ -11,23 +11,32 @@ namespace ProgramingStudy
     {
         public void Study()
         {
-            var reportsPdfMargins = ConfigurationManager.GetSection(ReportsPdfMarginsDataSection.SectionName) as ReportsPdfMarginsDataSection;
+            var d = new ReportsPdfMarginsConfiguration();
+
+            Console.WriteLine(d["BlatCoorDepartment"].Top);
+        }
+    }
 
 
-            if (reportsPdfMargins != null)
+    public  class ReportsPdfMarginsConfiguration
+    {
+        public  ReportsPdfMarginsDataSection ReportsPdfMarginsDataSection { get; private set; }
+
+         public ReportsPdfMarginsConfiguration()
+        {
+            ReportsPdfMarginsDataSection = ConfigurationManager.GetSection(ReportsPdfMarginsDataSection.SectionName) as ReportsPdfMarginsDataSection;
+        }
+
+        public  ReportPdfMarginElement this[string reportName]
+        {
+            get
             {
-
-                var f = reportsPdfMargins.ReportPdfMarginCollection.Cast<ReportPdfMarginElement>().SingleOrDefault(s => s.Name == "Development")
-
-
-
-
-
-
-                foreach (ReportPdfMarginElement endpointElement in reportsPdfMargins.ReportPdfMarginCollection)
+                if (this.ReportsPdfMarginsDataSection == null)
                 {
-                    Console.WriteLine(endpointElement.Top);
+                    return null;
                 }
+
+                return this.ReportsPdfMarginsDataSection.ReportPdfMarginCollection.Cast<ReportPdfMarginElement>().SingleOrDefault(s => s.Name == reportName);
             }
         }
     }
