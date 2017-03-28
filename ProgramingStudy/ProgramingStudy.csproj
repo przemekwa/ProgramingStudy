@@ -73,6 +73,9 @@
       <HintPath>packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.0.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>packages\SSH.NET.2016.0.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -92,6 +95,7 @@
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -112,6 +116,7 @@
     <Compile Include="Study\EntityFrameworkStudy.cs" />
     <Compile Include="Study\EnvironmentLogger.cs" />
     <Compile Include="Study\FizzBuzz.cs" />
+    <Compile Include="Study\FtpStudy.cs" />
     <Compile Include="Study\Helper.cs" />
     <Compile Include="Study\IBanNumber.cs" />
     <Compile Include="Study\InformationsFromSystem.cs" />

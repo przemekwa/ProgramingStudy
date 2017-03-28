@@ -18,22 +18,22 @@ namespace ProgramingStudy
     }
 
 
-    public  class ReportsPdfMarginsConfiguration
+    public class ReportsPdfMarginsConfiguration
     {
-        public  ReportsPdfMarginsDataSection ReportsPdfMarginsDataSection { get; private set; }
+        public ReportsPdfMarginsDataSection ReportsPdfMarginsDataSection { get; private set; }
 
-         public ReportsPdfMarginsConfiguration()
+        public ReportsPdfMarginsConfiguration()
         {
             ReportsPdfMarginsDataSection = ConfigurationManager.GetSection(ReportsPdfMarginsDataSection.SectionName) as ReportsPdfMarginsDataSection;
         }
 
-        public  ReportPdfMarginElement this[string reportName]
+        public ReportPdfMarginElement this[string reportName]
         {
             get
             {
                 if (this.ReportsPdfMarginsDataSection == null)
                 {
-                    return null;
+                    return default(ReportPdfMarginElement);
                 }
 
                 return this.ReportsPdfMarginsDataSection.ReportPdfMarginCollection.Cast<ReportPdfMarginElement>().SingleOrDefault(s => s.Name == reportName);
@@ -49,8 +49,6 @@ namespace ProgramingStudy
 
         [ConfigurationProperty(ReportPdfMarginName)]
         [ConfigurationCollection(typeof(ReportPdfMarginCollection), AddItemName = "add")]
-
-
         public ReportPdfMarginCollection ReportPdfMarginCollection
         {
             get
