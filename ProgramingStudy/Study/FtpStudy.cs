@@ -16,60 +16,49 @@ namespace ProgramingStudy.Study
     {
         public void Study()
         {
-            this.SendFile();
+            var dir = Directory.CreateDirectory("Test");
+
+            using (var sw = new StreamWriter("Test/test2.txt"))
+            {
+                sw.WriteLine(DateTime.Now);
+            }
+
+            File.Delete("file.zip");
+
+            ZipFile.CreateFromDirectory(dir.FullName, "file.zip", CompressionLevel.Optimal, false);
+            
+            this.SendFile(new FileInfo("file.zip"));
         }
 
 
-        private void SendFile()
+        private void SendFile(FileInfo fileInfo)
         {
             var connectionInfo = new ConnectionInfo("127.0.0.1",22, "tester",
                                          new PasswordAuthenticationMethod("tester", "password"),
                                          new PrivateKeyAuthenticationMethod("rsa.key"));
+
             using (var client = new SftpClient(connectionInfo))
             {
+                
                 client.Connect();
 
-                var ftpDir = $"CatalogueExports/{DateTime.Now.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)}";
+                var rootDir = "CatalogueExports";
+                var exportDir = DateTime.Now.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
+
+                string ftpDir = Path.Combine(rootDir, exportDir);
 
                 if (!client.Exists(ftpDir))
                 {
-                    client.CreateDirectory("CatalogueExports");
+                    client.CreateDirectory(rootDir);
 
                     client.CreateDirectory(ftpDir);
                 }
 
-
-                var directory = client.ListDirectory(ftpDir);
-
-                var dir = Directory.CreateDirectory("Test");
-
-                using (var sw = new StreamWriter("Test/test2.txt"))
+                using (var fs = new FileStream(fileInfo.FullName, FileMode.Open))
                 {
-                    sw.WriteLine(DateTime.Now);
+                    client.UploadFile(fs, Path.Combine(ftpDir, fileInfo.Name), null);
                 }
-
-
-                File.Delete("file.zip");
-
-                ZipFile.CreateFromDirectory(dir.FullName, "file.zip",CompressionLevel.Optimal, false);
-
-
-                var sr = new FileStream("file.zip", FileMode.Open);
-
-                
-
-               
-
-                var path = Path.Combine(ftpDir, "file.zip");
-
-                client.UploadFile(sr,path, null);
-
-                sr.Close();
-
             }
-
-
         }
-
     }
 }
