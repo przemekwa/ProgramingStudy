@@ -11,6 +11,12 @@ namespace ProgramingStudy.Study
 {
     public static class Helper
     {
+        public static readonly Dictionary<char, char> PolishDiacriticsLookup = new Dictionary<char, char>
+            {
+                {'ą','a'}, {'ć','c'}, {'ę','e'}, {'ł','l'}, {'ń','n'}, {'ó','o'}, {'ś','s'}, {'ź','z'}, {'ż','z'},
+                {'Ą','A'}, {'Ć','C'}, {'Ę','E'}, {'Ł','L'}, {'Ń','N'}, {'Ó','O'}, {'Ś','S'}, {'Ź','Z'}, {'Ż','Z'}
+            };
+
         public static T GetAppSetting<T>(string settingName) where T : IConvertible
         {
             return ConfigurationManager.AppSettings[settingName] == null ?
