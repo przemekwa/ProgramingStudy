@@ -56,7 +56,7 @@ namespace ProgramingStudy.Study
             request.Method = WebRequestMethods.Ftp.UploadFile;
 
             
-            request.Credentials = new NetworkCredential("s3lgros", "yU761Hga");
+            request.Credentials = new NetworkCredential("s3lgros", "");
 
            
             StreamReader sourceStream = new StreamReader(fileInfo.FullName);
