@@ -28,7 +28,7 @@ namespace ProgramingStudy.Study
 
             ZipFile.CreateFromDirectory(dir.FullName, "file.zip", CompressionLevel.Optimal, false);
             
-            this.SendFile3(new FileInfo("file.zip"));
+            this.SendFile2(new FileInfo("file.zip"));
         }
 
 
@@ -37,6 +37,7 @@ namespace ProgramingStudy.Study
             FtpClient client = new FtpClient();
 
             client.Host = "ftp.zoom.pl";
+            
             client.Credentials = new NetworkCredential("s3lgros", "");
 
             client.Connect();
@@ -52,7 +53,7 @@ namespace ProgramingStudy.Study
 
         public void SendFile2(FileInfo fileInfo)
         {
-            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create("http://ftp.zoom.pl");
+            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create("ftp://ftp.zoom.pl");
             request.Method = WebRequestMethods.Ftp.UploadFile;
 
             
