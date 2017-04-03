@@ -56,6 +56,9 @@
       <HintPath>packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LiteDB, Version=3.1.0.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>packages\LiteDB.3.1.0\lib\net35\LiteDB.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -111,6 +114,11 @@
     <Compile Include="AppConfigStudy.cs" />
     <Compile Include="IStudyTest.cs" />
     <Compile Include="LinquStudy.cs" />
+    <Compile Include="LiteDB\Entity.cs" />
+    <Compile Include="LiteDB\IRepository.cs" />
+    <Compile Include="LiteDB\LiteDBStudy.cs" />
+    <Compile Include="LiteDB\LocalRepository.cs" />
+    <Compile Include="LiteDB\TestObject.cs" />
     <Compile Include="Prototype.cs" />
     <Compile Include="Study\Base64Test.cs" />
     <Compile Include="Study\BinaryFormaterTests.cs" />
