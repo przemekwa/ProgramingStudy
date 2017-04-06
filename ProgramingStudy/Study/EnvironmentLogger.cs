@@ -17,11 +17,11 @@ namespace ProgramingStudy.Study
 
     internal class EnvironmentLogger : IStudyTest
     {
-        private static ILogger logger;
+        private static NLog.ILogger logger;
 
         static EnvironmentLogger()
         {
-            logger = LogManager.GetLogger("EnvironmentLogger");
+            logger = NLog.LogManager.GetLogger("EnvironmentLogger");
         }
 
         public void Study()

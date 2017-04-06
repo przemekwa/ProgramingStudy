@@ -13,7 +13,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new LiteDB.LiteDBStudy();
+        public static readonly IStudyTest StudyTest = new BCCTests();
 
         public static void Main(string[] args)
         {

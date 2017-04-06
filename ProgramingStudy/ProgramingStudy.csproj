@@ -121,6 +121,7 @@
     <Compile Include="LiteDB\TestObject.cs" />
     <Compile Include="Prototype.cs" />
     <Compile Include="Study\Base64Test.cs" />
+    <Compile Include="Study\BCCTests.cs" />
     <Compile Include="Study\BinaryFormaterTests.cs" />
     <Compile Include="Study\CompresGzip.cs" />
     <Compile Include="Study\DateTimeMultiplyParser.cs" />
