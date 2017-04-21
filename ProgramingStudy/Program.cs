@@ -9,11 +9,12 @@ using ProgramingStudy.Study.LanguageStudy;
 
 namespace ProgramingStudy
 {
+    using ProgramingStudy.BCCHelpers;
     using Study.Kata;
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new BCCTests();
+        public static readonly IStudyTest StudyTest = new TableRecordGenerator();
 
         public static void Main(string[] args)
         {

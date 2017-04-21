@@ -23,11 +23,6 @@ namespace ProgramingStudy.LiteDB
             var all = r.GetAll();
 
             var test = all.First();
-
-
-
-
-
            
         }
     }

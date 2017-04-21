@@ -33,8 +33,7 @@ namespace ProgramingStudy.Study
 
             Console.WriteLine("Stop DoAnych");
         }
-
-
+        
         public Task Method()
         {
             Console.WriteLine("Start metody");

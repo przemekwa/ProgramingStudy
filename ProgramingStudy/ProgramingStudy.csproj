@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfigStudy.cs" />
+    <Compile Include="BCCHelpers\TableRecordGenerator.cs" />
     <Compile Include="IStudyTest.cs" />
     <Compile Include="LinquStudy.cs" />
     <Compile Include="LiteDB\Entity.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Study\Base64Test.cs" />
     <Compile Include="Study\BCCTests.cs" />
     <Compile Include="Study\BinaryFormaterTests.cs" />
+    <Compile Include="Study\Coding.cs" />
     <Compile Include="Study\CompresGzip.cs" />
     <Compile Include="Study\DateTimeMultiplyParser.cs" />
     <Compile Include="Study\DummyObject\XmlObject.cs" />
