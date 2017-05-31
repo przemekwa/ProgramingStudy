@@ -14,7 +14,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new TableRecordGenerator();
+        public static readonly IStudyTest StudyTest = new Lidero();
 
         public static void Main(string[] args)
         {
