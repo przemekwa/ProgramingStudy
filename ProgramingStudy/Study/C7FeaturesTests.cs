@@ -12,6 +12,30 @@ namespace ProgramingStudy.Study
         public void Study()
         {
             WriteLine($"Pattern Matching: {this.PatterMatching()} ");
+
+            WriteLine($"New Tuple:");
+
+            WriteLine($"To string() {this.GetTuple()}");
+
+            var tuple = this.GetTuple();
+
+            WriteLine($"Tuple Item1 {tuple.Item1}");
+            WriteLine($"Tuple Item1 {tuple.Item2}");
+
+            WriteLine($"Tuple {nameof(tuple.Age)} {tuple.Age}");
+            WriteLine($"Tuple {nameof(tuple.Count)} {tuple.Count}");
+
+
+            (int Wiek, int Ilość) deTuple = this.GetTuple();
+
+            (int Wiek, int _) deTuple2 = this.GetTuple();
+        }
+
+        public (int Age, int Count) GetTuple()
+        {
+            var p = (age1: 12, agr2: 12);
+
+            return p;
         }
 
         public int PatterMatching()
