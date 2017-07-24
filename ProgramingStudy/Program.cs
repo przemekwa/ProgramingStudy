@@ -14,7 +14,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new Lidero();
+        public static readonly IStudyTest StudyTest = new C7FeaturesTests();
 
         public static void Main(string[] args)
         {
