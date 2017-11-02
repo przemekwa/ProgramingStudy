@@ -172,6 +172,7 @@
     <Compile Include="Study\PDFFun.cs" />
     <Compile Include="Study\ProsteTypy.cs" />
     <Compile Include="Study\QuickSort.cs" />
+    <Compile Include="Study\ReferencDuplicateStudy.cs" />
     <Compile Include="Study\RestMethods.cs" />
     <Compile Include="Study\RoleManager.cs" />
     <Compile Include="Study\SerializationJSON.cs" />
