@@ -7,6 +7,39 @@ using static System.Console;
 
 namespace ProgramingStudy.Study
 {
+
+    interface I1
+    {
+        void M1();
+
+        //void M2()
+        //{
+        //    WriteLine("I1.M2");
+        //}
+    }
+
+    class C1 : I1
+    {
+        public void M1()
+        {
+            WriteLine("C1.M1");
+        }
+    }
+
+    class C2 : I1
+    {
+        public void M1()
+        {
+            WriteLine("C2.M1");
+        }
+
+        public void M2()
+        {
+            WriteLine("C2.M2");
+        }
+    }
+
+
     public class C7FeaturesTests : IStudyTest
     {
         public void Study()
@@ -29,6 +62,11 @@ namespace ProgramingStudy.Study
             (int Wiek, int Ilość) deTuple = this.GetTuple();
 
             (int Wiek, int _) deTuple2 = this.GetTuple();
+        }
+
+        public void TestInterface()
+        {
+
         }
 
         public (int Age, int Count) GetTuple()

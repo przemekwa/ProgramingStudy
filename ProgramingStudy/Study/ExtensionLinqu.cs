@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -55,10 +58,12 @@ namespace ProgramingStudy.Study
     {
         public void Study()
         {
+
             var testList = new List<int>();
 
             testList.AddRange(Enumerable.Range(1, 30));
 
+            
 
             foreach (var lista in testList.SplitInToParts<int>(4))
             {

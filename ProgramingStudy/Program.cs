@@ -14,7 +14,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new C7FeaturesTests();
+        public static readonly IStudyTest StudyTest = new ExtensionLinqu();
 
         public static void Main(string[] args)
         {
