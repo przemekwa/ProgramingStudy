@@ -10,11 +10,12 @@ using ProgramingStudy.Study.LanguageStudy;
 namespace ProgramingStudy
 {
     using ProgramingStudy.BCCHelpers;
+    using ProgramingStudy.Job;
     using Study.Kata;
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new ReferencDuplicateStudy();
+        public static readonly IStudyTest StudyTest = new DictionaryGenerator();
 
         public static void Main(string[] args)
         {

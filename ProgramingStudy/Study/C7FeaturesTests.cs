@@ -59,9 +59,10 @@ namespace ProgramingStudy.Study
             WriteLine($"Tuple {nameof(tuple.Count)} {tuple.Count}");
 
 
-            (int Wiek, int Ilość) deTuple = this.GetTuple();
+            (int Wiek, int Ilość) = this.GetTuple();
 
             (int Wiek, int _) deTuple2 = this.GetTuple();
+            
         }
 
         public void TestInterface()
