@@ -1,0 +1,393 @@
+﻿Jeśli ją dobrze rozumiem chodzi jej także o to, by wysłać ponownie.
+Jak tego dokonać?
+
+---
+Cezary Nowicki
+Senior Product Lead
+
+ 
+A: ul. Zwierzyniecka 3| 60-813 Poznań | Poland
+M: +48 662101219
+@: cezary.nowicki@new-gravity.com 
+W: www.new-gravity.com
+
+
+Od: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com>
+Data: czwartek, 21 czerwca 2018 15:14
+Do: Cezary Nowicki <cezary.nowicki@new-gravity.com>
+DW: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>
+Temat: RE: Maile do dostawców
+
+Tak jak pisałem od początku.
+ 
+Informacja o tym czy mail poszedł czy nie jest w kolumnie status.  Z odpowiedzi Pani Doroty wynika, że jedyne co potrzebuje to upewnić się, że mail dotarł. I taka informacja jest i nie trzeba nigdzie klikać itd.
+ 
+Spójrz proszę na zrzut ekranu, który Ci wysłałem. Wyraźnie widać, że status Wysłano…[data_wysłania] daje Pani Dorocie pełną informację.
+ 
+ 
+ 
+Pozdrawiam 
+Przemysław Walkowski
+ 
+From: Cezary Nowicki <cezary.nowicki@new-gravity.com> 
+Sent: Thursday, June 21, 2018 3:07 PM
+To: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com>
+Subject: FW: Maile do dostawców
+ 
+Taką odpowiedź dostałem od Pani Doroty z Koordynacji, więc ta historia by się jednak przydała.
+ 
+pzdr
+ 
+---
+Cezary Nowicki
+Senior Product Lead
+ 
+ 
+A: ul. Zwierzyniecka 3| 60-813 Poznań | Poland
+M: +48 662101219
+@: cezary.nowicki@new-gravity.com 
+W: www.new-gravity.com
+ 
+ 
+Od: "Dorota.Maciejewska@selgros.pl" <Dorota.Maciejewska@selgros.pl>
+Data: czwartek, 21 czerwca 2018 13:15
+Do: Cezary Nowicki <cezary.nowicki@new-gravity.com>
+DW: "Artur.Medolinski@selgros.pl" <Artur.Medolinski@selgros.pl>, "Adam.Kubiak@selgros.pl" <Adam.Kubiak@selgros.pl>
+Temat: RE: Maile do dostawców
+ 
+Witam,
+Historia wysyłki  właściwie jest tylko potrzebna do sprawdzenia, czy coś poszło i jeśli z różnych przyczyn nie dotarło – aby ponownie przesłać.
+Jeśli chodzi o zawartość  maila – zawsze będzie taka sama.
+ 
+Pozdrawiam
+Dorota Maciejewska
+Kierownik Działu Koordynacji Zakupu
+ 
+Transgourmet Polska Sp. z o.o.
+Zamenhofa 133, 61-131 Poznań, Polska
+tel.: +48 61 87 42 221
+E-mail: Dorota.Maciejewska@selgros.pl
+www.selgros.pl
+www.selgros24.pl
+www.transgourmet.pl
+Transgourmet Polska Sp. z o.o. jest zarejestrowana w Sądzie Rejonowym Poznań-Nowe Miasto i Wilda w Poznaniu, Wydział VIII Gospodarczy Krajowego Rejestru Sądowego pod nr KRS: 0000045597. 
+NIP: PL 781-10-11-998, REGON 630375413. Wysokość kapitału zakładowego: 310.000.000,00 złotych.
+ 
+From: Kubiak Adam 
+Sent: Thursday, June 21, 2018 1:08 PM
+To: Maciejewska Dorota
+Subject: RE: Maile do dostawców
+ 
+To raczej pytanie do Ciebie…
+ 
+Pozdrawiam
+Adam Kubiak
+Kupiec Działu Spożywczego
+ 
+Transgourmet Polska Sp. z o.o.
+Zamenhofa 133, 61-131 Poznań, Polska
+tel.: +48 61 87 42 080
+E-mail: Adam.Kubiak@selgros.pl
+www.selgros.pl
+www.selgros24.pl
+www.transgourmet.pl
+Transgourmet Polska Sp. z o.o. jest zarejestrowana w Sądzie Rejonowym Poznań-Nowe Miasto i Wilda w Poznaniu, Wydział VIII Gospodarczy Krajowego Rejestru Sądowego pod nr KRS: 0000045597. 
+NIP: PL 781-10-11-998, REGON 630375413. Wysokość kapitału zakładowego: 310.000.000,00 złotych.
+ 
+From: Cezary Nowicki <cezary.nowicki@new-gravity.com> 
+Sent: Thursday, June 21, 2018 11:48 AM
+To: Kubiak Adam <Adam.Kubiak@selgros.pl>; przemyslaw.walkowski@snpgroup.com
+Cc: marcin.sydoruk@snpgroup.com; Medoliński Artur <Artur.Medolinski@selgros.pl>; Maciejewska Dorota <Dorota.Maciejewska@selgros.pl>
+Subject: Re: Maile do dostawców
+ 
+Panie Adamie, 
+ 
+Tak wszystko zostało już wyjaśnione i działamy. Została jeszcze jedna rzecz do potwierdzenia: Czy istnieje możliwości, że taki mail będzie wysyłany kilkakrotnie (np. dostawca zgłosi jakieś błędy i należy je skorygować)? 
+Zastanawiamy się nad zasadnością różnych wersji wysyłanych maili oraz ich HISTORII. Przecież maile i tak będą generowane automatycznie, więc nie będzie można w nie ingerować?
+Byłbym wdzięczny za odpowiedź w tym temacie.
+ 
+pozdrawiam
+ 
+---
+Cezary Nowicki
+Senior Product Lead
+ 
+ 
+A: ul. Zwierzyniecka 3| 60-813 Poznań | Poland
+M: +48 662101219
+@: cezary.nowicki@new-gravity.com 
+W: www.new-gravity.com
+ 
+ 
+Od: "Adam.Kubiak@selgros.pl" <Adam.Kubiak@selgros.pl>
+Data: czwartek, 21 czerwca 2018 10:15
+Do: "przemyslaw.walkowski@snpgroup.com" <przemyslaw.walkowski@snpgroup.com>
+DW: "marcin.sydoruk@snpgroup.com" <marcin.sydoruk@snpgroup.com>, Cezary Nowicki <cezary.nowicki@new-gravity.com>, "Artur.Medolinski@selgros.pl" <Artur.Medolinski@selgros.pl>, "Dorota.Maciejewska@selgros.pl" <Dorota.Maciejewska@selgros.pl>
+Temat: RE: Maile do dostawców
+ 
+Dzień dobry,
+ 
+Czy coś wiadomo w poniższym temacie?
+ 
+Pozdrawiam
+Adam Kubiak
+Kupiec Działu Spożywczego
+ 
+Transgourmet Polska Sp. z o.o.
+Zamenhofa 133, 61-131 Poznań, Polska
+tel.: +48 61 87 42 080
+E-mail: Adam.Kubiak@selgros.pl
+www.selgros.pl
+www.selgros24.pl
+www.transgourmet.pl
+Transgourmet Polska Sp. z o.o. jest zarejestrowana w Sądzie Rejonowym Poznań-Nowe Miasto i Wilda w Poznaniu, Wydział VIII Gospodarczy Krajowego Rejestru Sądowego pod nr KRS: 0000045597. 
+NIP: PL 781-10-11-998, REGON 630375413. Wysokość kapitału zakładowego: 310.000.000,00 złotych.
+ 
+From: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com> 
+Sent: Monday, June 11, 2018 4:02 PM
+To: Kubiak Adam <Adam.Kubiak@selgros.pl>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com; Medoliński Artur <Artur.Medolinski@selgros.pl>; Maciejewska Dorota <Dorota.Maciejewska@selgros.pl>
+Subject: RE: Maile do dostawców
+ 
+Panie Adamie
+ 
+Takie makiety do mnie nie trafiły. Wyjaśnię to z Panem Nowickim.
+ 
+Pozdrawiam 
+Przemysław Walkowski
+ 
+From: Adam.Kubiak@selgros.pl <Adam.Kubiak@selgros.pl> 
+Sent: Monday, June 11, 2018 3:32 PM
+To: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com; Artur.Medolinski@selgros.pl; Dorota.Maciejewska@selgros.pl
+Subject: RE: Maile do dostawców
+ 
+Panie Przemku,
+ 
+Muszę sprawdzić z Działem Marketingu co i jak z tym Kodem ZOOM. Nie znam szczegółów ustaleń, ale coś musimy poprawić bo chyba za dobrze to nie zostało wymyślone.
+ 
+Kwestia samego wyglądu tego ekranu różni się od wersji z załącznika…. Proszę o sprawdzenie.
+ 
+ 
+ 
+Pozdrawiam
+Adam Kubiak
+Kupiec Działu Spożywczego
+ 
+Transgourmet Polska Sp. z o.o.
+Zamenhofa 133, 61-131 Poznań, Polska
+tel.: +48 61 87 42 080
+E-mail: Adam.Kubiak@selgros.pl
+www.selgros.pl
+www.selgros24.pl
+www.transgourmet.pl
+Transgourmet Polska Sp. z o.o. jest zarejestrowana w Sądzie Rejonowym Poznań-Nowe Miasto i Wilda w Poznaniu, Wydział VIII Gospodarczy Krajowego Rejestru Sądowego pod nr KRS: 0000045597. 
+NIP: PL 781-10-11-998, REGON 630375413. Wysokość kapitału zakładowego: 310.000.000,00 złotych.
+ 
+From: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com> 
+Sent: Monday, June 11, 2018 1:28 PM
+To: Kubiak Adam <Adam.Kubiak@selgros.pl>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com
+Subject: RE: Maile do dostawców
+ 
+Tak, wszystkie gazetki, które mają taka sama nazwę. 
+ 
+Nie, Kod ZOOM dotyczy ogólnej konfiguracji gazetki. 
+ 
+ 
+Pozdrawiam 
+Przemysław Walkowski
+ 
+From: Adam.Kubiak@selgros.pl <Adam.Kubiak@selgros.pl> 
+Sent: Monday, June 11, 2018 1:19 PM
+To: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com
+Subject: RE: Maile do dostawców
+ 
+Ok. i ta zmiana dotyczy wszystkich gazetek/katalogów, które mają tą samą nazwę? Nie można wprowadzić kod ZOOM pod konkretną gazetkę z konkretnego okresu?
+ 
+Pozdrawiam
+Adam Kubiak
+Kupiec Działu Spożywczego
+ 
+Transgourmet Polska Sp. z o.o.
+Zamenhofa 133, 61-131 Poznań, Polska
+tel.: +48 61 87 42 080
+E-mail: Adam.Kubiak@selgros.pl
+www.selgros.pl
+www.selgros24.pl
+www.transgourmet.pl
+Transgourmet Polska Sp. z o.o. jest zarejestrowana w Sądzie Rejonowym Poznań-Nowe Miasto i Wilda w Poznaniu, Wydział VIII Gospodarczy Krajowego Rejestru Sądowego pod nr KRS: 0000045597. 
+NIP: PL 781-10-11-998, REGON 630375413. Wysokość kapitału zakładowego: 310.000.000,00 złotych.
+ 
+From: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com> 
+Sent: Monday, June 11, 2018 1:16 PM
+To: Kubiak Adam <Adam.Kubiak@selgros.pl>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com
+Subject: RE: Maile do dostawców
+ 
+Panel Administratora - > Konfiguracja gazetki -> Lista gazetek -> Edytuj po prawej stronie.
+ 
+Pozdrawiam 
+Przemysław Walkowski
+ 
+From: Adam.Kubiak@selgros.pl <Adam.Kubiak@selgros.pl> 
+Sent: Monday, June 11, 2018 1:13 PM
+To: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com
+Subject: RE: Maile do dostawców
+ 
+Ale gdzie?
+ 
+ 
+ 
+Pozdrawiam
+Adam Kubiak
+Kupiec Działu Spożywczego
+ 
+Transgourmet Polska Sp. z o.o.
+Zamenhofa 133, 61-131 Poznań, Polska
+tel.: +48 61 87 42 080
+E-mail: Adam.Kubiak@selgros.pl
+www.selgros.pl
+www.selgros24.pl
+www.transgourmet.pl
+Transgourmet Polska Sp. z o.o. jest zarejestrowana w Sądzie Rejonowym Poznań-Nowe Miasto i Wilda w Poznaniu, Wydział VIII Gospodarczy Krajowego Rejestru Sądowego pod nr KRS: 0000045597. 
+NIP: PL 781-10-11-998, REGON 630375413. Wysokość kapitału zakładowego: 310.000.000,00 złotych.
+ 
+From: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com> 
+Sent: Monday, June 11, 2018 1:11 PM
+To: Kubiak Adam <Adam.Kubiak@selgros.pl>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com
+Subject: RE: Maile do dostawców
+ 
+Każdą gazetkę można wy edytować i dodać to pole. Przycisk „Edytuj”.
+ 
+ 
+Pozdrawiam 
+Przemysław Walkowski
+ 
+From: Adam.Kubiak@selgros.pl <Adam.Kubiak@selgros.pl> 
+Sent: Monday, June 11, 2018 1:07 PM
+To: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com
+Subject: RE: Maile do dostawców
+ 
+A co z gazetkami, które nie są nowe?
+ 
+Pozdrawiam
+Adam Kubiak
+Kupiec Działu Spożywczego
+ 
+Transgourmet Polska Sp. z o.o.
+Zamenhofa 133, 61-131 Poznań, Polska
+tel.: +48 61 87 42 080
+E-mail: Adam.Kubiak@selgros.pl
+www.selgros.pl
+www.selgros24.pl
+www.transgourmet.pl
+Transgourmet Polska Sp. z o.o. jest zarejestrowana w Sądzie Rejonowym Poznań-Nowe Miasto i Wilda w Poznaniu, Wydział VIII Gospodarczy Krajowego Rejestru Sądowego pod nr KRS: 0000045597. 
+NIP: PL 781-10-11-998, REGON 630375413. Wysokość kapitału zakładowego: 310.000.000,00 złotych.
+ 
+From: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com> 
+Sent: Monday, June 11, 2018 1:06 PM
+To: Kubiak Adam <Adam.Kubiak@selgros.pl>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com
+Subject: RE: Maile do dostawców
+ 
+W panelu administratora w konfiguracji gazetek pole edycji.
+ 
+To jest to 
+ 
+ 
+ 
+Pozdrawiam 
+Przemysław Walkowski
+ 
+From: Adam.Kubiak@selgros.pl <Adam.Kubiak@selgros.pl> 
+Sent: Monday, June 11, 2018 1:04 PM
+To: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com
+Subject: RE: Maile do dostawców
+ 
+Ok. a gdzie mamy dopisać kod ZOOM?
+ 
+Pozdrawiam
+Adam Kubiak
+Kupiec Działu Spożywczego
+ 
+Transgourmet Polska Sp. z o.o.
+Zamenhofa 133, 61-131 Poznań, Polska
+tel.: +48 61 87 42 080
+E-mail: Adam.Kubiak@selgros.pl
+www.selgros.pl
+www.selgros24.pl
+www.transgourmet.pl
+Transgourmet Polska Sp. z o.o. jest zarejestrowana w Sądzie Rejonowym Poznań-Nowe Miasto i Wilda w Poznaniu, Wydział VIII Gospodarczy Krajowego Rejestru Sądowego pod nr KRS: 0000045597. 
+NIP: PL 781-10-11-998, REGON 630375413. Wysokość kapitału zakładowego: 310.000.000,00 złotych.
+ 
+From: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com> 
+Sent: Monday, June 11, 2018 12:59 PM
+To: Kubiak Adam <Adam.Kubiak@selgros.pl>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com
+Subject: RE: Maile do dostawców
+ 
+Tak.
+ 
+Aby poprawnie zacząć wysyłać te potwierdzenia należy uzupełnić pole KOD ZOOM w konfiguracji gazetek. Jeśli nie będzie takiego pola nie uda się wysłać maila.
+ 
+Proszę zweryfikować poprawność linków, poprawność maila oraz danych w raporcie.
+ 
+ 
+Pozdrawiam 
+Przemysław Walkowski
+ 
+From: Adam.Kubiak@selgros.pl <Adam.Kubiak@selgros.pl> 
+Sent: Monday, June 11, 2018 12:55 PM
+To: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; cezary.nowicki@new-gravity.com
+Subject: RE: Maile do dostawców
+ 
+Dzień dobry,
+ 
+Rozumiem, że jest to funkcjonalność w której mamy możliwość wysłania do dostawcy maila z linkiem do gazetki?
+ 
+Pozdrawiam
+Adam Kubiak
+Kupiec Działu Spożywczego
+ 
+Transgourmet Polska Sp. z o.o.
+Zamenhofa 133, 61-131 Poznań, Polska
+tel.: +48 61 87 42 080
+E-mail: Adam.Kubiak@selgros.pl
+www.selgros.pl
+www.selgros24.pl
+www.transgourmet.pl
+Transgourmet Polska Sp. z o.o. jest zarejestrowana w Sądzie Rejonowym Poznań-Nowe Miasto i Wilda w Poznaniu, Wydział VIII Gospodarczy Krajowego Rejestru Sądowego pod nr KRS: 0000045597. 
+NIP: PL 781-10-11-998, REGON 630375413. Wysokość kapitału zakładowego: 310.000.000,00 złotych.
+ 
+From: Przemysław Walkowski <przemyslaw.walkowski@snpgroup.com> 
+Sent: Monday, June 11, 2018 10:26 AM
+To: Kubiak Adam <Adam.Kubiak@selgros.pl>
+Cc: Marcin Sydoruk <marcin.sydoruk@snpgroup.com>; Cezary Nowicki <cezary.nowicki@new-gravity.com>
+Subject: Maile do dostawców
+ 
+Dzień dobry Panie Adamie
+ 
+Funkcjonalność wysyłania maili do dostawców jest już na produkcji, proszę o wykonanie testów i ewentualne uwagi. Raport znajduje się w zakładce raporty „Maile do dostawców”
+ 
+ 
+ 
+ 
+Przemysław Walkowski 
+Software Developer 
+
+SNP Poland Sp. z o.o. | Złotniki, ul. Krzemowa 1 | 62-002 Suchy Las near Poznań | Poland 
+Phone: +48 61 827 70 00 | Mobile: +48 605 171 063
+www.snp-poland.com | www.snpgroup.com | LinkedIn / Twitter / Facebook
+
+BCC – we have been SNP Poland since 2018
+
+Register data: District Court for Poznań Nowe Miasto i Wilda, 8th Commercial Division | KRS: 0000040760
+Management board: Bartłomiej Buszczak (CEO), Piotr Brzoskowski, Michał Kunze, Andrzej Moskalik, Piotr Rogala, Waldemar Sokołowski
+ 

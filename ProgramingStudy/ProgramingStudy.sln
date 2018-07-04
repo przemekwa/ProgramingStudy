@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramingStudy", "ProgramingStudy.csproj", "{A5B811FD-C193-497B-A62C-8E0A09EF39A3}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramingStudyTests", "..\ProgramingStudyTests\ProgramingStudyTests.csproj", "{6CA04C5F-7119-47A7-8BEC-C6BD22940E0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorPreview", "..\ColorPreview\ColorPreview.csproj", "{13D78EB5-BCFF-4E16-854C-F9618F5B881D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNETCoreTests", "..\DotNETCoreTests\DotNETCoreTests.csproj", "{0A4A6A80-D712-4BCA-A294-D7F4504634F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +35,15 @@ Global
 		{13D78EB5-BCFF-4E16-854C-F9618F5B881D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13D78EB5-BCFF-4E16-854C-F9618F5B881D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13D78EB5-BCFF-4E16-854C-F9618F5B881D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A4A6A80-D712-4BCA-A294-D7F4504634F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A4A6A80-D712-4BCA-A294-D7F4504634F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A4A6A80-D712-4BCA-A294-D7F4504634F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A4A6A80-D712-4BCA-A294-D7F4504634F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8A0C418-2C80-42F6-B546-ACAF00B20931}
 	EndGlobalSection
 EndGlobal

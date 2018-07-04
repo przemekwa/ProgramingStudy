@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,13 @@ namespace ProgramingStudy.Job
     {
         public void Study()
         {
-            var lines = File.ReadAllLines("");
+            string ala = null;
+
+            var d = sss();
+
+            var f = ala.Length;
+
+            var lines = File.ReadAllLines("in_dictionaryEntrys.txt");
 
             var dictionaryEntrys = new List<string>();
             var translationEntrys = new List<string>();
@@ -19,17 +26,19 @@ namespace ProgramingStudy.Job
             foreach (var line in lines)
             {
                 var values = line.Split(new[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-
     
-                dictionaryEntrys.Add(MakeFullEntry(values[0], values[1], values[2], values[3]));
-
-
+               dictionaryEntrys.Add(MakeFullEntry(values[0], values[1], values[2], values[3]));
+                translationEntrys.Add(GetTranslations(values[0], values[1], values[2], values[3]));
             }
 
+            File.WriteAllLines("out_dictionaryEntrys.txt", dictionaryEntrys);
+         
+            File.WriteAllLines("out_translationEntrys.txt", translationEntrys);
 
-
-                var result = MakeFullEntry("1756-110", "Nie sprecyzowane (gazetka wew., itd…..)", "Usługi marketingowe lub wezwanie", "H110");
-
+            string sss()
+            {
+                return "Działa";
+            }
         }
 
         public string MakeFullEntry(string accountNumber, string accoutDesc, string textOnInvose, string code)
@@ -116,12 +125,19 @@ namespace ProgramingStudy.Job
             return sb.ToString();
         }
 
-        public string GetTranslations()
+        public string GetTranslations(string accountNumber, string accoutDesc, string textOnInvose, string code)
         {
-            var sb = new StringBuilder();
+            var food = accountNumber.Substring(3, 1) == "1" ? "F" : "NF";
+
+            var accoutNameWithDash = accountNumber.Replace("-", "_");
+            var accoutNameWithDot = accountNumber.Replace("-", ".");
+
+             var sb = new StringBuilder();
 
             sb.AppendLine($"Dictionary.Additional.Settlements.Account.{food}.{accoutNameWithDot}\t{accoutDesc}\t{accoutDesc}\t{accoutDesc}\t{accoutDesc}\t{accoutDesc}");
             sb.AppendLine($"Dictionary.Additional.Settlements.TextOnInvoice.{food}.{accoutNameWithDot}.1\t{textOnInvose}\t{textOnInvose}\t{textOnInvose}\t{textOnInvose}\t{textOnInvose}");
+
+            return sb.ToString();
         }
     }
 }

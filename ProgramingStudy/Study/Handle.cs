@@ -26,6 +26,10 @@ namespace ProgramingStudy.Study
 
     class Test2 :IStudyTest
     {
+        public Test2()
+        {
+        }
+
         void d_Pierwszy()
         {
             Console.WriteLine("Cześć");

@@ -15,7 +15,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new DictionaryGenerator();
+        public static readonly IStudyTest StudyTest = new SpecialDecimal();
 
         public static void Main(string[] args)
         {
