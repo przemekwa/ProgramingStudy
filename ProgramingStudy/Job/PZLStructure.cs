@@ -41,15 +41,19 @@ namespace ProgramingStudy.Job
             var list = new List<List<Emp>>();
             var errorList = new List<List<Emp>>();
             var notEmp = new List<List<Emp>>();
+            var notJOrg = new List<List<Emp>>();
 
             foreach (var item in empList)
             {
+                var hasError = false;
+
                 var train = new List<Emp>
                 {
                     item
                 };
 
                 var whileEmp = item;
+               
 
                 while (string.IsNullOrEmpty(whileEmp.Boss_Id) == false)
                 {
@@ -58,12 +62,21 @@ namespace ProgramingStudy.Job
                      if (whileEmp.Boss_Id == whileEmp.Id)
                     {
                         errorList.Add(train);
+                        //hasError = true;
                         break;
                     }
 
                     if (boss == null)
                     {
                         notEmp.Add(train);
+                        //hasError = true;
+                        break;
+                    }
+
+                    if (string.IsNullOrEmpty(item.JOrg))
+                    {
+                        notJOrg.Add(train);
+                        hasError = true;
                         break;
                     }
 
@@ -76,8 +89,11 @@ namespace ProgramingStudy.Job
 
                     whileEmp = boss;
                 }
-
-                list.Add(train);
+                if (hasError == false)
+                {
+                    list.Add(train);
+                }
+                
             }
 
             var root = new TreeNode("Zarząd");

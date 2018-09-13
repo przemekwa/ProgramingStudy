@@ -43,7 +43,13 @@ namespace ProgramingStudy.Job
 
                 foreach (var item in _children)
                 {
-                    return item.Value.Find(id);
+                    var f = item.Value.Find(id);
+
+                    if (f != null)
+                    {
+                        return f;
+                    }
+                    
                 }
 
             }
