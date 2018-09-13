@@ -7,59 +7,44 @@ using System.Threading.Tasks;
 
 namespace ProgramingStudy.Job
 {
-    
+    public class Employee
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string BossId { get; set; }
+        public string Position { get; set; }
+        public string OrganizationUnit { get; set; }
+
+    }
+
     public class PZLStructure : IStudyTest
     {
-
-
-
-        public class Emp
-        {
-            public string Id { get; set; }
-            public string Name { get; set; }
-            public string Boss_Id { get; set; }
-            public string Stanowsiko { get; set; }
-            public string JOrg { get; set; }
-
-        }
         public void Study()
         {
-            var empList = File.ReadAllLines("BeeOffice_11.09_h.csv").Skip(1).Select(s =>
-            {
-                var row = s.Split(new[] { ";" }, StringSplitOptions.None);
+            var employeesList = GetEmployeesFromFile("BeeOffice_11.09_h.csv");
 
-                return new Emp
-                {
-                    Id = row[6],
-                    Name = row[0] + " " + row[1],
-                    Boss_Id = row[3],
-                    Stanowsiko = row[2],
-                    JOrg = row[4]
-                };
-            });
+            var allStringEmployees = new List<List<Employee>>();
+            var errorList = new List<List<Employee>>();
+            var notEmp = new List<List<Employee>>();
+            var notJOrg = new List<List<Employee>>();
 
-            var list = new List<List<Emp>>();
-            var errorList = new List<List<Emp>>();
-            var notEmp = new List<List<Emp>>();
-            var notJOrg = new List<List<Emp>>();
-
-            foreach (var item in empList)
+            foreach (var employee in employeesList)
             {
                 var hasError = false;
 
-                var train = new List<Emp>
+                var train = new List<Employee>
                 {
-                    item
+                    employee
                 };
 
-                var whileEmp = item;
-               
+                var currentEmployee = employee;
 
-                while (string.IsNullOrEmpty(whileEmp.Boss_Id) == false)
+
+                while (string.IsNullOrEmpty(currentEmployee.BossId) == false)
                 {
-                    var boss = empList.FirstOrDefault(e => e.Id == whileEmp.Boss_Id);
+                    var boss = employeesList.FirstOrDefault(e => e.Id == currentEmployee.BossId);
 
-                     if (whileEmp.Boss_Id == whileEmp.Id)
+                    if (currentEmployee.BossId == currentEmployee.Id)
                     {
                         errorList.Add(train);
                         //hasError = true;
@@ -73,81 +58,102 @@ namespace ProgramingStudy.Job
                         break;
                     }
 
-                    if (string.IsNullOrEmpty(item.JOrg))
+                    if (string.IsNullOrEmpty(employee.OrganizationUnit))
                     {
                         notJOrg.Add(train);
                         hasError = true;
                         break;
                     }
 
-                    if (boss != null && whileEmp.Boss_Id != whileEmp.Id)
+                    if (boss != null && currentEmployee.BossId != currentEmployee.Id)
                     {
                         train.Add(boss);
                     }
 
-                   
-
-                    whileEmp = boss;
+                    currentEmployee = boss;
                 }
+
                 if (hasError == false)
                 {
-                    list.Add(train);
+                    allStringEmployees.Add(train);
                 }
-                
+
             }
 
-            var root = new TreeNode("Zarząd");
-            var tempRoot = root;
-            
+            TreeNode tree = GenerateTreeNodes(employeesList, allStringEmployees);
 
+            ShowAllTree(tree);
+        }
 
-            foreach (var train in list)
+        private TreeNode GenerateTreeNodes(IEnumerable<Employee> employeesList, List<List<Employee>> allStringEmployees)
+        {
+            var rootNode = new TreeNode("Zarząd");
+            var tempNode = rootNode;
+
+            foreach (var employeesString in allStringEmployees)
             {
-                train.Reverse();
-
-
-                
-
-                foreach (var item in train)
-                {
-
-                    var g = root.Find(item.JOrg);
-
-                    if (g==null)
-                    {
-                        var newroot = new TreeNode(item.JOrg);
-                        tempRoot.Add(newroot);
-                        tempRoot = newroot;
-                    }
-                    else
-                    {
-                        
-                    }
-
-                    
-                }
-
-                
-
-
-            
-                tempRoot = root;
-
-
+                AddOrganizationUnit(rootNode, tempNode, employeesString);
             }
 
-            foreach (var item in empList)
+            AddPositions(rootNode, employeesList);
+            return rootNode;
+        }
+
+        private IEnumerable<Employee> GetEmployeesFromFile(string fileName) =>
+        
+            File.ReadAllLines(fileName).Skip(1).Select(s =>
             {
-                var node = root.Find(item.JOrg);
+                var row = s.Split(new[] { ";" }, StringSplitOptions.None);
 
-                if (node.Find(item.Stanowsiko) == null)
+                return new Employee
                 {
-                    node.Add(new TreeNode(item.Stanowsiko));
+                    Id = row[6],
+                    Name = row[0] + " " + row[1],
+                    BossId = row[3],
+                    Position = row[2],
+                    OrganizationUnit = row[4]
+                };
+            });
+        
+
+        private void AddOrganizationUnit(TreeNode rootNode, TreeNode tempNode, List<Employee> employeesString)
+        {
+            employeesString.Reverse();
+
+            foreach (var employee in employeesString)
+            {
+                if (rootNode.Find(employee.OrganizationUnit) == null)
+                {
+                    var newroot = new TreeNode(employee.OrganizationUnit);
+                    tempNode.Add(newroot);
+                    tempNode = newroot;
                 }
-
             }
-                Console.WriteLine(TreeNode.BuildString(root));
 
+            tempNode = rootNode;
+        }
+
+        private void AddPositions(TreeNode rootNode, IEnumerable<Employee> employeesList)
+        {
+            foreach (var employee in employeesList)
+            {
+                var node = rootNode.Find(employee.OrganizationUnit);
+
+                if (node.Find(employee.Position) == null)
+                {
+                    var positionNode = new TreeNode(employee.Position);
+
+                    node.Add(positionNode);
+
+                    positionNode.Add(new TreeNode(employee.Name));
+
+                }
+            }
+        }
+
+        private void ShowAllTree(TreeNode rootNode)
+        {
+           File.WriteAllText("tree.txt", TreeNode.BuildString(rootNode));
         }
     }
 }
