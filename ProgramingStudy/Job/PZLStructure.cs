@@ -136,7 +136,17 @@ namespace ProgramingStudy.Job
 
             }
 
-            Console.WriteLine(TreeNode.BuildString(root));
+            foreach (var item in empList)
+            {
+                var node = root.Find(item.JOrg);
+
+                if (node.Find(item.Stanowsiko) == null)
+                {
+                    node.Add(new TreeNode(item.Stanowsiko));
+                }
+
+            }
+                Console.WriteLine(TreeNode.BuildString(root));
 
         }
     }
