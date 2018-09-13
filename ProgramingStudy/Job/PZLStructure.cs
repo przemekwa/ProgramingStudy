@@ -95,7 +95,7 @@ namespace ProgramingStudy.Job
                 foreach (var item in train)
                 {
 
-                    var g = root.FirstOrDefault(s=>s.ID == item.JOrg);
+                    var g = root.Find(item.JOrg);
 
                     if (g==null)
                     {
@@ -114,11 +114,13 @@ namespace ProgramingStudy.Job
                 
 
 
-                Console.WriteLine(TreeNode.BuildString(root));
+            
                 tempRoot = root;
 
 
             }
+
+            Console.WriteLine(TreeNode.BuildString(root));
 
         }
     }

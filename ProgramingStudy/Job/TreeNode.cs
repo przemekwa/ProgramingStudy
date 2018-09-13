@@ -27,7 +27,30 @@ namespace ProgramingStudy.Job
 
         public TreeNode Find(string id)
         {
+            if (ID == id)
+            {
+                return this;
+            }
+
+            if (this._children.Any())
+            {
+                var ch = this._children.FirstOrDefault(s => s.Key == id);
+
+                if (ch.Key != null)
+                {
+                    return ch.Value;
+                }
+
+                foreach (var item in _children)
+                {
+                    return item.Value.Find(id);
+                }
+
+            }
+
             return null;
+
+
 
 
         }
