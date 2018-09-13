@@ -25,6 +25,13 @@ namespace ProgramingStudy.Job
             return this._children[id];
         }
 
+        public TreeNode Find(string id)
+        {
+            return null;
+
+
+        }
+
         public void Add(TreeNode item)
         {
             if (item.Parent != null)

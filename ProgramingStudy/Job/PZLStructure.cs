@@ -107,14 +107,16 @@ namespace ProgramingStudy.Job
                     {
                         
                     }
-                    
-                    
+
                     
                 }
 
-                Console.WriteLine(TreeNode.BuildString(root));
-
                 
+
+
+                Console.WriteLine(TreeNode.BuildString(root));
+                tempRoot = root;
+
 
             }
 
