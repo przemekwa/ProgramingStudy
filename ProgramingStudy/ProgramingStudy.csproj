@@ -151,10 +151,12 @@
     <Compile Include="AppConfigStudy.cs" />
     <Compile Include="Job\DictionaryGenerator.cs" />
     <Compile Include="Job\Lidero.cs" />
+    <Compile Include="Job\PZLStructure.cs" />
     <Compile Include="Job\RegExpTests.cs" />
     <Compile Include="Job\SpecialDecimal.cs" />
     <Compile Include="Job\TableRecordGenerator.cs" />
     <Compile Include="IStudyTest.cs" />
+    <Compile Include="Job\TreeNode.cs" />
     <Compile Include="LinquStudy.cs" />
     <Compile Include="LiteDB\Entity.cs" />
     <Compile Include="LiteDB\IRepository.cs" />
@@ -211,6 +213,7 @@
     <Compile Include="Study\RegexpTests.cs" />
     <Compile Include="Study\RestMethods.cs" />
     <Compile Include="Study\RoleManager.cs" />
+    <Compile Include="Study\ScaleRatio.cs" />
     <Compile Include="Study\SerializationJSON.cs" />
     <Compile Include="Study\Serialization.cs" />
     <Compile Include="Study\SoupEnvelopeCreator.cs" />
