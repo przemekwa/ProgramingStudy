@@ -19,9 +19,10 @@ namespace ProgramingStudy.Job
 
     public class PZLStructure : IStudyTest
     {
+        public const string UNASSIGNED_ID = "Nieprzypisani";
         public void Study()
         {
-            var employeesList = GetEmployeesFromFile("BeeOffice_11.09_h.csv");
+            var employeesList = GetEmployeesFromFile("BeeOffice_14.09.csv");
 
             var allStringEmployees = new List<List<Employee>>();
             var errorList = new List<List<Employee>>();
@@ -89,6 +90,8 @@ namespace ProgramingStudy.Job
         private TreeNode GenerateTreeNodes(IEnumerable<Employee> employeesList, List<List<Employee>> allStringEmployees)
         {
             var rootNode = new TreeNode("Zarząd");
+            rootNode.Add(new TreeNode(UNASSIGNED_ID));
+
             var tempNode = rootNode;
 
             foreach (var employeesString in allStringEmployees)
@@ -96,7 +99,7 @@ namespace ProgramingStudy.Job
                 AddOrganizationUnit(rootNode, tempNode, employeesString);
             }
 
-            AddPositions(rootNode, allStringEmployees);
+            AddPositions(rootNode, allStringEmployees, employeesList);
             return rootNode;
         }
 
@@ -134,12 +137,40 @@ namespace ProgramingStudy.Job
             tempNode = rootNode;
         }
 
-        private void AddPositions(TreeNode rootNode, List<List<Employee>> allStringEmployees)
+        private void AddPositions(TreeNode rootNode, List<List<Employee>> allStringEmployees, IEnumerable<Employee> employees )
         {
             foreach (var employeeString in allStringEmployees)
             {
                 foreach (var employee in employeeString)
                 {
+                    if (employees.FirstOrDefault(d=>d.Id==employee.BossId) == null)
+                    {
+                        var unNode = rootNode.Find(UNASSIGNED_ID);
+
+                        var msg = $"Stanowisko dla {employee.Id} @@";
+
+                        if (unNode.Find(msg) == null)
+                        {
+                            unNode.Add(new TreeNode(msg));
+                        }
+
+                        continue;
+                    }
+
+                    if (string.IsNullOrEmpty(employee.OrganizationUnit))
+                    {
+                        var unNode = rootNode.Find(UNASSIGNED_ID);
+
+                        var msg = $"Dział dla {employee.Id} @@";
+
+                        if (unNode.Find(msg) == null)
+                        {
+                            unNode.Add(new TreeNode(msg));
+                        }
+
+                        continue;
+                    }
+
                     var node = rootNode.Find(employee.OrganizationUnit);
 
                     if (node.Find(employee.Position) != null)
