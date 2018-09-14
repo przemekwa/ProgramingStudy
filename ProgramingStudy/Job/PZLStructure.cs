@@ -81,9 +81,6 @@ namespace ProgramingStudy.Job
             }
 
 
-
-            
-
             TreeNode tree = GenerateTreeNodes(employeesList, allStringEmployees);
 
             ShowAllTree(tree);
@@ -99,7 +96,7 @@ namespace ProgramingStudy.Job
                 AddOrganizationUnit(rootNode, tempNode, employeesString);
             }
 
-            AddPositions(rootNode, employeesList);
+            AddPositions(rootNode, allStringEmployees);
             return rootNode;
         }
 
@@ -137,21 +134,26 @@ namespace ProgramingStudy.Job
             tempNode = rootNode;
         }
 
-        private void AddPositions(TreeNode rootNode, IEnumerable<Employee> employeesList)
+        private void AddPositions(TreeNode rootNode, List<List<Employee>> allStringEmployees)
         {
-            foreach (var employee in employeesList)
+            foreach (var employeeString in allStringEmployees)
             {
-                var node = rootNode.Find(employee.OrganizationUnit);
-
-                if (node.Find(employee.Position) == null)
+                foreach (var employee in employeeString)
                 {
-                    var positionNode = new TreeNode(employee.Position);
+                    var node = rootNode.Find(employee.OrganizationUnit);
 
-                    node.Add(positionNode);
+                    if (node.Find(employee.Position) != null)
+                    {
+                        continue;
+                    }
 
-                    positionNode.Add(new TreeNode(employee.Name));
+                    var newNode = new TreeNode(employee.Position);
 
+                    node.Add(newNode);
+
+                    node = newNode;
                 }
+
             }
         }
 
