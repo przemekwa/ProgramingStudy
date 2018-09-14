@@ -126,6 +126,21 @@ namespace ProgramingStudy.Job
 
             foreach (var employee in employeesString)
             {
+
+                if (string.IsNullOrWhiteSpace(employee.OrganizationUnit))
+                {
+                    var unNode = rootNode.Find(UNASSIGNED_ID);
+
+                    var msg = $"Dział dla {employee.Id} @@";
+
+                    if (unNode.Find(msg) == null)
+                    {
+                        unNode.Add(new TreeNode(msg));
+                    }
+
+                    continue;
+                }
+
                 if (rootNode.Find(employee.OrganizationUnit) == null)
                 {
                     var newroot = new TreeNode(employee.OrganizationUnit);
@@ -148,20 +163,6 @@ namespace ProgramingStudy.Job
                         var unNode = rootNode.Find(UNASSIGNED_ID);
 
                         var msg = $"Stanowisko dla {employee.Id} @@";
-
-                        if (unNode.Find(msg) == null)
-                        {
-                            unNode.Add(new TreeNode(msg));
-                        }
-
-                        continue;
-                    }
-
-                    if (string.IsNullOrEmpty(employee.OrganizationUnit))
-                    {
-                        var unNode = rootNode.Find(UNASSIGNED_ID);
-
-                        var msg = $"Dział dla {employee.Id} @@";
 
                         if (unNode.Find(msg) == null)
                         {
