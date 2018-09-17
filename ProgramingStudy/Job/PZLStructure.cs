@@ -156,6 +156,8 @@ namespace ProgramingStudy.Job
         {
             foreach (var employeeString in allStringEmployees)
             {
+                var bossNode = rootNode.Find(employeeString.First().OrganizationUnit);
+
                 foreach (var employee in employeeString)
                 {
                     if (employees.FirstOrDefault(d=>d.Id==employee.BossId) == null)
@@ -172,18 +174,18 @@ namespace ProgramingStudy.Job
                         continue;
                     }
 
-                    var node = rootNode.Find(employee.OrganizationUnit);
+                    var node = bossNode.Find(employee.Position);
 
-                    if (node.Find(employee.Position) != null)
+                    if (node != null && node.Find(employee.Position) != null)
                     {
                         continue;
                     }
 
                     var newNode = new TreeNode(employee.Position);
 
-                    node.Add(newNode);
+                    bossNode.Add(newNode);
 
-                    node = newNode;
+                    bossNode = newNode;
                 }
 
             }
@@ -191,7 +193,7 @@ namespace ProgramingStudy.Job
 
         private void ShowAllTree(TreeNode rootNode)
         {
-           File.WriteAllText("tree.txt", TreeNode.BuildString(rootNode));
+           File.WriteAllText($"tree{DateTime.Now.ToString("ddMMyyyyHHmmss")}.txt", TreeNode.BuildString(rootNode));
         }
     }
 }
