@@ -100,7 +100,7 @@ namespace ProgramingStudy.Job
 
             foreach (var employeesString in allStringEmployees)
             {
-                AddOrganizationUnitAndPosition(rootNode, employeesString);
+                AddOrganizationUnitAndPosition(rootNode, employeesString, employeesList);
             }
 
             return rootNode;
@@ -122,7 +122,7 @@ namespace ProgramingStudy.Job
                 };
             });
 
-        private void AddOrganizationUnitAndPosition(TreeNode rootNode, List<Employee> employeesString)
+        private void AddOrganizationUnitAndPosition(TreeNode rootNode, List<Employee> employeesString, IEnumerable<Employee> employeesList)
         {
             employeesString.Reverse();
 
@@ -135,6 +135,22 @@ namespace ProgramingStudy.Job
                     var unNode = rootNode.Find(UNASSIGNED_ID);
 
                     var msg = $"Dział dla {employee.Id} @@";
+
+                    if (unNode.Find(msg) == null)
+                    {
+                        boosNode = new TreeNode(msg);
+                        unNode.Add(boosNode);
+                    }
+
+                    continue;
+                }
+
+
+                if (employeesList.FirstOrDefault(d=>d.Id == employee.BossId) == null)
+                {
+                    var unNode = rootNode.Find(UNASSIGNED_ID);
+
+                    var msg = $"Stanowisko/Dział dla {employee.BossId} @@";
 
                     if (unNode.Find(msg) == null)
                     {
@@ -168,7 +184,7 @@ namespace ProgramingStudy.Job
                     // Jeśli jest organizacja to sprawdź czy stanowisko nie jest puste. Jeśli puste to dodaj do nieprzypisanych i uaktualnij gałąź z szefem.
                     //
 
-                    if (string.IsNullOrWhiteSpace(employee.Position))
+                    if (string.IsNullOrWhiteSpace(employee.Position)) 
                     {
                         var unNode = rootNode.Find(UNASSIGNED_ID);
 
@@ -203,7 +219,6 @@ namespace ProgramingStudy.Job
                     {
                         boosNode = boosNode.Find(employee.OrganizationUnit);
                     }
-
 
                     var newroot = new TreeNode(employee.Position);
 
