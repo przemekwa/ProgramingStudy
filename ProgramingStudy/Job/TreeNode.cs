@@ -135,5 +135,10 @@ namespace ProgramingStudy.Job
             BuildString(sb, child, depth + 1);
         }
     }
+
+        internal void Add(object newroot2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

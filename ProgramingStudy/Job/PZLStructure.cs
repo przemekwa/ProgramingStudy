@@ -22,7 +22,13 @@ namespace ProgramingStudy.Job
         public const string UNASSIGNED_ID = "Nieprzypisani";
         public void Study()
         {
-            var employeesList = GetEmployeesFromFile("BeeOffice_14.09.csv");
+            var tree = GetRootNode();
+            ShowAllTree(tree);
+        }
+
+        public TreeNode GetRootNode(string fileName = "BeeOffice_14.09.csv")
+        {
+            var employeesList = GetEmployeesFromFile(fileName);
 
             var allStringEmployees = new List<List<Employee>>();
             var errorList = new List<List<Employee>>();
@@ -82,29 +88,26 @@ namespace ProgramingStudy.Job
             }
 
 
-            TreeNode tree = GenerateTreeNodes(employeesList, allStringEmployees);
-
-            ShowAllTree(tree);
+            return GenerateTreeNodes(employeesList, allStringEmployees);
         }
 
         private TreeNode GenerateTreeNodes(IEnumerable<Employee> employeesList, List<List<Employee>> allStringEmployees)
         {
-            var rootNode = new TreeNode("Zarząd");
-            rootNode.Add(new TreeNode(UNASSIGNED_ID));
-
-            var tempNode = rootNode;
+            var rootNode = new TreeNode("Zarząd")
+            {
+                new TreeNode(UNASSIGNED_ID)
+            };
 
             foreach (var employeesString in allStringEmployees)
             {
-                AddOrganizationUnit(rootNode, tempNode, employeesString);
+                AddOrganizationUnitAndPosition(rootNode, employeesString);
             }
 
-            AddPositions(rootNode, allStringEmployees, employeesList);
             return rootNode;
         }
 
         private IEnumerable<Employee> GetEmployeesFromFile(string fileName) =>
-        
+
             File.ReadAllLines(fileName).Skip(1).Select(s =>
             {
                 var row = s.Split(new[] { ";" }, StringSplitOptions.None);
@@ -118,15 +121,15 @@ namespace ProgramingStudy.Job
                     OrganizationUnit = row[4]
                 };
             });
-        
 
-        private void AddOrganizationUnit(TreeNode rootNode, TreeNode tempNode, List<Employee> employeesString)
+        private void AddOrganizationUnitAndPosition(TreeNode rootNode, List<Employee> employeesString)
         {
             employeesString.Reverse();
 
+            TreeNode boosNode = rootNode;
+
             foreach (var employee in employeesString)
             {
-
                 if (string.IsNullOrWhiteSpace(employee.OrganizationUnit))
                 {
                     var unNode = rootNode.Find(UNASSIGNED_ID);
@@ -135,32 +138,37 @@ namespace ProgramingStudy.Job
 
                     if (unNode.Find(msg) == null)
                     {
-                        unNode.Add(new TreeNode(msg));
+                        boosNode = new TreeNode(msg);
+                        unNode.Add(boosNode);
                     }
 
                     continue;
                 }
 
-                if (rootNode.Find(employee.OrganizationUnit) == null)
+                var nodeWithOrganizationUnit = rootNode.Find(employee.OrganizationUnit);
+
+                if (nodeWithOrganizationUnit == null)
                 {
-                    var newroot = new TreeNode(employee.OrganizationUnit);
-                    tempNode.Add(newroot);
-                    tempNode = newroot;
+                    //
+                    // Jeśli nie ma organizacji, dodaj ją do Zarządu, dodaj pracownika i ustaw i uaktualni, node z szefem.
+                    //
+
+                    var newNodeOrgUnit = new TreeNode(employee.OrganizationUnit);
+                    var newNodePos = new TreeNode(employee.Position);
+
+                    newNodeOrgUnit.Add(newNodePos);
+
+                    boosNode.Add(newNodeOrgUnit);
+
+                    boosNode = newNodePos;
                 }
-            }
-
-            tempNode = rootNode;
-        }
-
-        private void AddPositions(TreeNode rootNode, List<List<Employee>> allStringEmployees, IEnumerable<Employee> employees )
-        {
-            foreach (var employeeString in allStringEmployees)
-            {
-                var bossNode = rootNode.Find(employeeString.First().OrganizationUnit);
-
-                foreach (var employee in employeeString)
+                else
                 {
-                    if (employees.FirstOrDefault(d=>d.Id==employee.BossId) == null)
+                    //
+                    // Jeśli jest to sprawdź czy stanowisko nie jest puste. Jeśli puste to dodaj do nieprzypisanych i uaktyualni gałąź z szefem.
+                    //
+
+                    if (string.IsNullOrWhiteSpace(employee.Position))
                     {
                         var unNode = rootNode.Find(UNASSIGNED_ID);
 
@@ -168,32 +176,38 @@ namespace ProgramingStudy.Job
 
                         if (unNode.Find(msg) == null)
                         {
-                            unNode.Add(new TreeNode(msg));
+                            boosNode = new TreeNode(msg);
+                            unNode.Add(boosNode);
                         }
 
                         continue;
                     }
 
-                    var node = bossNode.Find(employee.Position);
+                    //
+                    // Jeśli jest to sprawdz czy w gałęzi z szefem już takiego stanowisko nie ma. Jeśli jest uaktualni gałąź z szefem. Jeśli nie to dodaj nowe
+                    // stanowisko i  uaktualni gałąź z szefem
+                    //
 
-                    if (node != null && node.Find(employee.Position) != null)
+                    if (boosNode.Find(employee.Position) != null)
                     {
+                        boosNode = boosNode.Find(employee.Position);
                         continue;
                     }
 
-                    var newNode = new TreeNode(employee.Position);
+                    var newroot = new TreeNode(employee.Position);
 
-                    bossNode.Add(newNode);
+                    boosNode.Add(newroot);
 
-                    bossNode = newNode;
+                    boosNode = newroot;
                 }
-
             }
         }
 
+
+
         private void ShowAllTree(TreeNode rootNode)
         {
-           File.WriteAllText($"tree{DateTime.Now.ToString("ddMMyyyyHHmmss")}.txt", TreeNode.BuildString(rootNode));
+            File.WriteAllText($"tree{DateTime.Now.ToString("ddMMyyyyHHmmss")}.txt", TreeNode.BuildString(rootNode));
         }
     }
 }
