@@ -150,7 +150,7 @@ namespace ProgramingStudy.Job
                 if (nodeWithOrganizationUnit == null)
                 {
                     //
-                    // Jeśli nie ma organizacji, dodaj ją do Zarządu, dodaj pracownika i ustaw i uaktualni, node z szefem.
+                    // Jeśli nie ma organizacji, dodaj ją do Zarządu, dodaj pracownika i ustaw i uaktualnij gałąź z szefem.
                     //
 
                     var newNodeOrgUnit = new TreeNode(employee.OrganizationUnit);
@@ -165,7 +165,7 @@ namespace ProgramingStudy.Job
                 else
                 {
                     //
-                    // Jeśli jest to sprawdź czy stanowisko nie jest puste. Jeśli puste to dodaj do nieprzypisanych i uaktyualni gałąź z szefem.
+                    // Jeśli jest organizacja to sprawdź czy stanowisko nie jest puste. Jeśli puste to dodaj do nieprzypisanych i uaktualnij gałąź z szefem.
                     //
 
                     if (string.IsNullOrWhiteSpace(employee.Position))
@@ -184,8 +184,8 @@ namespace ProgramingStudy.Job
                     }
 
                     //
-                    // Jeśli jest to sprawdz czy w gałęzi z szefem już takiego stanowisko nie ma. Jeśli jest uaktualni gałąź z szefem. Jeśli nie to dodaj nowe
-                    // stanowisko i  uaktualni gałąź z szefem
+                    // Jeśli jest to sprawdź czy w gałęzi z szefem już takiego stanowisko nie ma. Jeśli jest uaktualnij gałąź z szefem. Jeśli nie to dodaj nowe
+                    // stanowisko i uaktualnij gałąź z szefem
                     //
 
                     if (boosNode.Find(employee.Position) != null)
@@ -193,6 +193,17 @@ namespace ProgramingStudy.Job
                         boosNode = boosNode.Find(employee.Position);
                         continue;
                     }
+
+                    //
+                    // To jest przypadek, gdy szef może mieć też inny dział niż pracownik. Szuakmy wtedy w gałęzi szefa, działy pracownika i dopiero wtedy dodajemy 
+                    // stanowisko.
+                    //
+
+                    if (boosNode.Find(employee.OrganizationUnit) != null)
+                    {
+                        boosNode = boosNode.Find(employee.OrganizationUnit);
+                    }
+
 
                     var newroot = new TreeNode(employee.Position);
 
