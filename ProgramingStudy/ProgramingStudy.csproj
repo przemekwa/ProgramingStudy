@@ -155,6 +155,7 @@
     <Compile Include="Job\RegExpTests.cs" />
     <Compile Include="Job\SFTP.cs" />
     <Compile Include="Job\SpecialDecimal.cs" />
+    <Compile Include="Job\SqlToXML.cs" />
     <Compile Include="Job\TableRecordGenerator.cs" />
     <Compile Include="IStudyTest.cs" />
     <Compile Include="Job\TreeNode.cs" />

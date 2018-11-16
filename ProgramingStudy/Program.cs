@@ -15,7 +15,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new SFTP();
+        public static readonly IStudyTest StudyTest = new SqlToXML();
 
         public static void Main(string[] args)
         {
