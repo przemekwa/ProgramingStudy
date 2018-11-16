@@ -106,11 +106,9 @@ namespace ProgramingStudy.Job
 
     public class SqlToXML : IStudyTest
     {
-
-
         public void Study()
         {
-            const string pathToFile = "d:/Pobrane/selgros_test.csv";
+            const string pathToFile = "d:/Pobrane/selgros_prod_23_2018_top_2000.txt";
 
             var list = new List<Product>();
 
@@ -120,14 +118,48 @@ namespace ProgramingStudy.Job
                 ProductNumbers = new List<int> { 1, 2, 3, 4 }
             });
 
-            //foreach (var line in File.ReadAllLines(pathToFile))
-            //{
-            //    var array = line.Split(new char[] { ';'},StringSplitOptions.None);
+            foreach (var line in File.ReadAllLines(pathToFile))
+            {
+                var array = line.Split(new char[] { '\t' }, StringSplitOptions.None);
+
+                list.Add(new Product
+                {
+                    Id = int.Parse(array[4]),
+                    Name = array[5],
+                    Description = array[6].Replace('\u0002',' '),
+                    ProductNumbers = new List<int>(), //array[7],
+                    //producktSelgros array[8],
+                    Pack=array[9],
+                    Unit=array[10],
+                    PrevFile=array[11],
+                    PriceNetto=array[12],
+                    PriceBrutto=array[13],
+                    Logs=array[14],
+                    Category=array[15],
+                    Alcohol=array[16],
+                    IsGastro=array[17],
+                    StartDate=array[18],
+                    EndDate=array[19],
+                    Halls = array[20] ==null?(List<int>)null: new List<int>(array[20].Split(new[] { ", "}, StringSplitOptions.None).Select(s=>int.Parse(s))),
+                    LogoPremia_10_1 = array[21],
+                    LogoPremia_10_2 = array[22],
+                    LogoPremia_10_4 = array[23],
+                    LogoSuperPrice = array[24],
+                    LogoHit = array[25],
+                    Stop = array[26],
+                    PremiaDescription = array[27],
+                    LogoWeekend=array[28],
+                    PriceOfTheDay=array[29],
+                    Threshold = array[30],
+                    GroupWawi=array[31],
+                    GroupUnit=array[32],
+                    GroupMaster=array[33],
 
 
+                });
 
 
-            //}
+            }
 
             this.BuildXml(list);
 
