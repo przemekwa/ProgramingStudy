@@ -93,8 +93,9 @@ namespace ProgramingStudy.Job
 
         private TreeNode GenerateTreeNodes(IEnumerable<Employee> employeesList, List<List<Employee>> allStringEmployees)
         {
-            var rootNode = new TreeNode("Zarząd")
+            var rootNode = new TreeNode("PZL")
             {
+                new TreeNode("Zarząd"),
                 new TreeNode(UNASSIGNED_ID)
             };
 
@@ -156,9 +157,12 @@ namespace ProgramingStudy.Job
                     {
                         boosNode = new TreeNode(msg);
                         unNode.Add(boosNode);
+                       
                     }
-
-                    continue;
+                    else
+                    {
+                        boosNode = unNode.Find(msg);
+                    }
                 }
 
                 var nodeWithOrganizationUnit = rootNode.Find(employee.OrganizationUnit);
