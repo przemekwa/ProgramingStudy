@@ -109,8 +109,8 @@
       <HintPath>packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Renci.SshNet, Version=2016.0.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
-      <HintPath>packages\SSH.NET.2016.0.0\lib\net40\Renci.SshNet.dll</HintPath>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=106.2.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>packages\RestSharp.106.2.1\lib\net452\RestSharp.dll</HintPath>
@@ -153,6 +153,7 @@
     <Compile Include="Job\Lidero.cs" />
     <Compile Include="Job\PZLStructure.cs" />
     <Compile Include="Job\RegExpTests.cs" />
+    <Compile Include="Job\SFTP.cs" />
     <Compile Include="Job\SpecialDecimal.cs" />
     <Compile Include="Job\TableRecordGenerator.cs" />
     <Compile Include="IStudyTest.cs" />

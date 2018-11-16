@@ -15,7 +15,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new PZLStructure();
+        public static readonly IStudyTest StudyTest = new SFTP();
 
         public static void Main(string[] args)
         {
