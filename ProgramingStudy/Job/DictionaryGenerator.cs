@@ -10,6 +10,7 @@ namespace ProgramingStudy.Job
 {
     public class DictionaryGenerator : IStudyTest
     {
+
         public void Study()
         {
             string ala = null;

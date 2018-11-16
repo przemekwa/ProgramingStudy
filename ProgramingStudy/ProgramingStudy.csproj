@@ -148,7 +148,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppConfigStudy.cs" />
+    <Compile Include="Study\AppConfigStudy.cs" />
     <Compile Include="Job\DictionaryGenerator.cs" />
     <Compile Include="Job\Lidero.cs" />
     <Compile Include="Job\PZLStructure.cs" />
@@ -159,13 +159,14 @@
     <Compile Include="Job\TableRecordGenerator.cs" />
     <Compile Include="IStudyTest.cs" />
     <Compile Include="Job\TreeNode.cs" />
-    <Compile Include="LinquStudy.cs" />
+    <Compile Include="Study\LinquStudy.cs" />
     <Compile Include="LiteDB\Entity.cs" />
     <Compile Include="LiteDB\IRepository.cs" />
     <Compile Include="LiteDB\LiteDBStudy.cs" />
     <Compile Include="LiteDB\LocalRepository.cs" />
     <Compile Include="LiteDB\TestObject.cs" />
-    <Compile Include="Prototype.cs" />
+    <Compile Include="Study\Prototype.cs" />
+    <Compile Include="StudyBase.cs" />
     <Compile Include="Study\Base64Test.cs" />
     <Compile Include="Study\BCCTests.cs" />
     <Compile Include="Study\BinaryFormaterTests.cs" />
@@ -243,7 +244,6 @@
     <Compile Include="Study\Validators.cs" />
     <Compile Include="Study\VarTest.cs" />
     <Compile Include="Study\ZipTest.cs" />
-    <Compile Include="XsdStudy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

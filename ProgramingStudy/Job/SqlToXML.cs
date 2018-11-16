@@ -105,14 +105,12 @@ namespace ProgramingStudy.Job
 
         [XmlElement(ElementName = "group_master", Order = 47)]
         public string GroupMaster { get; set; }
-
-
     };
 
-    public class SqlToXML : IStudyTest
+    public class SqlToXML : StudyBase, IStudyTest
     {
-        //const string pathToFile_in = "d:/Pobrane/selgros_prod_23_2018_top_2000.txt";
-        const string pathToFile_in = "d:/Pobrane/selgros_tab_xml_file.txt";
+        const string pathToFile_in = "d:/Pobrane/selgros_prod_23_2018_top_2000.txt";
+        //const string pathToFile_in = "d:/Pobrane/selgros_tab_xml_file.txt";
         const string pathToFile_out = "d:/xml_selgros.xml";
 
         public void Study()
@@ -122,43 +120,55 @@ namespace ProgramingStudy.Job
                 Products = new List<Product>()
             };
 
-            foreach (var line in File.ReadAllLines(pathToFile_in))
+            foreach (var line in File.ReadAllLines(pathToFile_in).Select((l,i)=>new { Text = l, Number = i}))
             {
-                var array = line.Split(new char[] { '\t' }, StringSplitOptions.None);
+                var array = line.Text.Split(new char[] { '\t' }, StringSplitOptions.None);
 
-                ps.Products.Add(new Product
+                try
                 {
-                    Id = int.Parse(array[4]),
-                    Name = array[5],
-                    Description = array[6].Replace('\u0002', ' '),
-                    ProductNumbers = new List<int>(), //array[7],
-                    //producktSelgros array[8],
-                    Pack = array[9],
-                    Unit = array[10],
-                    PrevFile = array[11],
-                    PriceNetto = array[12],
-                    PriceBrutto = array[13],
-                    Logs = array[14],
-                    Category = array[15],
-                    Alcohol = array[16],
-                    IsGastro = array[17],
-                    StartDate = array[18],
-                    EndDate = array[19],
-                    Halls = array[20] == null ? (List<int>)null : new List<int>(array[20].Split(new[] { ", " }, StringSplitOptions.None).Select(s => int.Parse(s))),
-                    LogoPremia_10_1 = array[21],
-                    LogoPremia_10_2 = array[22],
-                    LogoPremia_10_4 = array[23],
-                    LogoSuperPrice = array[24],
-                    LogoHit = array[25],
-                    Stop = array[26],
-                    PremiaDescription = array[27],
-                    LogoWeekend = array[28],
-                    PriceOfTheDay = array[29],
-                    Threshold = array[30],
-                    GroupWawi = array[31],
-                    GroupUnit = array[32],
-                    GroupMaster = array[33],
-                });
+                     var p = new Product();
+                    p.Id = int.Parse(array[4]);
+                    p.Name = array[5];
+                    p.Description = array[6].Replace('\u0002', ' ');
+                    p.ProductNumbers = new List<int>(); //array[7];
+                    //producktSelgros array[8];
+                    p.Pack = array[9];
+                    p.Unit = array[10];
+                    p.PrevFile = array[11];
+                    p.PriceNetto = array[12];
+                    p.PriceBrutto = array[13];
+                    p.Logs = array[14];
+                    p.Category = array[15];
+                    p.Alcohol = array[16];
+                    p.IsGastro = array[17];
+                    p.StartDate = array[18];
+                    p.EndDate = array[19];
+                    p.Halls = array[20] == null ? (List<int>)null : new List<int>(array[20].Split(new[] { ", " }, StringSplitOptions.None).Select(s => int.Parse(s)));
+                    p.LogoPremia_10_1 = array[21];
+                    p.LogoPremia_10_2 = array[22];
+                    p.LogoPremia_10_4 = array[23];
+                    p.LogoSuperPrice = array[24];
+                    p.LogoHit = array[25];
+                    p.Stop = array[26];
+                    p.PremiaDescription = array[27];
+                    p.LogoWeekend = array[28];
+                    p.PriceOfTheDay = array[29];
+                    p.Threshold = array[30];
+                    p.GroupWawi = array[31];
+                    p.GroupUnit = array[32];
+                    p.GroupMaster = array[33];
+                
+
+                ps.Products.Add(p);
+                }
+                catch (Exception e)
+                {
+                    _log.Error(e, $"Line number {line.Number}");
+                    
+                    continue;
+                }
+
+               
             }
 
             this.BuildXml(ps);
