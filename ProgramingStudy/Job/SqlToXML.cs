@@ -120,13 +120,15 @@ namespace ProgramingStudy.Job
                 Products = new List<Product>()
             };
 
+
             foreach (var line in File.ReadAllLines(pathToFile_in).Select((l,i)=>new { Text = l, Number = i}))
             {
                 var array = line.Text.Split(new char[] { '\t' }, StringSplitOptions.None);
 
                 try
                 {
-                     var p = new Product();
+                    var p = new Product();
+
                     p.Id = int.Parse(array[4]);
                     p.Name = array[5];
                     p.Description = array[6].Replace('\u0002', ' ');

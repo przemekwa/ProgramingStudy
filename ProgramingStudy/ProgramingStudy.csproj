@@ -213,6 +213,7 @@
     <Compile Include="Study\ProsteTypy.cs" />
     <Compile Include="Study\QuickSort.cs" />
     <Compile Include="Study\ReferencDuplicateStudy.cs" />
+    <Compile Include="Study\RefOutIn.cs" />
     <Compile Include="Study\RegexpTests.cs" />
     <Compile Include="Study\RestMethods.cs" />
     <Compile Include="Study\RoleManager.cs" />
