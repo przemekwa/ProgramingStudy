@@ -109,7 +109,7 @@ namespace ProgramingStudy.Job
 
     public class SqlToXML : StudyBase, IStudyTest
     {
-        const string pathToFile_in = "d:/Pobrane/selgros_prod_23_2018_top_2000.txt";
+        const string pathToFile_in = "d:/Pobrane/selgros_top_2000.txt";
         //const string pathToFile_in = "d:/Pobrane/selgros_tab_xml_file.txt";
         const string pathToFile_out = "d:/xml_selgros.xml";
 

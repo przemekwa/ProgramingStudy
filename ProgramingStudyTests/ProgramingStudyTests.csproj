@@ -56,7 +56,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Job\PZLStructureTests.cs" />
     <Compile Include="KataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,11 +63,6 @@
     <Compile Include="Validators_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
-      <Project>{ff411280-3226-461a-b373-beb4dc016946}</Project>
-      <Name>ClassLibrary1</Name>
-      <Aliases>aaa</Aliases>
-    </ProjectReference>
     <ProjectReference Include="..\ProgramingStudy\ProgramingStudy.csproj">
       <Project>{a5b811fd-c193-497b-a62c-8e0a09ef39a3}</Project>
       <Name>ProgramingStudy</Name>

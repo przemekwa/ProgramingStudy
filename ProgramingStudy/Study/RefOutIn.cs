@@ -17,13 +17,13 @@ namespace ProgramingStudy.Study
         {
             RefOutInObj obj = default;
 
-            int s;
+            //int s;
 
-            A( obj, s);
+         
 
 
-            Console.WriteLine(obj.Index);
-            Console.WriteLine(s);
+            //Console.WriteLine(obj.Index);
+            //Console.WriteLine(s);
         }
 
 

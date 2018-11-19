@@ -15,7 +15,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new RefOutIn();
+        public static readonly IStudyTest StudyTest = new C72Features(2);
 
         public static void Main(string[] args)
         {
