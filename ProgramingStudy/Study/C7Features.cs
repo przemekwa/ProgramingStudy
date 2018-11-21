@@ -8,7 +8,7 @@ using static System.Console;
 
 namespace ProgramingStudy.Study
 {
-    public class C72Features : IStudyTest
+    public class C7Features : IStudyTest
     {
 
         private int _prop;
@@ -19,7 +19,7 @@ namespace ProgramingStudy.Study
             set => value = _prop;
         }
 
-        public C72Features(int d) => this.Prop = d;
+        public C7Features(int d) => this.Prop = d;
 
 
         public void Study()
@@ -31,7 +31,32 @@ namespace ProgramingStudy.Study
             RefReturn();
             LocalFunction();
             Constructors();
+            NumericLiterals();        
+        }
 
+        private void NumericLiterals()
+        {
+            const long BillionsAndBillions = 100_000_000_000;
+           
+            const double AvogadroConstant = 6.022_140_857_747_474e23;
+            
+            decimal GoldenRatio = 1.618_033_988_749_894_848_204_586_834_365_638_117_720_309_179M;
+            
+            const int Sixteen =   0b0001_0000;
+            
+            const int ThirtyTwo = 0b0010_0000;
+            
+            const int SixtyFour = 0b0100_0000;
+            
+            const int OneHundredTwentyEight = 0b1000_0000;
+
+            const int One =  0b0001;
+
+            const int Two =  0b0010;
+            
+            const int Four = 0b0100;
+            
+            const int Eight = 0b1000;
         }
 
         private int SomeFunction => 1983 + 5 + 2;

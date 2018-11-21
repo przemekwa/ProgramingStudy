@@ -159,6 +159,7 @@
     <Compile Include="Job\TableRecordGenerator.cs" />
     <Compile Include="IStudyTest.cs" />
     <Compile Include="Job\TreeNode.cs" />
+    <Compile Include="Study\C71Features.cs" />
     <Compile Include="Study\LinquStudy.cs" />
     <Compile Include="LiteDB\Entity.cs" />
     <Compile Include="LiteDB\IRepository.cs" />
@@ -170,7 +171,7 @@
     <Compile Include="Study\Base64Test.cs" />
     <Compile Include="Study\BCCTests.cs" />
     <Compile Include="Study\BinaryFormaterTests.cs" />
-    <Compile Include="Study\C72Features.cs" />
+    <Compile Include="Study\C7Features.cs" />
     <Compile Include="Study\C7Constsutors.cs" />
     <Compile Include="Study\C7FeaturesTests.cs" />
     <Compile Include="Study\Coding.cs" />
