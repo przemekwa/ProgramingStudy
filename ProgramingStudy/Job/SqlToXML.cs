@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -136,7 +137,7 @@ namespace ProgramingStudy.Job
                     //producktSelgros array[8];
                     p.Pack = array[9];
                     p.Unit = array[10];
-                    p.PrevFile = array[11];
+                    p.PrevFile = GetHash(array[11]);
                     p.PriceNetto = array[12];
                     p.PriceBrutto = array[13];
                     p.Logs = array[14];
@@ -174,6 +175,29 @@ namespace ProgramingStudy.Job
             }
 
             this.BuildXml(ps);
+        }
+
+        private string GetHash(string v)
+        {
+            if (string.IsNullOrEmpty(v) || v =="NULL")
+            {
+                return string.Empty;
+            }
+
+            var uri = new Uri(v);
+            var apiKey = "023b0890f2284913b6a7bf64b45723a7beaa95c03f014ffe80fb9d17e497ee58";
+
+            var match = Regex.Match(uri.PathAndQuery, "([0-9A-Fa-f]{8}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{12})$");
+
+            if (match.Success)
+            {
+                var id = Guid.Parse(match.Value);
+                var hash = ProgramingStudy.Study.Helper.GetSha256($"{id}{apiKey}");
+                var newUri = $"{uri.Scheme}://{uri.Host}:{uri.Port}/Image/{hash}/{id}";
+
+                return newUri;
+            }
+            return v;
         }
 
         public void BuildXml(ProductsSelgros list)

@@ -4,6 +4,7 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -84,6 +85,22 @@ namespace ProgramingStudy.Study
                 objResult = bf.Deserialize(ms);
             }
             return (T)objResult;
+        }
+
+        public static string GetSha256(string randomString)
+        {
+            var crypt = new SHA256Managed();
+
+            string hash = String.Empty;
+
+            var crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(randomString), 0, Encoding.UTF8.GetByteCount(randomString));
+
+            foreach (byte @byte in crypto)
+            {
+                hash += @byte.ToString("x2");
+            }
+
+            return hash;
         }
 
     }
