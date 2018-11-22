@@ -10,10 +10,25 @@ namespace ProgramingStudyTests
 {
     public class Validators_Tests
     {
+
+        public class C : B1
+        {
+            public C()
+            {
+
+                base.Test();
+            }
+
+        }
         [Theory]
         [InlineData("00281802650")]
         public void IsValidPesel(string pesel)
         {
+            var s = new B1();
+
+
+            
+            
             Assert.True(Validator.IsPeselValid(pesel));
         }
 

@@ -160,6 +160,7 @@
     <Compile Include="IStudyTest.cs" />
     <Compile Include="Job\TreeNode.cs" />
     <Compile Include="Study\C71Features.cs" />
+    <Compile Include="Study\C72Features.cs" />
     <Compile Include="Study\LinquStudy.cs" />
     <Compile Include="LiteDB\Entity.cs" />
     <Compile Include="LiteDB\IRepository.cs" />

@@ -35,7 +35,7 @@ namespace ProgramingStudy.Study
                 tuple.Number
             };
 
-            Console.WriteLine(myobj.Name; 
+            Console.WriteLine(myobj.Name); 
             Console.WriteLine(myobj.Number); 
 
         }

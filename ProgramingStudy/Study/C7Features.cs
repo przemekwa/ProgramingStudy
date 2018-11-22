@@ -107,16 +107,20 @@ namespace ProgramingStudy.Study
             array[2] = 3;
             array[3] = 4;
 
-            ref var item2 = ref GetItem(array, 1);
+            var item2 = GetItem(array, 1);
 
-            item2 = 100;
+            
+            item2 =100;
+
+            
+
 
             WriteLine(array[1]);  // 100
         }
 
-        private ref int GetItem(int[] array, int v)
+        private ref readonly int GetItem(int[] array, int v)
         {
-            return ref array[v];
+            return  ref array[v];
         }
 
         private void PatternMatchingIs()

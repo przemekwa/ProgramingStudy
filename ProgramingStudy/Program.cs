@@ -15,7 +15,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new C71Features();
+        public static readonly IStudyTest StudyTest = new SqlToXML();
 
         public static void Main(string[] args)
         {
