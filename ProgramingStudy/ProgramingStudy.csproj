@@ -159,8 +159,8 @@
     <Compile Include="Job\TableRecordGenerator.cs" />
     <Compile Include="IStudyTest.cs" />
     <Compile Include="Job\TreeNode.cs" />
-    <Compile Include="Study\C71Features.cs" />
-    <Compile Include="Study\C72Features.cs" />
+    <Compile Include="Study\C7\C71Features.cs" />
+    <Compile Include="Study\C7\C72Features.cs" />
     <Compile Include="Study\LinquStudy.cs" />
     <Compile Include="LiteDB\Entity.cs" />
     <Compile Include="LiteDB\IRepository.cs" />
@@ -172,9 +172,8 @@
     <Compile Include="Study\Base64Test.cs" />
     <Compile Include="Study\BCCTests.cs" />
     <Compile Include="Study\BinaryFormaterTests.cs" />
-    <Compile Include="Study\C7Features.cs" />
-    <Compile Include="Study\C7Constsutors.cs" />
-    <Compile Include="Study\C7FeaturesTests.cs" />
+    <Compile Include="Study\C7\C7Features.cs" />
+    <Compile Include="Study\C7\C7Constsutors.cs" />
     <Compile Include="Study\Coding.cs" />
     <Compile Include="Study\CompresGzip.cs" />
     <Compile Include="Study\DateTimeMultiplyParser.cs" />
@@ -243,6 +242,7 @@
     <Compile Include="Study\SudokuResolver.cs" />
     <Compile Include="Study\SwitchStudy.cs" />
     <Compile Include="Study\Things.cs" />
+    <Compile Include="Study\ToJson.cs" />
     <Compile Include="Study\Trims.cs" />
     <Compile Include="Study\Validators.cs" />
     <Compile Include="Study\VarTest.cs" />

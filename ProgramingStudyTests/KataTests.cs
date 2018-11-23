@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProgramingStudy.Study;
 using ProgramingStudy.Study.Kata;
 using Xunit;
 
 namespace ProgramingStudyTests
 {
+    public class C22
+    {
+        private protected int Test2 {get;set;}
+    }
 
     public class KataTests
     {

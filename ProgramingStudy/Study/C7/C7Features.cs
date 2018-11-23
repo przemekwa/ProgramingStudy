@@ -8,6 +8,8 @@ using static System.Console;
 
 namespace ProgramingStudy.Study
 {
+
+    
     public class C7Features : IStudyTest
     {
 
