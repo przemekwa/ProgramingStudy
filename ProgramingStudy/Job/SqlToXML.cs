@@ -110,9 +110,9 @@ namespace ProgramingStudy.Job
 
     public class SqlToXML : StudyBase, IStudyTest
     {
-        const string pathToFile_in = "d:/Pobrane/selgros_top_2000.txt";
+        const string pathToFile_in = "d:/Pobrane/current.txt";
         //const string pathToFile_in = "d:/Pobrane/selgros_tab_xml_file.txt";
-        const string pathToFile_out = "d:/xml_selgros.xml";
+        const string pathToFile_out = "d:/current.xml";
 
         public void Study()
         {
@@ -132,7 +132,7 @@ namespace ProgramingStudy.Job
 
                     p.Id = int.Parse(array[4]);
                     p.Name = array[5];
-                    p.Description = array[6].Replace('\u0002', ' ');
+                    p.Description = array[6].Replace('\u0002', ' ').Replace("@@@@", Environment.NewLine).Replace("@@", Environment.NewLine).Trim();
                     p.ProductNumbers = new List<int>(); //array[7];
                     //producktSelgros array[8];
                     p.Pack = array[9];
