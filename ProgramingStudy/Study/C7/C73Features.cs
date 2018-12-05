@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProgramingStudy.Study.C7
+﻿namespace ProgramingStudy.Study.C7
 {
-    unsafe struct S
+    internal unsafe struct S
     {
         public fixed int myFixedField[10];
     }
 
-    struct VeryLargeStruct
+    internal struct VeryLargeStruct
     {
 
     }
 
-    
+
     public class C73Features : IStudyTest
     {
         private S s = new S();
@@ -25,6 +19,15 @@ namespace ProgramingStudy.Study.C7
         {
             FixedPoint();
             NewRefAssigment();
+            StackallocArrya();
+
+        }
+
+        private unsafe void StackallocArrya()
+        {
+            int* pArr = stackalloc int[3] { 1, 2, 3 };
+            int* pArr2 = stackalloc int[] { 1, 2, 3 };
+            //Span<int> arr = stackalloc[] { 1, 2, 3 };
         }
 
         private void NewRefAssigment()
@@ -38,13 +41,13 @@ namespace ProgramingStudy.Study.C7
             // before C# 7.3
             fixed (int* ptr = s.myFixedField)
             {
-                int p_old= ptr[5];
+                int p_old = ptr[5];
             }
 
             // after C# 7.3
 
             int p_new = s.myFixedField[5];
-            
+
         }
     }
 }
