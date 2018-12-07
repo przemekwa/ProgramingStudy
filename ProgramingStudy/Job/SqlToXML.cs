@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -8,10 +9,74 @@ using System.Xml.Serialization;
 
 namespace ProgramingStudy.Job
 {
-    [XmlRoot(ElementName ="productsSelgros")]
+    public class Header
+    {
+
+         [XmlElement(ElementName = "promo_period")]
+        public int PromoPeriod { get; set; }
+
+        [XmlElement(ElementName = "promo_start")]
+        public string PromoStartXml
+        {
+            get
+            {
+                return GetDate(PromoStart);
+
+            }
+            set
+            {
+                PromoStartXml = value;
+            }
+        }
+
+        [XmlElement(ElementName = "promo_end")]
+        public string PromoEndXml
+        {
+            get
+            {
+                return GetDate(PromoEnd);
+
+            }
+            set
+            {
+                PromoEndXml = value;
+            }
+        }
+
+        [XmlElement(ElementName = "xml_date")]
+        public string XmlDateXml
+        {
+            get
+            {
+                return GetDate(XmlDate);
+
+            }
+            set
+            {
+                XmlDateXml = value;
+            }
+        }
+
+
+        [XmlIgnore]
+        public DateTime PromoStart { get; set; }
+
+        [XmlIgnore]
+        public DateTime PromoEnd { get; set; }
+
+        [XmlIgnore]
+        public DateTime XmlDate { get; set; }
+
+         private string GetDate(DateTime date) => date.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture);
+    }
+
+    [XmlRoot(ElementName = "productsSelgros")]
     public class ProductsSelgros
     {
-        [XmlElement(ElementName ="product")]
+        [XmlElement(ElementName = "header")]
+        public Header Header {get;set;}
+
+        [XmlElement(ElementName = "product")]
         public List<Product> Products { get; set; }
     }
 
@@ -118,16 +183,21 @@ namespace ProgramingStudy.Job
         {
             var ps = new ProductsSelgros
             {
-                Products = new List<Product>()
+                Products = new List<Product>(),
+                Header= new Header { XmlDate =  DateTime.Now }
             };
 
 
-            foreach (var line in File.ReadAllLines(pathToFile_in).Select((l,i)=>new { Text = l, Number = i}))
+            foreach (var line in File.ReadAllLines(pathToFile_in).Select((l, i) => new { Text = l, Number = i }))
             {
                 var array = line.Text.Split(new char[] { '\t' }, StringSplitOptions.None);
 
                 try
                 {
+                    ps.Header.PromoPeriod = int.Parse(array[0]);
+                    ps.Header.PromoStart = DateTime.ParseExact(array[1], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    ps.Header.PromoEnd = DateTime.ParseExact(array[2], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
                     var p = new Product();
 
                     p.Id = int.Parse(array[4]);
@@ -160,26 +230,31 @@ namespace ProgramingStudy.Job
                     p.GroupWawi = array[31];
                     p.GroupUnit = array[32];
                     p.GroupMaster = array[33];
-                
 
-                ps.Products.Add(p);
+
+                    ps.Products.Add(p);
+
+                    break;
                 }
                 catch (Exception e)
                 {
                     _log.Error(e, $"Line number {line.Number}");
-                    
+
                     continue;
                 }
 
-               
+
             }
+
+
+            ps.Header.XmlDate = DateTime.Now;
 
             this.BuildXml(ps);
         }
 
         private string GetHash(string v)
         {
-            if (string.IsNullOrEmpty(v) || v =="NULL")
+            if (string.IsNullOrEmpty(v) || v == "NULL")
             {
                 return string.Empty;
             }
@@ -204,10 +279,10 @@ namespace ProgramingStudy.Job
         {
             var ns = new XmlSerializerNamespaces();
 
-            ns.Add("","");
+            ns.Add("", "");
 
             var xmls = new XmlSerializer(typeof(ProductsSelgros));
-            
+
             using (var sw = new StreamWriter(pathToFile_out))
             {
                 using (var writer = XmlWriter.Create(sw))
