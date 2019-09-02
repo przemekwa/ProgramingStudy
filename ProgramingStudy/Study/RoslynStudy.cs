@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
+using ProgramingStudy.BCCHelpers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,6 +34,9 @@ namespace ProgramingStudy.Study
                 .WithOptions(new CSharpCompilationOptions(OutputKind.ConsoleApplication))
                 .AddReferences(
                     MetadataReference.CreateFromFile(typeof(object).GetTypeInfo().Assembly.Location)
+                    )
+                .AddReferences(
+                    MetadataReference.CreateFromFile(typeof(Lidero).GetTypeInfo().Assembly.Location)
                     )
                 .AddSyntaxTrees(syntaxTree);
 
