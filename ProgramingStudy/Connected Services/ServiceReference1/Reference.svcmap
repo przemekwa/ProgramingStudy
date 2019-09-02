@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2a42fde6-15ce-4e7a-852a-dd3735b2aa10" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://gage.itdemo.local:51100/DBA/Config1?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Config1.wsdl" MetadataType="Wsdl" ID="6a28e835-5c4d-4bf2-9365-d65a9c25e475" SourceId="1" SourceUrl="http://gage.itdemo.local:51100/DBA/Config1?wsdl" />
+    <MetadataFile FileName="Config11.wsdl" MetadataType="Wsdl" ID="bf39f0d8-d934-4e4c-85c2-fcc4dcd15025" SourceId="1" SourceUrl="http://gage.itdemo.local:51100/DBA/Config1?wsdl=binding&amp;style=document" />
+    <MetadataFile FileName="Config12.wsdl" MetadataType="Wsdl" ID="1c46a8c6-2f1c-4889-b4a4-7fb44526a4f7" SourceId="1" SourceUrl="http://gage.itdemo.local:51100/DBA/Config1?wsdl=interface&amp;style=document" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

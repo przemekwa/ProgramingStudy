@@ -15,7 +15,7 @@ namespace ProgramingStudy
 
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new SqlToXML();
+        public static readonly IStudyTest StudyTest = new Exam01();
 
         public static void Main(string[] args)
         {
@@ -28,6 +28,11 @@ namespace ProgramingStudy
                 var stopWatch = new Stopwatch();
 
                 stopWatch.Start();
+
+
+                var f = @"\\ru-filing\d\marketing\Graphics\PHOTO\FOOD\20_бакалея\10002830.jpg";
+
+                var g = f.Replace("\\","\\\\");
 
                 StudyTest.Study();
 
