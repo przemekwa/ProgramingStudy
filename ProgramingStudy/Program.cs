@@ -1,27 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ProgramingStudy.Study;
-using ProgramingStudy.Study.LanguageStudy;
 
 namespace ProgramingStudy
 {
-    using ProgramingStudy.BCCHelpers;
-    using ProgramingStudy.Job;
-    using Study.Kata;
-
     public class Program
     {
-        public static readonly IStudyTest StudyTest = new RoslynStudy();
-
         public static void Main(string[] args)
         {
+            var assembly = typeof(IStudyTest).Assembly;
+
+            var type = assembly
+                .GetTypes()
+                .Select(p => 
+                new
+                {
+                    Attribute = p.CustomAttributes.Where(s => s.AttributeType == typeof(ExecuteAttribute)),
+                    Type = p
+                })
+                .Where(s=>s.Attribute.Any())
+                .OrderByDescending(s=> ((ExecuteAttribute)Attribute.GetCustomAttribute(s.Type, typeof(ExecuteAttribute))).ExecuteDateTime)
+                .First();
+                
+            var studyTest = (IStudyTest)Activator.CreateInstance(type.Type);
+            
             while (true)
             {
-                var name = StudyTest.GetType().Name;
+                var name = studyTest.GetType().Name;
 
                 Console.WriteLine("Start {0}", name);
 
@@ -29,7 +35,7 @@ namespace ProgramingStudy
 
                 stopWatch.Start();
 
-                StudyTest.Study();
+                studyTest.Study();
 
                 stopWatch.Stop();
 

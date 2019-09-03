@@ -195,6 +195,7 @@
     <Compile Include="Study\C7\C72Features.cs" />
     <Compile Include="Study\C7\C73Features.cs" />
     <Compile Include="Study\Exam01.cs" />
+    <Compile Include="Study\ExecuteAttribute.cs" />
     <Compile Include="Study\JsonWithHtml.cs" />
     <Compile Include="Study\LinquStudy.cs" />
     <Compile Include="LiteDB\Entity.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="LiteDB\LiteDBStudy.cs" />
     <Compile Include="LiteDB\LocalRepository.cs" />
     <Compile Include="LiteDB\TestObject.cs" />
+    <Compile Include="Study\NSE.cs" />
     <Compile Include="Study\Prototype.cs" />
     <Compile Include="StudyBase.cs" />
     <Compile Include="Study\Base64Test.cs" />
