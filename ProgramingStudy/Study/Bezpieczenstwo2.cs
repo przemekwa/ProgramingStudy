@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProgramingStudy.Study
 {
+    [Execute(DateTime ="03-09-2019 16:48")]
     class Bezpieczenstwo2 : IStudyTest
     {
         public void Study()
