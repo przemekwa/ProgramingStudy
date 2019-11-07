@@ -9,6 +9,7 @@ namespace ProgramingStudy
     {
         public static void Main(string[] args)
         {
+
             var assembly = typeof(IStudyTest).Assembly;
 
             var type = assembly

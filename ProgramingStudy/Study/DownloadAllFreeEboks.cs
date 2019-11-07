@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace ProgramingStudy.Study
 {
 
+    [Execute(DateTime ="25-09-2019 18:46")]
     public class DownloadAllFreeEboks :IStudyTest
     {
         const string PATHWITHBOOKS = @".\MSFTEbooks2.txt";
