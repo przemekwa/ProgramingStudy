@@ -11,6 +11,33 @@ namespace ProgramingStudy.Study
 {
     public static class ExtensionMethod
     {
+        public static IEnumerable<IEnumerable<T>> Split<T>(this T[] array, int size)
+        {
+            if (array.Length == 0 || size == 0)
+            {
+                yield return array;
+            }
+
+            for (var i = 0; i < (float)array.Length / size; i++)
+            {
+                yield return array.Skip(i * size).Take(size);
+            }
+        }
+
+        public static IEnumerable<IEnumerable<T>> Split<T>(this IList<T> list, int size)
+        {
+            if (list.Count == 0 || size == 0)
+            {
+                yield return list;
+            }
+
+            for (var i = 0; i < (float)list.Count / size; i++)
+            {
+                yield return list.Skip(i * size).Take(size);
+            }
+
+        }
+
         public static IEnumerable<IEnumerable<T>> SplitInToParts<T>(this IList<T> source, short parts)
         {
             if (source == null)

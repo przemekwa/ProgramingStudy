@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Job\PZLStructureTests.cs" />
+    <Compile Include="Job\SplitTests.cs" />
     <Compile Include="KataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestInternalClass.cs" />
