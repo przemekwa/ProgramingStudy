@@ -22,11 +22,7 @@
     <Window.InputBindings>
         <KeyBinding Key="R" Command="{Binding ResetCommand}"></KeyBinding>
     </Window.InputBindings>
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Closed">
-            <i:InvokeCommandAction Command="{Binding SaveColorCommand }"></i:InvokeCommandAction>
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
+
     
     <Grid local:CloseAppKey.CloseKey="W">
      

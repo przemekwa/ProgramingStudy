@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProgramingStudy</RootNamespace>
     <AssemblyName>ProgramingStudy</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
@@ -180,6 +180,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Study\AllDirectories.cs" />
+    <Compile Include="Study\andorStydy.cs" />
     <Compile Include="Study\AppConfigStudy.cs" />
     <Compile Include="Job\DictionaryGenerator.cs" />
     <Compile Include="Job\Lidero.cs" />
