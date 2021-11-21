@@ -3,14 +3,16 @@ using ProgramingStudyCore;
 using System;
 using System.Linq;
 
-class Program
+namespace ProgramingStudyCore
+{
+    public class Program
     {
         static void Main(string[] args)
         {
-        
-        Console.WriteLine("Program Study");
-        
-        var assembly = typeof(IStudyTest).Assembly;
+
+            Console.WriteLine("Program Study");
+
+            var assembly = typeof(IStudyTest).Assembly;
 
             var type = assembly
                 .GetTypes()
@@ -30,3 +32,4 @@ class Program
         }
     }
 
+}

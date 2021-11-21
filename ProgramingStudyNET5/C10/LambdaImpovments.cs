@@ -1,0 +1,3 @@
+﻿Func<string> test = () => "Przemek";
+
+
