@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramingStudyNET5.C9
+namespace ProgramingStudyCore.C9
 {
     [Execute(DateTime = "01-09-2020 08:36")]
     public class RecordsFeature : IStudyTest

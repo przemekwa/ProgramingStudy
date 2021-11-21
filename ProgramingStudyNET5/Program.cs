@@ -1,16 +1,16 @@
-﻿using System;
+﻿
+using ProgramingStudyCore;
+using System;
 using System.Linq;
 
-namespace ProgramingStudyNET5
-{
-    class Program
+class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-
-            var assembly = typeof(IStudyTest).Assembly;
+        
+        Console.WriteLine("Program Study");
+        
+        var assembly = typeof(IStudyTest).Assembly;
 
             var type = assembly
                 .GetTypes()
@@ -29,4 +29,4 @@ namespace ProgramingStudyNET5
             studyTest.Study();
         }
     }
-}
+

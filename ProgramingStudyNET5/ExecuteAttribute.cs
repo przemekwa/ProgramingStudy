@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace ProgramingStudyNET5
-{
-    [AttributeUsage(AttributeTargets.Class)]
+using System.Globalization;
+
+[AttributeUsage(AttributeTargets.Class)]
     public class ExecuteAttribute : Attribute
     {
         public string DateTime {get;set;}
@@ -25,4 +20,3 @@ namespace ProgramingStudyNET5
             }
         }
     }
-}
