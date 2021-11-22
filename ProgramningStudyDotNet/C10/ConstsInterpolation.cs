@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramingStudyCore.C10
-{
+
     internal class ConstsInterpolation
     {
         public const string Test = "Przemek";
@@ -17,4 +16,4 @@ namespace ProgramingStudyCore.C10
 
         }
     }
-}
+
