@@ -13,11 +13,106 @@ using System.Threading.Tasks;
 
     public void Study()
     {
-        Console.WriteLine("Hello Google");
+        Console.WriteLine("Hello Google from https://www.youtube.com/watch?v=4tYoVx0QoN0");
 
         int[,] testArray = Init();
         Write(testArray);
+        var resolveArray = RemoveIslands(testArray);
+        CheckAnswer(resolveArray);
+    }
 
+    private void CheckAnswer( int[,] resolveArray)
+    {
+        var correctArray = new int[X, Y];
+
+        correctArray[0, 0] = 1;
+        correctArray[0, 1] = 0;
+        correctArray[0, 2] = 0;
+        correctArray[0, 3] = 0;
+        correctArray[0, 4] = 0;
+        correctArray[0, 5] = 0;
+
+
+        correctArray[1, 0] = 0;
+        correctArray[1, 1] = 0;
+        correctArray[1, 2] = 0;
+        correctArray[1, 3] = 1;
+        correctArray[1, 4] = 1;
+        correctArray[1, 5] = 1;
+
+
+        correctArray[2, 0] = 0;
+        correctArray[2, 1] = 0;
+        correctArray[2, 2] = 0;
+        correctArray[2, 3] = 0;
+        correctArray[2, 4] = 1;
+        correctArray[2, 5] = 0;
+
+
+
+        correctArray[3, 0] = 1;
+        correctArray[3, 1] = 1;
+        correctArray[3, 2] = 0;
+        correctArray[3, 3] = 0;
+        correctArray[3, 4] = 1;
+        correctArray[3, 5] = 0;
+
+
+        correctArray[4, 0] = 1;
+        correctArray[4, 1] = 0;
+        correctArray[4, 2] = 0;
+        correctArray[4, 3] = 0;
+        correctArray[4, 4] = 0;
+        correctArray[4, 5] = 0;
+
+        correctArray[5, 0] = 1;
+        correctArray[5, 1] = 0;
+        correctArray[5, 2] = 0;
+        correctArray[5, 3] = 0;
+        correctArray[5, 4] = 0;
+        correctArray[5, 5] = 1;
+
+        //Write(correctArray);
+
+        var result = true;
+
+        for (int i = 0; i < X; i++)
+        {
+            for (int j = 0; j < Y; j++)
+            {
+                if (correctArray[i, j] != resolveArray[i, j])
+                {
+                    result = false;
+                    break;
+                }
+            
+            }
+
+            if (result == false)
+            {
+                break;
+            }
+
+            
+        }
+
+
+        if (result)
+        {
+            
+            Console.WriteLine("Sucess!");
+        }
+        else
+        {
+            Console.WriteLine("Wrong!");
+        }
+        
+
+    }
+
+    private int[,] RemoveIslands(int[,] testArray)
+    {
+        return testArray;
     }
 
     private static void Write(int[,] testArray)
