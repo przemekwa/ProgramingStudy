@@ -18,7 +18,8 @@ using System.Threading.Tasks;
         int[,] testArray = Init();
         Write(testArray);
         var resolveArray = RemoveIslands(testArray);
-        CheckAnswer(resolveArray);
+        Write(resolveArray);
+    //    CheckAnswer(resolveArray);
     }
 
     private void CheckAnswer( int[,] resolveArray)
@@ -72,7 +73,7 @@ using System.Threading.Tasks;
         correctArray[5, 4] = 0;
         correctArray[5, 5] = 1;
 
-        //Write(correctArray);
+        Write(correctArray);
 
         var result = true;
 
@@ -112,7 +113,42 @@ using System.Threading.Tasks;
 
     private int[,] RemoveIslands(int[,] testArray)
     {
+        for (int i = 0; i < X; i++)
+        {
+            for (int j = 0; j < Y; j++)
+            {
+                if (testArray[i,j] == 1)
+                {
+
+                    int up = CheckFiled(testArray, i-1, j);
+                    int down = CheckFiled(testArray, i+1, j);
+                    int left = CheckFiled(testArray, i, j+1);
+                    int right = CheckFiled(testArray, i, j-1);
+
+                    if ((up + down + left + right) == 0)
+                    {
+                        testArray[i, j] = 0;
+                    }
+                }
+
+            }
+        }
+
+
+
         return testArray;
+    }
+
+    private int CheckFiled(int[,] testArray, int i, int j)
+    {
+        try
+        {
+            return testArray[i, j];
+        }
+        catch (Exception e)
+        {
+            return 1;
+        }
     }
 
     private static void Write(int[,] testArray)
