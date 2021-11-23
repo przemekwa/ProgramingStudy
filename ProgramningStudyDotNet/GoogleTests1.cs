@@ -123,13 +123,21 @@ using System.Threading.Tasks;
         {
             for (int j = 0; j < Y; j++)
             {
-                if (testArray[i,j] == 1)
+                if (testArray[i, j] == 1)
                 {
-                    result.Add(new Location(i, j, IsOnBorder(i,j,testArray)));
+                    result.Add(new Location(i, j, IsOnBorder(i, j, testArray)));
                 }
             }
         }
 
+        GetIlandes(result);
+
+        return testArray;
+    }
+
+    private IEnumerable<Location> GetIlandes(IEnumerable<Location> result)
+    {
+        var island = new List<Location>();
 
         foreach (var item in result)
         {
@@ -138,27 +146,94 @@ using System.Threading.Tasks;
                 continue;
             }
 
-            foreach (var item2 in result.Where(s=>
-            (s.X == item.X + 1 && s.Y == item.Y)  
-            || (s.X == item.X - 1 && s.Y == item.Y) 
-            || (s.X == item.X && s.Y == item.Y+1) 
-            || (s.X == item.X && s.Y == item.Y - 1)))
+            IEnumerable<Location> neithbours = result.Where(s =>
+                           (s.X == item.X + 1 && s.Y == item.Y)
+                           || (s.X == item.X - 1 && s.Y == item.Y)
+                           || (s.X == item.X && s.Y == item.Y + 1)
+                           || (s.X == item.X && s.Y == item.Y - 1));
+
+            if (neithbours.Any(s => s.border))
             {
-                if (item2.border)
+                continue;
+            }
+
+            if (neithbours.Any() == false)
+            {
+                island.Add(item);
+                continue;
+            }
+
+            foreach (var item2 in neithbours)
+            {
+                var loc = Check(item2, result);
+
+                if (loc != new Location(0, 0, false))
                 {
-                    break;
+                    island.Add(item);
                 }
             }
 
 
 
+
+
+        }
+
+        island = island.Where(s => s != new Location(0, 0, false)).ToList();
+
+        return island;
+
+
+    }
+
+
+    private Location Check(Location item, IEnumerable<Location> result)
+    {
+        if (item.border)
+        {
+            return new Location(0, 0, false);
+        }
+
+
+        IEnumerable<Location> neithbours = result.Where(s =>
+                       (s.X == item.X + 1 && s.Y == item.Y)
+                       || (s.X == item.X - 1 && s.Y == item.Y)
+                       || (s.X == item.X && s.Y == item.Y + 1)
+                       || (s.X == item.X && s.Y == item.Y - 1));
+
+        
+        
+        if (neithbours.Any(s => s.border))
+        {
+            return new Location(0, 0, false);
+        }
+
+        if (neithbours.Any())
+        {
+            return item;
         }
 
 
 
-        return testArray;
-    }
+        foreach (var item2 in neithbours)
+        {
+            var loc = Check(item2, result);
 
+           if (loc == new Location(0, 0, false))
+            {
+                return new Location(0, 0, false);
+            }
+            else
+            {
+                return loc;
+            }
+        }
+
+        return new Location(0, 0, false);
+
+
+
+    }
 
     private bool IsOnBorder(int i, int j, int[,] testArray)
     {
