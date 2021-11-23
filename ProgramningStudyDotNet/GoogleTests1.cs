@@ -118,17 +118,17 @@ using System.Threading.Tasks;
             for (int j = 0; j < Y; j++)
             {
                 if (testArray[i,j] == 1)
-                {
+                {       
+                    
 
-                    int up = CheckFiled(testArray, i-1, j);
-                    int down = CheckFiled(testArray, i+1, j);
-                    int left = CheckFiled(testArray, i, j+1);
-                    int right = CheckFiled(testArray, i, j-1);
 
-                    if ((up + down + left + right) == 0)
+
+
+                    if (IsOnBorder(i, j, testArray))
                     {
-                        testArray[i, j] = 0;
+                        
                     }
+
                 }
 
             }
@@ -139,15 +139,22 @@ using System.Threading.Tasks;
         return testArray;
     }
 
-    private int CheckFiled(int[,] testArray, int i, int j)
+ 
+
+    private bool IsOnBorder(int i, int j, int[,] testArray)
     {
         try
         {
-            return testArray[i, j];
+            var up = testArray[i+1, j];
+            var down = testArray[i-1, j];
+            var left = testArray[i, j+1];
+            var right = testArray[i, j-1];
+
+            return false;
         }
         catch (Exception e)
         {
-            return 1;
+            return true;
         }
     }
 
