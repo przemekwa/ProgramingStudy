@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+    internal record Location(int X, int Y, bool border);
+
+
 
     [ExecuteAttribute(DateTime = "22-11-2021 00:00")]
     internal class GoogleTests1 : IStudyTest
@@ -111,27 +114,44 @@ using System.Threading.Tasks;
 
     }
 
+
     private int[,] RemoveIslands(int[,] testArray)
     {
+        var result = new List<Location>();
+
         for (int i = 0; i < X; i++)
         {
             for (int j = 0; j < Y; j++)
             {
                 if (testArray[i,j] == 1)
-                {       
-                    
-
-
-
-
-                    if (IsOnBorder(i, j, testArray))
-                    {
-                        
-                    }
-
+                {
+                    result.Add(new Location(i, j, IsOnBorder(i,j,testArray)));
                 }
-
             }
+        }
+
+
+        foreach (var item in result)
+        {
+            if (item.border)
+            {
+                continue;
+            }
+
+            foreach (var item2 in result.Where(s=>
+            (s.X == item.X + 1 && s.Y == item.Y)  
+            || (s.X == item.X - 1 && s.Y == item.Y) 
+            || (s.X == item.X && s.Y == item.Y+1) 
+            || (s.X == item.X && s.Y == item.Y - 1)))
+            {
+                if (item2.border)
+                {
+                    break;
+                }
+            }
+
+
+
         }
 
 
@@ -139,7 +159,6 @@ using System.Threading.Tasks;
         return testArray;
     }
 
- 
 
     private bool IsOnBorder(int i, int j, int[,] testArray)
     {
