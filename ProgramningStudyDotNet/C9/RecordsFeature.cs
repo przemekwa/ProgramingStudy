@@ -23,8 +23,6 @@ public class Cla1
 
         var r2 = new Rec1("Rec1", new Rec2(13));
 
-
-
         Console.Write(r1 == r2);
 
 
