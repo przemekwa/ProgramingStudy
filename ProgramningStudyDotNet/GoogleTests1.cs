@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-    internal record Location(int X, int Y, bool border);
+internal record Location(int X, int Y, bool isOnBorder);
 
 
 
-    [ExecuteAttribute(DateTime = "22-11-2021 00:00")]
-    internal class GoogleTests1 : IStudyTest
-    {
+[ExecuteAttribute(DateTime = "27-11-2021 17:00")]
+internal class GoogleTests1 : IStudyTest
+{
     private const int X = 6;
     private const int Y = 6;
 
@@ -21,11 +21,11 @@ using System.Threading.Tasks;
         int[,] testArray = Init();
         Write(testArray);
         var resolveArray = RemoveIslands(testArray);
-        Write(resolveArray);
-    //    CheckAnswer(resolveArray);
+        // Write(resolveArray);
+        CheckAnswer(resolveArray);
     }
 
-    private void CheckAnswer( int[,] resolveArray)
+    private void CheckAnswer(int[,] resolveArray)
     {
         var correctArray = new int[X, Y];
 
@@ -89,7 +89,7 @@ using System.Threading.Tasks;
                     result = false;
                     break;
                 }
-            
+
             }
 
             if (result == false)
@@ -97,25 +97,44 @@ using System.Threading.Tasks;
                 break;
             }
 
-            
+
         }
 
 
         if (result)
         {
-            
+
             Console.WriteLine("Sucess!");
         }
         else
         {
             Console.WriteLine("Wrong!");
         }
-        
+
 
     }
 
 
     private int[,] RemoveIslands(int[,] testArray)
+    {
+        var locations = ToLocations(testArray);
+        var islandsLocation = GetIslands(locations);
+
+        for (int i = 0; i < X; i++)
+        {
+            for (int j = 0; j < Y; j++)
+            {
+                if (islandsLocation.Any(s => s.X == i && s.Y == j))
+                {
+                    testArray[i, j] = 0;
+                }
+            }
+        }
+
+        return testArray;
+    }
+
+    private IEnumerable<Location> ToLocations(int[,] testArray)
     {
         var result = new List<Location>();
 
@@ -130,119 +149,102 @@ using System.Threading.Tasks;
             }
         }
 
-        GetIlandes(result);
-
-        return testArray;
+        return result;
     }
 
-    private IEnumerable<Location> GetIlandes(IEnumerable<Location> result)
+    private IEnumerable<Location> GetIslands(IEnumerable<Location> locations)
     {
-        var island = new List<Location>();
+        var islandsLocations = new List<Location>();
 
-        foreach (var item in result)
+        foreach (var currentLocation in locations)
         {
-            if (item.border)
+            if (currentLocation.isOnBorder)
             {
                 continue;
             }
 
-            IEnumerable<Location> neithbours = result.Where(s =>
-                           (s.X == item.X + 1 && s.Y == item.Y)
-                           || (s.X == item.X - 1 && s.Y == item.Y)
-                           || (s.X == item.X && s.Y == item.Y + 1)
-                           || (s.X == item.X && s.Y == item.Y - 1));
+            var neighbours = locations.Where(s =>
+                           (s.X == currentLocation.X + 1 && s.Y == currentLocation.Y)
+                           || (s.X == currentLocation.X - 1 && s.Y == currentLocation.Y)
+                           || (s.X == currentLocation.X && s.Y == currentLocation.Y + 1)
+                           || (s.X == currentLocation.X && s.Y == currentLocation.Y - 1));
 
-            if (neithbours.Any(s => s.border))
+            if (neighbours.Any(s => s.isOnBorder))
             {
                 continue;
             }
 
-            if (neithbours.Any() == false)
+            if (neighbours.Any() == false)
             {
-                island.Add(item);
+                islandsLocations.Add(currentLocation);
                 continue;
             }
 
-            foreach (var item2 in neithbours)
+            foreach (var neighbourLocation in neighbours)
             {
-                var loc = Check(item2, result);
+                var loc = IsLocationOnBoard(neighbourLocation, locations, currentLocation);
 
-                if (loc != new Location(0, 0, false))
+                if (loc)
                 {
-                    island.Add(item);
+                    break;
+                }
+                else
+                {
+                    islandsLocations.Add(currentLocation);
                 }
             }
-
-
-
-
-
         }
 
-        island = island.Where(s => s != new Location(0, 0, false)).ToList();
-
-        return island;
-
-
+        return islandsLocations;
     }
 
 
-    private Location Check(Location item, IEnumerable<Location> result)
+    private bool IsLocationOnBoard(Location neighboursLocation, IEnumerable<Location> locations, Location currentLocation)
     {
-        if (item.border)
+        if (neighboursLocation.isOnBorder)
         {
-            return new Location(0, 0, false);
+            return true;
         }
 
 
-        IEnumerable<Location> neithbours = result.Where(s =>
-                       (s.X == item.X + 1 && s.Y == item.Y)
-                       || (s.X == item.X - 1 && s.Y == item.Y)
-                       || (s.X == item.X && s.Y == item.Y + 1)
-                       || (s.X == item.X && s.Y == item.Y - 1));
+        var neighbours = locations.Where(s =>
+                       ((s.X == neighboursLocation.X + 1 && s.Y == neighboursLocation.Y)
+                       || (s.X == neighboursLocation.X - 1 && s.Y == neighboursLocation.Y)
+                       || (s.X == neighboursLocation.X && s.Y == neighboursLocation.Y + 1)
+                       || (s.X == neighboursLocation.X && s.Y == neighboursLocation.Y - 1))
+                       && s != currentLocation);
 
-        
-        
-        if (neithbours.Any(s => s.border))
+
+
+        if (neighbours.Any(s => s.isOnBorder))
         {
-            return new Location(0, 0, false);
+            return true;
         }
 
-        if (neithbours.Any() == false)
+        if (neighbours.Any() == false)
         {
-            return item;
+            return false;
         }
 
-
-
-        foreach (var item2 in neithbours)
+        foreach (var neighbour in neighbours)
         {
-            var loc = Check(item2, result);
-
-           if (loc == new Location(0, 0, false))
+            if (IsLocationOnBoard(neighbour, locations, currentLocation))
             {
-                return new Location(0, 0, false);
-            }
-            else
-            {
-                return loc;
+                return true;
             }
         }
 
-        return new Location(0, 0, false);
-
-
-
+        return false;
     }
 
     private bool IsOnBorder(int i, int j, int[,] testArray)
     {
         try
         {
-            var up = testArray[i+1, j];
-            var down = testArray[i-1, j];
-            var left = testArray[i, j+1];
-            var right = testArray[i, j-1];
+            var up = testArray[i + 1, j];
+            var down = testArray[i - 1, j];
+            var left = testArray[i, j + 1];
+            var right = testArray[i, j - 1];
 
             return false;
         }
@@ -264,7 +266,7 @@ using System.Threading.Tasks;
             {
                 Console.Write($"{testArray[i, j]}");
 
-                if (j == Y-1)
+                if (j == Y - 1)
                 {
                     continue;
                 }
@@ -285,7 +287,7 @@ using System.Threading.Tasks;
         testArray[0, 3] = 0;
         testArray[0, 4] = 0;
         testArray[0, 5] = 0;
-        
+
 
         testArray[1, 0] = 0;
         testArray[1, 1] = 1;
@@ -293,7 +295,7 @@ using System.Threading.Tasks;
         testArray[1, 3] = 1;
         testArray[1, 4] = 1;
         testArray[1, 5] = 1;
-        
+
 
         testArray[2, 0] = 0;
         testArray[2, 1] = 0;
@@ -301,7 +303,7 @@ using System.Threading.Tasks;
         testArray[2, 3] = 0;
         testArray[2, 4] = 1;
         testArray[2, 5] = 0;
-        
+
 
 
         testArray[3, 0] = 1;
@@ -310,7 +312,7 @@ using System.Threading.Tasks;
         testArray[3, 3] = 0;
         testArray[3, 4] = 1;
         testArray[3, 5] = 0;
-       
+
 
         testArray[4, 0] = 1;
         testArray[4, 1] = 0;
@@ -318,14 +320,14 @@ using System.Threading.Tasks;
         testArray[4, 3] = 1;
         testArray[4, 4] = 0;
         testArray[4, 5] = 0;
-       
+
         testArray[5, 0] = 1;
         testArray[5, 1] = 0;
         testArray[5, 2] = 0;
         testArray[5, 3] = 0;
         testArray[5, 4] = 0;
         testArray[5, 5] = 1;
-        
+
 
         return testArray;
     }
