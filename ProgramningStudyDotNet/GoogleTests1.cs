@@ -208,7 +208,7 @@ using System.Threading.Tasks;
             return new Location(0, 0, false);
         }
 
-        if (neithbours.Any())
+        if (neithbours.Any() == false)
         {
             return item;
         }
