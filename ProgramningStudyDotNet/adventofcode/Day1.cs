@@ -18,9 +18,32 @@ namespace ProgramningStudyDotNet.adventofcode
             var measurements = GetMeasurements();
 
             int count = FirstApproach(measurements);
-             count = SecondApproach(measurements);
+
+            measurements = InitPart2(measurements);
+
+            count = SecondApproach(measurements);
+
+
+    
 
             Console.WriteLine($"Result is {count}");
+        }
+
+        private List<int> InitPart2(List<int> measurements)
+        {
+            var result = new List<int>();
+
+            for (int i = 0; i < measurements.Count; i++)
+            {
+                if ((i + 2) > measurements.Count-1)
+                {
+                    break;
+                }
+
+                result.Add(measurements[i] + measurements[i + 1] + measurements[i + 2]);
+            }
+
+            return result;
         }
 
         private int SecondApproach(List<int> measurements)
@@ -38,7 +61,7 @@ namespace ProgramningStudyDotNet.adventofcode
 
               });
 
-            
+
 
             return count;
         }
