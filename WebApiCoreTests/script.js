@@ -1,0 +1,72 @@
+﻿import http from 'k6/http';
+import
+{ sleep }
+from 'k6';
+
+
+const CERT = `-----BEGIN CERTIFICATE-----
+MIIDOTCCAiGgAwIBAgIQMByko8hUVq1McGm+vZzN5zANBgkqhkiG9w0BAQsFADAf
+MR0wGwYDVQQDDBRob3N0LmRvY2tlci5pbnRlcm5hbDAeFw0yMjA1MjgxOTIwMjVa
+Fw0yMzA1MjgxOTQwMjVaMB8xHTAbBgNVBAMMFGhvc3QuZG9ja2VyLmludGVybmFs
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4gUMM/s5zlhY2N9L52Dw
+oQZkyb3YXnZ9aeF5cEbc4eAwOlE1brtxxIKYWOU30dcbpqzkoNt7G7izrWRw2OVY
+4/nOQvba+62gpWfhtikCBLWnh0jnQcgGvO0ZzftVadpS9EEqm3v6HFrkQUJLGk/p
+4V+u5LHjUz5rJw5hX91LJ7wQmOjyiF9aae3m+b602iNrbUqQHbLlKXzzG/nGTprR
+TlkYhXFkMI1MMPM+ttgFWib51SOKAYj7qntADw5UqiGPjexHYLD38zW84Yd2RvrR
+FGpLr2GsA14oht4e9Lp/reypOgOakhd1GpktYxbvhIbvr3b8AscxQPCEH3clehO0
+tQIDAQABo3EwbzAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwIG
+CCsGAQUFBwMBMB8GA1UdEQQYMBaCFGhvc3QuZG9ja2VyLmludGVybmFsMB0GA1Ud
+DgQWBBTDn9cZHadiYByFIPWeMx8NwRePBzANBgkqhkiG9w0BAQsFAAOCAQEAFave
+ohKQ0a6VI9vp7h6ytl3w5Hq2ODqcqpM5ljCaH+BavrtMFQziZY9ehSDgLI6kCRQ1
+xx/LjpKqAL74SASKHgCgDu9lAkttliTHiUxsKyYvEKgVgQ0FKQa95bpgCoxsxytT
+T/AIGXbenrsqVqEOfviKC85BCe0XWbTmdcNhYQ22n16pzdD9sd8ZQmEL02rrPBMo
+Ey5x0gJ+BOwQSXQJhOBKrh+Ey15d87yWqsTXqWeCQs+S1RRwCfcBs7jVW2UI0pyZ
+nADipEUeuwfqXCJZN59ShuxjrrOFEhBV3aqFnIrntC1zHSjgU0sbD1hVdSDNa4yp
+AwTFJ5bBMd/gVwIGAQ==
+-----END CERTIFICATE-----`;
+
+
+const KEY = `-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEA4gUMM/s5zlhY2N9L52DwoQZkyb3YXnZ9aeF5cEbc4eAwOlE1
+brtxxIKYWOU30dcbpqzkoNt7G7izrWRw2OVY4/nOQvba+62gpWfhtikCBLWnh0jn
+QcgGvO0ZzftVadpS9EEqm3v6HFrkQUJLGk/p4V+u5LHjUz5rJw5hX91LJ7wQmOjy
+iF9aae3m+b602iNrbUqQHbLlKXzzG/nGTprRTlkYhXFkMI1MMPM+ttgFWib51SOK
+AYj7qntADw5UqiGPjexHYLD38zW84Yd2RvrRFGpLr2GsA14oht4e9Lp/reypOgOa
+khd1GpktYxbvhIbvr3b8AscxQPCEH3clehO0tQIDAQABAoIBAQCQkUf368ZSvOG/
+fjxvt+rSJGPNQpgl+8ZGNklVzo20EJDojE8QD+c6GYpWue7VUrDGEKqAVULOPXr3
++lnP8grEb2FGJd11w94QTnzp5hr7ZjHM742z3ryolUO/I/bDKTmMMC6Pm2IkRuLe
+9wdQwjLHzEryzvGnqjIhniochlBvDcCoYypxRBQYoiuohy8xIZ4HDjzXHxr1flDj
+SfSDWa/Mgkp/DcT5yUiebI3qBii1R4VJwGZt6i2I+zZzCa0QT1eQX7dTZXVXglmi
+nCzMbfS61yT5DNUnPRZ2l2WSTjO7GWGy+FGulMNhgqjb5neOjJL+kj1RTG4yUccx
+wNfiM2mVAoGBAOPciWFYd/gB2bK7i4tfi9ld22cAaTMoqz5SRvYnNUgc90jhttKb
+CKQ+XBAqdoO2HxP9NPcDILmXcs7NFF45eDx8OFDjTnrYe02i3geqWDVyU4H1ryc5
+HY24TzPJJNk7y70bQVns122hCch6Mn1TU3aGA2ex+g2gmxjKRH2E1GbLAoGBAP3u
+SXqmTCEvdYrBvWVjA5i5nFdIACwm7m5oLS/LQ9SToyZn69DDi5EUIRUQ/Plu7D92
+V/4Nz8HOxsJCeGbVbLmv5CxobtBycflTG/qX2tpDCLmEI9bZfnbpavQTe0elD3g/
+5TYRmqt1cZoWEfDHP+jzMHCDVRJ8RZrlqLs5sWJ/AoGBAIytIk/sO5ztH4c+TGfO
+pFudm5Aa69f+2sJOL6tXB4kvAOiJGcMqngowycvdO3ATp1pC8Ek0MCcEvoe4i0Ok
+/XtyQZ6Gx3QGZRHIZIWdAHp2y+GnWezAUWOmj5dsLojDZwSoaA9prpLrYkvYTYWc
+RSIemMmTUsrJBhgnAGPx9uRDAoGAQL6vEYyxQIzfRX/ckKtMUXaR/FcpZBiRFqmN
+S/Bh3SO/p507rUEOpvEg9kQcnGTB6/R6vxY6cMoON53HIUEttbK5VPFTv+ZOVSnx
+qlVpwdjxsouUr8VIz3z4fj8xYbUeWqTABqc6bplFW+pgrKnBC95l7WovGMWC4dnI
+yeQN7HUCgYEA20YoK9FCYxzLNjt9lHAveripdglSeqIjY3itqnyY4hB0qG4VPd9Z
+r52GmHJSyxl/E55YhuOUSq+LPchDYeUq8Qmf2w4k8VrP4JxJkgzkbqWzBpmemSoX
+g2fSnbUC6gzlSzB2jQ03fbZeAjVV3/OcIbJoO9I4YpyEEVEgb4qAeKU=
+-----END RSA PRIVATE KEY-----`;
+  
+export const options = {
+	 insecureSkipTLSVerify: false,
+	 iterations: 10,
+  tlsAuth: [
+    {
+     
+      cert: CERT,
+      key: KEY,
+    },
+  ],
+};
+
+export default function() {
+    http.get('https://host.docker.internal:7169/weatherforecast');
+    sleep(1);
+}
