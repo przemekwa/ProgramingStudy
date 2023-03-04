@@ -6,12 +6,49 @@ using System.Threading.Tasks;
 
 namespace ProgramningStudyDotNet.C8
 {
+    public interface INew
+    {
+        void New();
+        int Add(int x, int y) => x + y + Handicap;
+        static int Handicap = 3;
+    }
+
+
+    public class NewClass : INew
+    {
+        public void New()
+        {
+
+            Name
+            throw new NotImplementedException();
+        }
+
+    }
+
+
+
+
+
+
+
     [Execute(DateTime = "01-03-2023 08:36")]
     public class Indices : IStudyTest
     {
         
         public void Study()
         {
+
+
+            NewClass newClass = new NewClass();
+
+            INew.Handicap = 3;
+
+            var test = ((INew)newClass);
+
+
+            
+
+
             char[] sample = new char[] { 'A', 'B', 'C', 'D','E' };
 
             var lastElement = sample[^1]; // E ostatni element
@@ -26,7 +63,26 @@ namespace ProgramningStudyDotNet.C8
             Index lastElementType = ^1;
             Range middleOneType = 2..3;
 
+        }
 
+        public void UsingTests()
+        {
+            if (true)
+            {
+                using var fr = new StreamReader(@"C:\");
+            }
+        }
+
+
+        public struct Test
+        {
+            public int Field { get; set; }
+            public readonly void Change() => Field = 3;
+
+        }
+
+        public void Struct()
+        {
 
         }
 
