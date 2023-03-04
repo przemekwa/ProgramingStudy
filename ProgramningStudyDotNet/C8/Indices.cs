@@ -18,8 +18,6 @@ namespace ProgramningStudyDotNet.C8
     {
         public void New()
         {
-
-            Name
             throw new NotImplementedException();
         }
 
@@ -77,7 +75,7 @@ namespace ProgramningStudyDotNet.C8
         public struct Test
         {
             public int Field { get; set; }
-            public readonly void Change() => Field = 3;
+            //public readonly void Change() => Field = 3;
 
         }
 
