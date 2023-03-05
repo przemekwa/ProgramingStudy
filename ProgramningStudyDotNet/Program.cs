@@ -1,8 +1,8 @@
 ﻿
 
+//Top-level statments from c# 9 in .NET 5 in VS 2019
 
-
-Console.WriteLine("Program Study");
+Console.WriteLine("Blog programisty .NET");
 
 var assembly = typeof(IStudyTest).Assembly;
 
