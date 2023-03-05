@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,6 +36,49 @@ namespace ProgramningStudyDotNet.C8
         
         public void Study()
         {
+            #nullable enable
+
+            string? s1 = null;
+
+
+            void Foo(string? s) => Console.WriteLine(s!.Length);
+
+
+
+
+
+
+
+            var cardNumber = 2;
+            var age = 12;
+
+            string name = (cardNumber, age) switch
+            {
+                (1,3) => "First",
+                (1,4) => "Second",
+                (2,3) => "Last",
+                _ => "Unknown"
+            };
+
+            var s2 = s1 + "sdsd";
+
+
+
+            object n1ame = "Blog";
+
+            if (name is string { Length: 3 })
+            {
+                name += "Programisty";
+            }
+        
+
+
+
+
+
+
+
+
 
 
             NewClass newClass = new NewClass();
@@ -45,7 +89,7 @@ namespace ProgramningStudyDotNet.C8
 
 
             
-
+             
 
             char[] sample = new char[] { 'A', 'B', 'C', 'D','E' };
 
@@ -61,6 +105,15 @@ namespace ProgramningStudyDotNet.C8
             Index lastElementType = ^1;
             Range middleOneType = 2..3;
 
+        }
+
+        public async IAsyncEnumerable<int> Range(int deley)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                await Task.Delay(deley);
+                yield return i;
+            }
         }
 
         public void UsingTests()
