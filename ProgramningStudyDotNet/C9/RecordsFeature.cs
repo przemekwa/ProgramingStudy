@@ -12,12 +12,13 @@ public class Cla1
     public string Name { get; init; }
 
 }
+public record Point(int X, int Y);
 
 [Execute(DateTime = "27-11-2021 08:36")]
-   public class RecordsFeature : IStudyTest
+public class RecordsFeature : IStudyTest
+{
+    public void Study()
     {
-        public void Study()
-        {
 
         var r1 = new Rec1("Rec1", new Rec2(12));
 
@@ -41,6 +42,16 @@ public class Cla1
 
 
         Console.WriteLine("Hello form c9 records");
-        }
     }
+
+    public record Point(int X, int Y);
+
+
+    public void RecordTest()
+    {
+        var p1 = new Point(1,2);
+
+        var p2 = p1 with { X = 2 };
+    }
+}
 
